@@ -2,7 +2,6 @@
 
 use Request;
 use Auth;
-use Goutte\Client;
 use Validator;
 
 class InfoController extends Controller {
@@ -43,7 +42,7 @@ class InfoController extends Controller {
 			$fileExt = $image->getClientOriginalExtension();
 
 			// image path
-			$originalImagePath = public_path().'/upload/gallery/' . $fileName . '.' . $fileExt;
+			$originalImagePath = public_path().'/upload/article/' . $fileName . '.' . $fileExt;
 			
 			// save original
 			Image::make($image)
