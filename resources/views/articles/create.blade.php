@@ -6,7 +6,7 @@
 
 @include('common.messages')
 
-<form method="POST" action="{{ route('infos.store') }}">
+<form method="POST" action="{{ route('articles.store') }}">
 		
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">	
 

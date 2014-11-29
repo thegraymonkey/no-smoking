@@ -40,8 +40,8 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li @if($current_page === 'home.index')class="active"@endif><a href="{{ url('/feed') }}">Pocetna</a></li>            
-					<li @if($current_page === 'infos.index')class="active"@endif><a href="{{ url('infos/index') }}">Info</a></li>            
+					<li @if($current_page === 'home.index')class="active"@endif><a href="{{ url('feed') }}">Pocetna</a></li>            
+					<li @if($current_page === 'articles.index')class="active"@endif><a href="{{ url('articles') }}">Info</a></li>            
 					<li @if($current_page === 'photos.index')class="active"@endif><a href="{{ url('photos/index') }}">Galerija</a></li>
 					<li @if($current_page === 'forums.index')class="active"@endif><a href="{{ url('forums')}}">Forum</a></li>
 					<li @if($current_page === 'contact.index')class="active"@endif><a href="{{ url('contacts/show') }}">Kontakt</a></li>

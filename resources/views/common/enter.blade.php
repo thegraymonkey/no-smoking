@@ -30,7 +30,7 @@
             <div class="carousel-caption">
               <h1>Pusenje ubija!</h1>
               <p>Sve informacije o tome koliko je pusenje stetno i o tome da ne postoji ni jedan jedini razlog da ikada vise zapalite cigaretu.</p>
-              <p><a class="btn btn-lg btn-primary" href="#" role="button">Saznaj vise</a></p>
+              <p><a class="btn btn-lg btn-primary" href="{{ url('articles') }}" role="button">Saznaj vise</a></p>
             </div>
           </div>
         </div>

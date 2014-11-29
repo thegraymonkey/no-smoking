@@ -3,8 +3,9 @@
 use Request;
 use Auth;
 use Validator;
+use App\Article;
 
-class InfoController extends Controller {
+class ArticleController extends Controller {
 
 	public function __construct()
 	{
@@ -15,9 +16,9 @@ class InfoController extends Controller {
 
 	public function index()
 	{
-		$infos = Info::orderBy('created_at', 'desc')->paginate(1);
+		$article = Article::orderBy('created_at', 'desc')->paginate(1);
 
-		return view('infos.index', ['info' => $info, 'current_page' => 'infos.index']);
+		return view('articles.index', ['article' => $article, 'current_page' => 'articles.index']);
 
 	}
 
@@ -49,22 +50,23 @@ class InfoController extends Controller {
 				->widen(1024)
 				->save($originalImagePath);
 
-			$info = new Info;
+			$article = new Article;
 		
-			$info->title = $input['title'];
+			$article->title = $input['title'];
 
-			$info->content = $input['content'];
+			$article->content = $input['content'];
 
-			$info->file_name = $fileName;
+			$article->file_name = $fileName;
 
-			$info->file_extension = $fileExt;
+			$article->file_extension = $fileExt;
 
-			$info->user_id = Auth::user()->id;
+			$article->user_id = Auth::user()->id;
 
-			$info->save();
+			$article->save();
 
-			return redirect('infos/index')->with('message', 'Post Created!');
+			return redirect('articles/index')->with('message', 'Post Created!');
 		}	
 
-		return redirect('infos/index')->withErrors($validation);
+		return redirect('articles/index')->withErrors($validation);
 	}
+}

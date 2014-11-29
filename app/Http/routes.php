@@ -37,7 +37,7 @@ $router->controller('contacts', 'ContactController');
 $router->controller('profile', 'ProfileController');
 $router->controller('photos', 'PhotoController');
 $router->resource('posts', 'PostController', ['only' => ['store', 'destroy', 'edit', 'update']]);
-$router->resource('infos', 'InfoController', ['only' => ['show', 'create', 'store','destroy', 'edit', 'update']]);
+$router->resource('articles', 'ArticleController', ['only' => ['index','show', 'create', 'store','destroy', 'edit', 'update']]);
 $router->get('/', function() {
 
 	$lastPhoto = App\Photo::orderBy('created_at', 'desc')->first();

@@ -13,7 +13,7 @@
 
 @section('content')
 
-
+@include('articles.create')
 
 
 
