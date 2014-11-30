@@ -12,7 +12,7 @@
 @section('content')
 
 @include('common.messages')
-
+<div class="well">
 <form class="form-horizontal" role="form" method="POST" action="{{ url('auth/login') }}">
   <div class="form-group">
   	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -33,4 +33,5 @@
     </div>
   </div>
 </form>
+</div>
 @stop

@@ -15,30 +15,34 @@
 
 @include('common.messages')
 
-<form role="form" action="{{ url('contacts/send') }}" method="POST">
+<div class="well">
 
-  <input type="hidden" name="_token" value="{{ csrf_token() }}">
-  
-  <div class="form-group">
-    <label for="email">E-mejl adresa</label>
-    <input type="email" class="form-control" id="email" placeholder="Email" name="email">
-  </div>
+  <form role="form" action="{{ url('contacts/send') }}" method="POST">
 
-  <div class="form-group">
-    <label for="subject">Predmet</label>
-    <input type="text" class="form-control" id="subject" placeholder="Predmet" name="subject">
-  </div>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    
+    <div class="form-group">
+      <label for="email">E-mejl adresa</label>
+      <input type="email" class="form-control" id="email" placeholder="Email" name="email">
+    </div>
 
-  <div class="form-group">
-    <label for="message">Poruka</label>
-    <textarea class="form-control" type="text" id="message" placeholder="Poruka" name="message"></textarea>
-  </div>
-  
-  <div class="form-group">
-  <button type="submit" class="btn btn-primary">Posalji</button>
-  </div>
+    <div class="form-group">
+      <label for="subject">Predmet</label>
+      <input type="text" class="form-control" id="subject" placeholder="Predmet" name="subject">
+    </div>
 
-</form>
+    <div class="form-group">
+      <label for="message">Poruka</label>
+      <textarea class="form-control" type="text" id="message" placeholder="Poruka" name="message"></textarea>
+    </div>
+    
+    <div class="form-group">
+    <button type="submit" class="btn btn-primary">Posalji</button>
+    </div>
+
+  </form>
+
+</div>
 
 @stop
 

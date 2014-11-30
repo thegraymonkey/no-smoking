@@ -6,9 +6,9 @@
 
 @include('common.messages')
 
-<form method="POST" action="{{ route('articles.store') }}">
+<form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
 		
-	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">	
+	<input type="hidden" name="_token" value="{{ csrf_token() }}">	
 
 	<div class="form-group">
 		<p><label>Novi clanak</label></p>
@@ -17,8 +17,8 @@
 	</div>
 
 	<div class="form-group">	
-		<label for="avatar">Vasa slika</label>
-		<input class="form-control" type="file" name="image" id="image">
+		<label for="photo">Vasa slika</label>
+		<input class="form-control" type="file" name="photo" id="photo">
 	</div>
 
 	<div class="form-group">

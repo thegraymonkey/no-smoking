@@ -23,6 +23,8 @@
 	<h2>Napravite svoj profil</h2>
 @endif
 	@include('common.messages')
+
+	<div class="well">
 	<form method="post" action="{{ url('profile/update') }}" enctype="multipart/form-data">
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -34,6 +36,7 @@
 			@if ($profile->avatar)
 				<img src="/upload/profile/{{ $profile->getStatusAvatar() }}" />
 			@endif
+			
 		 		</div>
 				
 
@@ -65,6 +68,8 @@
 		</div>
 		
 	</form>
+	</div>
+
 @stop
 
 @section('sidebar')

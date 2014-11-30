@@ -62,8 +62,10 @@
 	@endforeach
 	</table>
 
+	<div class="well">
 	@include('replies.create', $thread)
-
+	</div>
+	
 @stop
 
 @section('sidebar')

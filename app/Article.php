@@ -10,7 +10,15 @@ class Article extends Model {
 	}
 
 	protected $fillable = [
-		'content'
+		
+		'title',
+		'content',
+		'file_name'
 	];
+
+	public function getImagePath()
+	{
+		return sprintf('/upload/article/%s.%s', $this->file_name, $this->file_extension);
+	}
 
 }

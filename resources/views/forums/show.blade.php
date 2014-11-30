@@ -46,7 +46,9 @@
 	@endforeach
 </table>
 
+<div class="well">
 @include('threads.create')
+</div>
 
 @stop
 

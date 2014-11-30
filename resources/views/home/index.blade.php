@@ -15,6 +15,7 @@
 
 	@include('common.messages')
 	
+<div class="well">
 
 	<form method="POST" action="{{ route('posts.store') }}">
 
@@ -30,6 +31,9 @@
 		</div>
 
 	</form>
+
+</div>
+	
 	@else
 	<p class="alert alert-info">To add post you need to be logged in. Click <a href="{{ url('auth/login') }}">here</a> to login!</p>
 	@endif

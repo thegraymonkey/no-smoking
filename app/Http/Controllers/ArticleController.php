@@ -4,6 +4,8 @@ use Request;
 use Auth;
 use Validator;
 use App\Article;
+use Image;
+use View;
 
 class ArticleController extends Controller {
 
@@ -16,9 +18,9 @@ class ArticleController extends Controller {
 
 	public function index()
 	{
-		$article = Article::orderBy('created_at', 'desc')->paginate(1);
+		$articles = Article::orderBy('created_at', 'desc')->paginate(1);
 
-		return view('articles.index', ['article' => $article, 'current_page' => 'articles.index']);
+		return view('articles.index', ['articles' => $articles, 'current_page' => 'articles.index']);
 
 	}
 
@@ -28,6 +30,7 @@ class ArticleController extends Controller {
 		$input = Request::all();
 
 		$rules = [
+			'photo' => 'required|image|max:1024',
 			'content' => 'required|min:5'
 		];
 
@@ -36,8 +39,8 @@ class ArticleController extends Controller {
 		if ($validation->passes())
 		{
 			
-			$image = Request::file('image');
-
+			$image = Request::file('photo');
+		
 			// file name factory
 			$fileName = time() . md5($image->getClientOriginalName());
 			$fileExt = $image->getClientOriginalExtension();
@@ -47,7 +50,7 @@ class ArticleController extends Controller {
 			
 			// save original
 			Image::make($image)
-				->widen(1024)
+				->widen(400)
 				->save($originalImagePath);
 
 			$article = new Article;
@@ -64,9 +67,9 @@ class ArticleController extends Controller {
 
 			$article->save();
 
-			return redirect('articles/index')->with('message', 'Post Created!');
+			return redirect('articles')->with('message', 'Post Created!');
 		}	
 
-		return redirect('articles/index')->withErrors($validation);
+		return redirect('articles')->withErrors($validation);
 	}
 }

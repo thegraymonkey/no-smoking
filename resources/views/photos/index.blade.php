@@ -11,9 +11,9 @@
 
 @section('content')
 
-
+<div class="well">
 @include('photos.create')
-
+</div>
 
     <ul style="padding:0; margin:0" class="row">
     	@foreach($photos as $photo)
