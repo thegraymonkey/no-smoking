@@ -6,6 +6,7 @@ use Validator;
 use App\Article;
 use Image;
 use View;
+use App\User;
 
 class ArticleController extends Controller {
 
@@ -30,7 +31,7 @@ class ArticleController extends Controller {
 		$input = Request::all();
 
 		$rules = [
-			'photo' => 'required|image|max:1024',
+			'photo' => 'image|max:1024',
 			'content' => 'required|min:5'
 		];
 
@@ -72,4 +73,81 @@ class ArticleController extends Controller {
 
 		return redirect('articles')->withErrors($validation);
 	}
+
+	public function destroy($threadId)
+	{
+		$articleId = Request::get('id');
+		
+
+		$redirectTo = route('articles.index');
+
+		if ($article = Article::find($articleId))
+		{
+			if (Auth::user()->id)
+			{
+				$article->delete();
+
+				return redirect($redirectTo)->with('message', 'Clanak obrisan!');
+			}
+			
+			else
+			{
+				return redirect($redirectTo)->with('message', 'Clanak ne postoji!');
+			}
+		}
+	}
+
+
+	public function edit($id)
+	{
+		$article = Article::find($id);
+
+		return view('articles.edit')->with('article', $article);
+	}
+
+	public function update()
+	{
+		$input = Request::all();
+
+		$input = Request::all();
+
+		$rules = [
+			'photo' => 'image|max:1024',
+			'content' => 'required|min:5'
+		];
+
+		$validation = Validator::make($input, $rules);
+
+		if ($validation->passes())
+		{
+			$article = Auth::user()->article;
+
+			$photo = Request::file('photo');
+
+			if ($article instanceof Article)
+			{
+				$article->fill($input);
+
+				$article = $this->getImagePath($article, $photo);
+
+				$article->save();
+			}
+			else
+			{
+				$article = new Article;
+				$article->fill($input);
+				$article->user_id = Auth::user()->id;
+
+				$article = $this->getImagePath($article, $photo);
+				
+				$article->save();
+			}
+
+			return redirect('articles');
+		}
+
+		return redirect('articles')->withErrors($validation);
+
+	}
+
 }

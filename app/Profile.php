@@ -26,6 +26,21 @@ class Profile extends Model {
 
 
 	// non_smoke_days -> NonSmokeDays -> get + NonSmokeDays + Attribute -> getNonSmokeDaysAttribute()
+	protected function getDaysSmokingAttribute()
+	{
+		return $this->start_date->diffInDays($this->quit_date);
+	}
+
+	protected function getMoneyBurnedAttribute()
+	{
+		return $this->start_date->diffInDays($this->quit_date) * $this->daily_expense;
+	}
+
+	protected function getTimeWastedAttribute()
+	{
+		return $this->start_date->diffInDays($this->quit_date) * $this->daily_amount * 300 / 60 / 60 / 24;
+	}
+
 	protected function getNonSmokeDaysAttribute()
 	{
 		return $this->quit_date->diffInDays();
@@ -43,7 +58,7 @@ class Profile extends Model {
 
 	protected function getTimeSavedAttribute()
 	{
-		return Carbon::now()->diffInDays($this->quit_date) * $this->daily_amount * 300 / 60;
+		return Carbon::now()->diffInDays($this->quit_date) * $this->daily_amount * 300 / 60 / 60;
 	}
 
 	public function getAvatar($style)

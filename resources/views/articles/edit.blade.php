@@ -15,7 +15,7 @@
 
 <form method="POST" action="{{ route('articles.update') }}">
 	
-	<input type="hidden" name="user_id" value="{{ $user->id }}">
+	<input type="hidden" name="user_id" value="{{ $article->user->id }}">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<input type="hidden" name="_method" value="PUT">
 
