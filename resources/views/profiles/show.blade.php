@@ -17,12 +17,23 @@
 	<strong><p>Dnevno potroseno novca na cigarete:</strong> {{ $profile->daily_expense }} dinara</p>
 	<strong><p>Dnevno popuseno cigareta:</strong> {{ $profile->daily_amount }} cigareta</p>
 
+	
+	<p>Nestanak fizicke zavisnosti nakon 10 dana</p>
+	<div class="progress">
+	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+	    60%
+	  </div>
+	</div>
+
+
 	<h2>Izmenite svoj profil</h2>
 @else
 	{{-- PROFILE DOES NOT EXIST --}}
 	<h2>Napravite svoj profil</h2>
 @endif
 	@include('common.messages')
+
+
 
 	<div class="well">
 	<form method="post" action="{{ url('profile/update') }}" enctype="multipart/form-data">
@@ -34,7 +45,7 @@
 			<input class="form-control" type="file" name="avatar" id="avatar">
 		
 			@if ($profile->avatar)
-				<img src="/upload/profile/{{ $profile->getStatusAvatar() }}" />
+				<p><img class="img-thumbnail" src="/upload/profile/{{ $profile->getStatusAvatar() }}" /></p>
 			@endif
 			
 		 		</div>

@@ -37,7 +37,7 @@ $router->controller('contacts', 'ContactController');
 $router->controller('profile', 'ProfileController');
 $router->controller('photos', 'PhotoController');
 $router->resource('posts', 'PostController', ['only' => ['store', 'destroy', 'edit', 'update']]);
-$router->resource('articles', 'ArticleController', ['only' => ['index','show', 'create', 'store','destroy', 'edit', 'update']]);
+$router->resource('articles', 'ArticleController', ['only' => ['index']]);
 $router->get('/', function() {
 
 	$lastPhoto = App\Photo::orderBy('created_at', 'desc')->first();
@@ -48,16 +48,14 @@ $router->get('/', function() {
 
 });
 
-$router->group(['prefix' => 'admin', 'before' => 'auth_admin'], function($router)
+$router->group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function($router)
 {
+	$router->resource('articles', 'Admin\ArticleController', ['only' => ['index', 'show', 'create', 'store','destroy', 'edit', 'update']]);
 
 	$router->get('dashboard', function() {
 
 		return View::make('admin.dashboard');
 	});
-
-	
-
 });
 
 

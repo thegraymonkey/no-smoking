@@ -8,6 +8,9 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
+	const ROLE_ADMIN = 'admin';
+	const ROLE_MODERATOR = 'moderator';
+
 	use Authenticatable, CanResetPassword;
 
 	/**
@@ -40,4 +43,14 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	{
 		return $this->hasMany('App\Photo');
 	}
+
+	public function isAdmin()
+	{
+		return $this->role === self::ROLE_ADMIN;
+	}
+	public function isModerator()
+	{
+		return $this->role === self::ROLE_MODERATOR;
+	}
+
 }

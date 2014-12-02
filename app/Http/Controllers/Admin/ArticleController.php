@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Admin;
 
 use Request;
 use Auth;
@@ -7,22 +7,15 @@ use App\Article;
 use Image;
 use View;
 use App\User;
+use App\Http\Controllers\Controller;
 
 class ArticleController extends Controller {
 
-	public function __construct()
-	{
-		parent:: __construct();
-		
-		$this->middleware('auth', ['only' => ['store', 'destroy']]);
-	}
-
 	public function index()
 	{
-		$articles = Article::orderBy('created_at', 'desc')->paginate(1);
+		$articles = Article::orderBy('created_at', 'desc')->paginate(10);
 
-		return view('articles.index', ['articles' => $articles, 'current_page' => 'articles.index']);
-
+		return view('admin.articles.index', ['articles' => $articles, 'current_page' => 'articles.index']);
 	}
 
 	public function store()
@@ -68,10 +61,10 @@ class ArticleController extends Controller {
 
 			$article->save();
 
-			return redirect('articles')->with('message', 'Post Created!');
+			return redirect('admin.articles')->with('message', 'Post Created!');
 		}	
 
-		return redirect('articles')->withErrors($validation);
+		return redirect('admin.articles')->withErrors($validation);
 	}
 
 	public function destroy($threadId)
@@ -79,7 +72,7 @@ class ArticleController extends Controller {
 		$articleId = Request::get('id');
 		
 
-		$redirectTo = route('articles.index');
+		$redirectTo = route('admin.articles.index');
 
 		if ($article = Article::find($articleId))
 		{
@@ -102,13 +95,11 @@ class ArticleController extends Controller {
 	{
 		$article = Article::find($id);
 
-		return view('articles.edit')->with('article', $article);
+		return view('admin.articles.edit')->with('article', $article);
 	}
 
-	public function update()
+	public function update($id)
 	{
-		$input = Request::all();
-
 		$input = Request::all();
 
 		$rules = [
@@ -120,34 +111,52 @@ class ArticleController extends Controller {
 
 		if ($validation->passes())
 		{
-			$article = Auth::user()->article;
+			$article = Article::find($id);
 
 			$photo = Request::file('photo');
 
-			if ($article instanceof Article)
+			if ($article)
 			{
 				$article->fill($input);
 
-				$article = $this->getImagePath($article, $photo);
+				$article = $this->assignImage($article, $photo);
 
 				$article->save();
-			}
-			else
-			{
-				$article = new Article;
-				$article->fill($input);
-				$article->user_id = Auth::user()->id;
 
-				$article = $this->getImagePath($article, $photo);
-				
-				$article->save();
+				return redirect('admin.articles');
 			}
 
-			return redirect('articles');
+			App::abort(400);
 		}
 
-		return redirect('articles')->withErrors($validation);
+		return redirect('admin.articles')->withErrors($validation);
+	}
 
+	protected function assignImage(Article $article, $file)
+	{
+		
+		if ($file)
+		{
+			$ext = $file->getClientOriginalExtension();
+
+			//!!
+			$article->file_extension = $ext;
+
+			$path = public_path() . '/upload/article/';
+
+			$filename = time() . md5($image->getClientOriginalName());
+
+			//!!
+			$article->file_name = $filename;
+			
+			// save original
+			Image::make($image)
+				->widen(400)
+				->save($originalImagePath);
+		}
+
+
+		return $article;
 	}
 
 }
