@@ -71,7 +71,7 @@ class ThreadController extends Controller {
 
 		if ($thread = Thread::find($threadId))
 		{
-			if ($thread->isDeletable(Auth::user()->id))
+			if ($thread->isDeletable(Auth::user()))
 			{
 				$thread->delete();
 

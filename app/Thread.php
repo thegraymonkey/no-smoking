@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use App\User;
 
 class Thread extends Model {
 
@@ -31,24 +32,14 @@ class Thread extends Model {
 
 
 
-	public function isDeletable($userId)
+	public function isDeletable(User $user)
 	{
-		
-
-		if ($userId === $this->user_id && $this->replies->count() === 0)
-		{
-			return true;
-		}
-		return false;
+		return ($this->user->id == $user->id && $this->replies->count() === 0) || $user->isAdmin();
 	}
 
-	public function isEditable($userId)
+	public function isEditable(User $user)
 	{
-		if ($userId === $this->user_id && $this->replies->count() === 0)
-		{
-			return true;
-		}
-		return false;
+		return ($this->user->id === $user->id && $this->replies->count() === 0) || $user->isAdmin();
 	}
 
 }

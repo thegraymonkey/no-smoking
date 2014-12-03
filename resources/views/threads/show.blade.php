@@ -43,7 +43,7 @@
 		</td>
 		<td width="60%">{!! nl2br($reply->content) !!}</td>
 		<td width="8%">
-			@if(Auth::check() and $reply->user_id === Auth::user()->id)
+			@if(Auth::check() and $reply->user_id === Auth::user()->id  || Auth::user()->isAdmin())
 			<form action="{{ route('replies.destroy', [$reply->id]) }}" method="post">
 				<input type="hidden" name="thread_id" value="{{ $thread->id }}">
 				<input type="hidden" name="_method" value="delete">
@@ -53,7 +53,7 @@
 			@endif
 		</td>
 		<td width="8%">
-			@if(Auth::check() and $reply->user_id === Auth::user()->id)
+			@if(Auth::check() and $reply->user_id === Auth::user()->id || Auth::user()->isAdmin())
 				<a class="btn btn-xs btn-warning" href="{{ route('replies.edit', [$reply->id]) }}">izmeni</a>
 			@endif
 		</td>

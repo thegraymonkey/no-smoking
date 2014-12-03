@@ -13,6 +13,10 @@
 
 @section('content')
 
+@if(Auth::check() and Auth::user()->isAdmin())
+	<p class="alert alert-info">If you see this you are the Administrator. Click <a href="{{ route('admin.articles.index') }}">here</a> to delete, edit or add new article!</p>
+@endif
+
 @foreach ($articles as $article)
 	
 	<div class="jumbotron">
@@ -20,7 +24,9 @@
 			<div class="col-md-6">
 				<h1>{{ $article->title }}</h1>
 				<p>dodao/la: {{ $article->user->username }} pre {{ $article->created_at->diffForHumans() }}</p>
+				@if($article->user->profile)
 				<img src="/upload/profile/{{ $article->user->profile->getStatusAvatar() }}" />
+				@endif
 			</div>
 			<div class="col-md-6">
 				<img src="{{ url($article->getImagePath()) }}"/>
@@ -29,31 +35,14 @@
 	</div>
 	<p>{{ $article->content }}</p>
 
-	<div class="row" style="margin: 10px 0 50px 0">
-		<div class="col-md-1">
-		@if(Auth::check() and $article->user_id === Auth::user()->id)
-			<form action="{{ route('articles.destroy', [$article->id]) }}" method="post">
-				<input type="hidden" name="_method" value="delete">
-				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="submit" value="delete" class="btn btn-xs btn-danger">
-			</form>
-		@endif
-		</div>
-		<div class="col-md-1">
-			@if(Auth::check() and $article->user_id === Auth::user()->id)
-			<a class="btn btn-xs btn-warning" href="{{ route('articles.edit', [$article->id]) }}">edit</a>
-			@endif
-		</div>	
-	</div>
+	
 	<hr class="featurette-divider">
 	
 @endforeach
 
 {!! $articles->render() !!}
 
-<div class="well">
-@include('articles.create')
-</div>
+
 
 @stop
 

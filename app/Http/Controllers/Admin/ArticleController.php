@@ -8,6 +8,7 @@ use Image;
 use View;
 use App\User;
 use App\Http\Controllers\Controller;
+use App;
 
 class ArticleController extends Controller {
 
@@ -70,7 +71,6 @@ class ArticleController extends Controller {
 	public function destroy($threadId)
 	{
 		$articleId = Request::get('id');
-		
 
 		$redirectTo = route('admin.articles.index');
 
@@ -78,6 +78,7 @@ class ArticleController extends Controller {
 		{
 			if (Auth::user()->id)
 			{
+
 				$article->delete();
 
 				return redirect($redirectTo)->with('message', 'Clanak obrisan!');

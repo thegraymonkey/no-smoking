@@ -44,8 +44,8 @@
 		<label for="avatar">Vasa profil slika</label>
 			<input class="form-control" type="file" name="avatar" id="avatar">
 		
-			@if ($profile->avatar)
-				<p><img class="img-thumbnail" src="/upload/profile/{{ $profile->getStatusAvatar() }}" /></p>
+			@if ($profile && $profile->avatar)
+				<p><img class="img-thumbnail" src="/upload/profile/{{ $profile->getStatusAvatar() }}"/></p>
 			@endif
 			
 		 		</div>
@@ -57,8 +57,6 @@
 			<input date-picker-field class="form-control" data-date-format="yyyy-mm-dd" type="text" name="start_date" id="start_date" value="{{ isset($profile->start_date) ? $profile->start_date->format('Y-m-d') : '' }}" >
 		</div>
 
-
-
 		<div class="form-group">		
 		<label for="quit_date">Kada ste prestali da pusite?</label>
 			<input date-picker-field class="form-control" data-date-format="yyyy-mm-dd" type="text" name="quit_date" id="quit_date" value="{{ isset($profile->quit_date) ? $profile->quit_date->format('Y-m-d') : '' }}" >
@@ -66,14 +64,14 @@
 
 		<div class="form-group">		
 		<label for="daily_expense">Koliko novca ste dnevno trosili na cigarete?</label>
-			<input class="form-control" name="daily_expense" id="daily_expense" value="{{ $profile->daily_expense or ''}}" placeholder="dnevno potroseno novca" >
+			<input class="form-control" name="daily_expense" id="daily_expense" value="{{ isset($profile->daily_expense) ? $profile->daily_expense : '' }}" placeholder="dnevno potroseno novca" >
 		</div>
 
 		<div class="form-group">		
 		<label for="daily_amount">Koliko cigareta ste pusili dnevno?</label>
-			<input class="form-control" name="daily_amount" id="daily_amount" value="{{ $profile->daily_amount or ''}}" placeholder="dnevno popuseno cigareta" >
+			<input class="form-control" name="daily_amount" id="daily_amount" value="{{ isset($profile->daily_amount) ? $profile->daily_amount : '' }}" placeholder="dnevno popuseno cigareta" >
 		</div>
-		
+
 		<div class="form-group">			
 			<input class="btn btn-primary" type="submit" value="Sacuvaj"/>
 		</div>

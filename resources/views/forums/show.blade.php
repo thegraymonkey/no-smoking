@@ -29,7 +29,7 @@
 		<td><a href="{{ route('threads.show', [$thread->id]) }}">{{ $thread->title }}</a></td>
 		<td><small>{{ $thread->user->username }}</small></td>
 		<td><small>{{ $thread->created_at->diffForHumans() }}</small></td>
-		<td>@if(Auth::check() and $thread->isDeletable(Auth::user()->id))
+		<td>@if(Auth::check() and $thread->isDeletable(Auth::user()))
 			<form action="{{ route('threads.destroy', [$thread->id]) }}" method="post">
 				<input type="hidden" name="forum_id" value="{{ $forum->id }}">
 				<input type="hidden" name="_method" value="delete">
@@ -38,7 +38,7 @@
 			</form>
 			@endif
 		</td>
-		<td>@if(Auth::check() and $thread->isEditable(Auth::user()->id))
+		<td>@if(Auth::check() and $thread->isEditable(Auth::user()))
 			<a class="btn btn-xs btn-warning" href="{{ route('threads.edit', [$thread->id]) }}">izmeni</a>
 			@endif
 		</td>

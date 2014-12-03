@@ -20,7 +20,9 @@
 			<div class="col-md-6">
 				<h1>{{ $article->title }}</h1>
 				<p>dodao/la: {{ $article->user->username }} pre {{ $article->created_at->diffForHumans() }}</p>
+				@if($article->user->profile)
 				<img src="/upload/profile/{{ $article->user->profile->getStatusAvatar() }}" />
+				@endif
 			</div>
 			<div class="col-md-6">
 				<img src="{{ url($article->getImagePath()) }}"/>
