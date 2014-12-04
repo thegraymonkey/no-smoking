@@ -48,6 +48,11 @@ class ProfileController extends Controller {
 
 			if ($profile instanceof Profile)
 			{
+				if (data_get($input, 'quit') === null)
+				{
+					$input['quit'] = 0;
+				}
+
 				$profile->fill($input);
 
 				$profile = $this->assignAvatar($profile, $avatar);

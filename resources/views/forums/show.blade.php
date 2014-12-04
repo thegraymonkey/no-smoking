@@ -17,7 +17,7 @@
 
 
 
-	<table class="table table-hover">
+	<table class="table table-hover table-striped">
 	  	<th>naslov teme</th>
 	  	<th>korisnik:</th>
 	  	<th>vreme postavljanja:</th>

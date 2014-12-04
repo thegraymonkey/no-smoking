@@ -3,8 +3,8 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Info strana',
-		'intro_subtitle' => 'Clanci o pusenju, ostavljanu cigareta i stetnosti istih.'  
+		'intro_title' => 'Admin articles',
+		'intro_subtitle' => ''  
 	])
 	
 @stop
@@ -12,6 +12,11 @@
 
 
 @section('content')
+
+<div class="well">
+@include('admin.articles.create')
+</div>
+
 
 @foreach ($articles as $article)
 	
@@ -21,8 +26,11 @@
 				<h1>{{ $article->title }}</h1>
 				<p>dodao/la: {{ $article->user->username }} pre {{ $article->created_at->diffForHumans() }}</p>
 				@if($article->user->profile)
-				<img src="/upload/profile/{{ $article->user->profile->getStatusAvatar() }}" />
+				<img src="/upload/profile/{{ $article->user->profile->getStatusAvatar() }}"/>
+				@else
+				<img src="/images/blank.png"/>
 				@endif
+				
 			</div>
 			<div class="col-md-6">
 				<img src="{{ url($article->getImagePath()) }}"/>
@@ -49,9 +57,7 @@
 
 {!! $articles->render() !!}
 
-<div class="well">
-@include('admin.articles.create')
-</div>
+
 
 @stop
 

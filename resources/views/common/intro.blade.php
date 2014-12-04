@@ -1,6 +1,6 @@
 
-	<div class="jumbotron">
-		<div class="container" style="padding-top:50px">
+	<div class="jumbotron ">
+		<div class="container " style="padding-top:50px">
 			<div class="row">
 				<div class="col-md-8">
 					<h1>{!! $intro_title !!}</h1>

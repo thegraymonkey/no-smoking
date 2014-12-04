@@ -18,12 +18,69 @@
 	<strong><p>Dnevno popuseno cigareta:</strong> {{ $profile->daily_amount }} cigareta</p>
 
 	
-	<p>Nestanak fizicke zavisnosti nakon 10 dana</p>
+	
 	<div class="progress">
-	  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-	    60%
+	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+	    <span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
 	  </div>
 	</div>
+
+	
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    		<span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
+  		</div>
+	</div>
+
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    		<span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
+  		</div>
+	</div>
+
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    		<span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
+  		</div>
+	</div>
+
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    		<span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
+  		</div>
+	</div>
+
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    		<span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
+  		</div>
+	</div>
+
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    		<span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
+  		</div>
+	</div>
+
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    		<span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
+  		</div>
+	</div>
+
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    		<span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
+  		</div>
+	</div>
+
+
+	<div class="progress">
+  		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+    		<span>45% -- Nestanak fizicke zavisnosti nakon 10 dana</span>
+  		</div>
+	</div>
+
 
 
 	<h2>Izmenite svoj profil</h2>
@@ -56,6 +113,11 @@
 		<label for="start_date">Kada ste poceli da pusite?</label>
 			<input date-picker-field class="form-control" data-date-format="yyyy-mm-dd" type="text" name="start_date" id="start_date" value="{{ isset($profile->start_date) ? $profile->start_date->format('Y-m-d') : '' }}" >
 		</div>
+
+		<div class="form-group">	
+    		<label for="checkbox">Da li ste prestali da pusite?</label>
+	      		<input type="checkbox" name="quit" {{ (isset($profile) and $profile->quit == 1) ? 'checked' : '' }} value="1"> da!
+  		</div>
 
 		<div class="form-group">		
 		<label for="quit_date">Kada ste prestali da pusite?</label>

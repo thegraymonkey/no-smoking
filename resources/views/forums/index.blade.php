@@ -15,7 +15,7 @@
 
 
 
-<table class="table well" >
+<table class="table table-striped table-hover" >
 	<th>sekcija foruma</th>
 	<th>broj zapocetih tema:</th>
 	<th>poslednja aktivnost</th>

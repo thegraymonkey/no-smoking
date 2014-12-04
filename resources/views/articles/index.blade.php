@@ -26,6 +26,8 @@
 				<p>dodao/la: {{ $article->user->username }} pre {{ $article->created_at->diffForHumans() }}</p>
 				@if($article->user->profile)
 				<img src="/upload/profile/{{ $article->user->profile->getStatusAvatar() }}" />
+				@else
+				<img src="/images/blank.png"/>
 				@endif
 			</div>
 			<div class="col-md-6">

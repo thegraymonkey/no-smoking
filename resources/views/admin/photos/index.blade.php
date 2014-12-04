@@ -3,28 +3,26 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Galerija.',
-		'intro_subtitle' => 'Dodajte motivacione ili obrazovne slike i svoj komentar koje svi mogu da vide.'  
+		'intro_title' => 'Admin gallery.',
+		'intro_subtitle' => ''  
 	])
 	
 @stop
 
 @section('content')
 
-@if(Auth::check() and Auth::user()->isAdmin())
-	<p class="alert alert-info">If you see this you are the Administrator. Click <a href="{{ route('admin.photos.index') }}">here</a> to delete photo!</p>
-@endif
-
-<div class="well">
-@include('photos.create')
-</div>
 
     <ul style="padding:0; margin:0" class="row">
     	@foreach($photos as $photo)
         <li style="list-style:none; margin: 5px 0" class="col-md-2 col-sm-4">
-        	<a class="fancybox" rel="group1" title="{{ $photo->description }}" href="{{ url($photo->getPath('large')) }}">
-        		<img src="{{ url($photo->getPath('thumb')) }}"/>
-        	</a>
+        	
+        	<img src="{{ url($photo->getPath('thumb')) }}"/>
+        		<form action="{{ route('admin.photos.destroy', [$photo->id]) }}" method="post">
+					<input type="hidden" name="_method" value="delete">
+					<input type="hidden" name="_token" value="{{ csrf_token() }}">
+					<input type="submit" value="delete" class="btn btn-xs btn-danger">
+				</form>
+
         </li>
         @endforeach
     </ul>

@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -51,6 +52,8 @@ $router->get('/', function() {
 $router->group(['prefix' => 'admin', 'middleware' => 'auth.admin'], function($router)
 {
 	$router->resource('articles', 'Admin\ArticleController', ['only' => ['index', 'show', 'create', 'store','destroy', 'edit', 'update']]);
+
+	$router->resource('photos', 'Admin\PhotoController', ['only' => ['index', 'destroy']]);
 
 	$router->get('dashboard', function() {
 

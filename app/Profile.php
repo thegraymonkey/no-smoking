@@ -21,13 +21,15 @@ class Profile extends Model {
 		'start_date',
 		'quit_date',
 		'daily_amount',
-		'daily_expense'
+		'daily_expense',
+		'quit'
 	];
 
 
 	// non_smoke_days -> NonSmokeDays -> get + NonSmokeDays + Attribute -> getNonSmokeDaysAttribute()
 	protected function getDaysSmokingAttribute()
 	{
+
 		return $this->start_date->diffInDays($this->quit_date);
 	}
 

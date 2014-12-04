@@ -3,21 +3,24 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Izmenite clanak.',
-		'intro_subtitle' => 'Greske se desavaju svima i mozete lako izmeniti svoj clanak.'  
+		'intro_title' => 'Admin articles',
+		'intro_subtitle' => ''  
 	])
 	
 @stop
+
 
 @section('content')
 
 @include('common.messages')
 
-<form method="POST" action="{{ route('admin.articles.update') }}">
+<form method="POST" action="{{ route('admin.articles.update', [$article->id]) }}">
 	
 	<input type="hidden" name="user_id" value="{{ $article->user->id }}">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<input type="hidden" name="_method" value="PUT">
+
+	
 
 	<div class="form-group">	
 		<label>Tema</label>

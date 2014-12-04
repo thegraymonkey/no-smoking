@@ -68,10 +68,8 @@ class ArticleController extends Controller {
 		return redirect('admin.articles')->withErrors($validation);
 	}
 
-	public function destroy($threadId)
+	public function destroy($articleId)
 	{
-		$articleId = Request::get('id');
-
 		$redirectTo = route('admin.articles.index');
 
 		if ($article = Article::find($articleId))
@@ -89,6 +87,8 @@ class ArticleController extends Controller {
 				return redirect($redirectTo)->with('message', 'Clanak ne postoji!');
 			}
 		}
+
+		App::abort(404);
 	}
 
 
@@ -124,13 +124,13 @@ class ArticleController extends Controller {
 
 				$article->save();
 
-				return redirect('admin.articles');
+				return redirect(route('admin.articles.index'));
 			}
 
 			App::abort(400);
 		}
 
-		return redirect('admin.articles')->withErrors($validation);
+		return redirect(route('admin.articles.index'))->withErrors($validation);
 	}
 
 	protected function assignImage(Article $article, $file)
