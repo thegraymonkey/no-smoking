@@ -6,6 +6,7 @@ use App\Profile;
 use View;
 use Image;
 use Validator;
+use App\User;
 
 class ProfileController extends Controller {
 
@@ -13,9 +14,22 @@ class ProfileController extends Controller {
 	{
 		parent:: __construct();
 
-		$this->middleware('auth');
+		$this->middleware('auth', ['except' => 'getPublic']);
 
 		View::share('current_page', 'profiles.index');
+	}
+
+	public function getPublic($username)
+	{
+		$user = User::where('username', $username)->first();
+
+		if ($user->profile)
+		{
+			//return view('');
+		}
+
+		//redirect('ss');
+
 	}
 
 	public function getShow()

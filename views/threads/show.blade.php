@@ -19,7 +19,7 @@
 				@endif
 			</div>
 			<div class="col-md-11">
-				<h1><small>by {{ $thread->user->username }} {{ $thread->created_at->diffForHumans() }}</small></h1></p>
+				<h1><small>by <a href="#">{{ $thread->user->username }}</a> {{ $thread->created_at->diffForHumans() }}</small></h1></p>
 			</div>	
 		
 		<p>{!! nl2br($thread->content) !!} </p>
@@ -38,7 +38,7 @@
 			@endif
 		</td>
 		<td width="10%">
-			<small>{{ $reply->user->username }}</small><br />
+			<small><a href="#">{{ $reply->user->username }}</a></small><br />
 			<small>{{ $reply->created_at->diffForHumans() }}</small>
 		</td>
 		<td width="60%">{!! nl2br($reply->content) !!}</td>

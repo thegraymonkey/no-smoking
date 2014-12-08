@@ -1,0 +1,71 @@
+
+1.
+
+// "/auth/login", "/auth/social/facebook"
+$router->countroller('auth', 'AuthController');
+
+
+class AuthController {
+	
+	// "/auth/login"
+	public function getLogin()
+	{
+
+	}
+
+	// "auth/social/{provider}"
+	public function getSocial($provider)
+	{
+		if ($provider == 'facebook')
+		{
+
+		}
+	}
+}
+
+2.
+
+// "/auth/login", "/auth/social/facebook"
+
+$router->('auth/social/{provider}', 'AuthController@getSocial');
+
+class AuthController {
+
+	public function getSocial($provider)
+	{
+		if ($provider == 'facebook')
+		{
+
+		}
+	}
+}
+
+
+3.
+
+$router->resource('posts', 'AuthController', ['only']);
+
+class AuthController {
+	
+	// get "/posts"
+	public function index(){}
+	
+	// get "/posts/1"
+	public function show(){}
+	
+	// get "/posts/create"
+	public function create(){}
+	
+	// post "/posts"
+	public function store(){}
+	
+	// get "/posts/1/edit"
+	public function edit(){}
+	
+	// put "/posts/1"
+	public function update(){}
+	
+	// delete "/posts/1"
+	public function destroy(){}
+
+}

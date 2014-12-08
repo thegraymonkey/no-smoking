@@ -20,15 +20,18 @@
 	<table class="table table-hover table-striped">
 	  	<th>naslov teme</th>
 	  	<th>korisnik:</th>
-	  	<th>vreme postavljanja:</th>
+	  	<th>postavljeno:</th>
+	  	<th>broj komentara:</th>
+	  	<th>broj pregleda:</th>
 	  	<th></th>
 	  	<th></th>
-
 	@foreach($forum->threads as $thread)
 	<tr>
 		<td><a href="{{ route('threads.show', [$thread->id]) }}">{{ $thread->title }}</a></td>
 		<td><small>{{ $thread->user->username }}</small></td>
 		<td><small>{{ $thread->created_at->diffForHumans() }}</small></td>
+		<td><small>{{ $thread->replies->count() }}</small></td>
+		<td><small></small></td>
 		<td>@if(Auth::check() and $thread->isDeletable(Auth::user()))
 			<form action="{{ route('threads.destroy', [$thread->id]) }}" method="post">
 				<input type="hidden" name="forum_id" value="{{ $forum->id }}">

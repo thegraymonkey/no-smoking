@@ -3,7 +3,7 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Najnoviji postovi korisnika',
+		'intro_title' => trans('home.heading'),
 		'intro_subtitle' => 'Mesto za vase misli, osecanja i frustracije...'  
 	])
 	
@@ -50,7 +50,7 @@
 				@endif
 			</div>
 			<div class="col-md-9">
-				<small>by: {{ $post->user->username }} {{ $post->created_at->diffForHumans() }}</small>
+				<small>by: <a href="#">{{ $post->user->username }}</a> {{ $post->created_at->diffForHumans() }}</small>
 				<p>{!! nl2br($post->content) !!}</p>
 				@if($post->link_title and $post->link_url)
 				<div class="post-meta well">

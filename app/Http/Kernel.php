@@ -1,6 +1,5 @@
 <?php namespace App\Http;
 
-use Exception;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel {
@@ -28,7 +27,6 @@ class Kernel extends HttpKernel {
 		'auth' => 'App\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
 		'guest' => 'App\Http\Middleware\RedirectIfAuthenticated',
-		'auth.admin' => 'App\Http\Middleware\AdminAuth'
 	];
 
 }

@@ -12,17 +12,17 @@ class Profile extends Model {
 	}
 
 	protected $dates = [
-		'start_date',
-		'quit_date'
+	'start_date',
+	'quit_date'
 	];
 
 	protected $fillable = 
 	[
-		'start_date',
-		'quit_date',
-		'daily_amount',
-		'daily_expense',
-		'quit'
+	'start_date',
+	'quit_date',
+	'daily_amount',
+	'daily_expense',
+	'quit'
 	];
 
 
@@ -57,6 +57,45 @@ class Profile extends Model {
 	{
 		return Carbon::now()->diffInDays($this->quit_date) * $this->daily_amount;
 	}
+
+
+
+	protected function getNonSmokeTenDaysAttribute()
+	{
+		return $this->quit_date->diffInHours() * 0.41;
+	}
+
+	protected function getNonSmokeOneDayAttribute()
+	{
+		return $this->quit_date->diffInHours() * 4.16;
+	}
+
+	protected function getNonSmokeTwoDaysAttribute()
+	{
+		return $this->quit_date->diffInHours() * 2.08;
+	}
+
+	protected function getNonSmokeSevenDaysAttribute()
+	{
+		return $this->quit_date->diffInHours() * 0.59;
+	}
+
+	protected function getNonSmokeMonthAttribute()
+	{
+		return $this->quit_date->diffInHours() * 0.13;
+	}
+
+	protected function getNonSmokeThreeMonthAttribute()
+	{
+		return $this->quit_date->diffInHours() * 0.046;
+	}
+
+	protected function getNonSmokeYearAttribute()
+	{
+		return $this->quit_date->diffInHours() * 0.0117;
+	}
+
+
 
 	protected function getTimeSavedAttribute()
 	{

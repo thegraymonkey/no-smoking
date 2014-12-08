@@ -13,7 +13,7 @@ return [
 	|
 	*/
 
-	'debug' => true,
+	'debug' => (bool) getenv('APP_DEBUG') ?: true,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -26,7 +26,7 @@ return [
 	|
 	*/
 
-	'url' => 'http://localhost',
+	'url' => 'http://no-smoking.local',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -39,7 +39,7 @@ return [
 	|
 	*/
 
-	'timezone' => 'Europe/Belgrade',
+	'timezone' => 'UTC',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
 	|
 	*/
 
-	'key' => 'YourSecretKey!!!',
+	'key' => 'Mi68YBz519v1b3jm577LWP3vw640Kn67',
 
 	'cipher' => MCRYPT_RIJNDAEL_128,
 
@@ -116,7 +116,6 @@ return [
 		'App\Providers\AppServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-		'App\Providers\ErrorServiceProvider',
 
 		/*
 		 * Laravel Framework Service Providers...
@@ -142,7 +141,9 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
-		'Intervention\Image\ImageServiceProvider'
+		'Intervention\Image\ImageServiceProvider',
+		'Laravel\Socialite\SocialiteServiceProvider'
+
 	],
 
 	/*
@@ -200,7 +201,8 @@ return [
 		'URL'       => 'Illuminate\Support\Facades\URL',
 		'Validator' => 'Illuminate\Support\Facades\Validator',
 		'View'      => 'Illuminate\Support\Facades\View',
-		'Image' => 'Intervention\Image\Facades\Image'
+		'Image'     => 'Intervention\Image\Facades\Image',
+
 	],
 
 ];

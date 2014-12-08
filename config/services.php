@@ -28,4 +28,9 @@ return [
 		'secret' => '',
 	],
 
+	'facebook' => [
+		'client_id' => '1534569673457242',
+		'client_secret' => 'a197cecec77c159fd8687cd96978d2f9',
+		'redirect' => 'http://no-smoking.local/auth/social-callback'
+	]
 ];

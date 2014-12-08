@@ -5,8 +5,11 @@ use Illuminate\Contracts\Auth\Guard;
 use App\Http\Requests\RegisterRequest;
 use Redirect;
 use App\User;
+use App\SocialUser;
 use Hash;
 use View;
+use Laravel\Socialite\Contracts\Factory as SocialiteFactory;
+use App;
 
 class AuthController extends Controller {
 
@@ -30,8 +33,6 @@ class AuthController extends Controller {
 		$this->auth = $auth;
 
 		$this->middleware('guest', ['except' => 'getLogout']);
-
-		
 	}
 
 	/**
@@ -102,6 +103,61 @@ class AuthController extends Controller {
 		$this->auth->logout();
 
 		return redirect('/');
+	}
+
+	public function getSocial(SocialiteFactory $socialite)
+	{
+		return $socialite->driver('facebook')->redirect();
+	}
+
+	public function getSocialCallback(SocialiteFactory $socialite)
+	{
+		$socialUser = $socialite->driver('facebook')->user();
+
+		if ($socialUser)
+		{
+			$user = User::where('email', $socialUser->email)->first();
+
+			if (!$user)
+			{
+				$user = new User;
+				$user->email = $socialUser->email;
+				$user->username = $this->makeUsername($socialUser);
+				$user->password = Hash::make(rand(999, 9999));
+				$user->save();
+			}
+
+			// user postoji u ovom momentu
+
+			if (is_null($user->social))
+			{
+				$social = new SocialUser;
+
+				$social->user_id = $user->getKey();
+				$social->provider_id = $socialUser->id;
+				$social->token = $socialUser->token;
+
+				$social->save();
+			}
+
+			// i user i social
+
+			if ($socialUser->id == $social->provider_id)
+			{
+				$this->auth->login($user);
+			}
+
+			return redirect('/');
+		}
+
+		App::abort(400);
+	}
+
+	public function makeUsername($fbData)
+	{
+		return $fbData->nickname ? 
+			Str::slug($fbData->nickname . '-' . Str::quickRandom(4)) : 
+			'fb_' . $fbData->id;
 	}
 
 }

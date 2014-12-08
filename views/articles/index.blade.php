@@ -19,10 +19,10 @@
 
 @foreach ($articles as $article)
 	
-	<div class="jumbotron">
+	<div class="jumbotron" style="border: 1px solid #e5e5e5;">
 		<div class="row">		
 			<div class="col-md-6">
-				<h1>{{ $article->title }}</h1>
+				<h2>{{ $article->title }}</h2>
 				<p>dodao/la: {{ $article->user->username }} pre {{ $article->created_at->diffForHumans() }}</p>
 				@if($article->user->profile)
 				<img src="/upload/profile/{{ $article->user->profile->getStatusAvatar() }}" />

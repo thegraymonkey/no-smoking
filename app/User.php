@@ -8,10 +8,10 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
 class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
+	use Authenticatable, CanResetPassword;
+
 	const ROLE_ADMIN = 'admin';
 	const ROLE_MODERATOR = 'moderator';
-
-	use Authenticatable, CanResetPassword;
 
 	/**
 	 * The database table used by the model.
@@ -28,6 +28,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 	protected $hidden = ['password', 'remember_token'];
 
 	protected $fillable = ['email'];
+
+	public function social()
+	{
+		return $this->hasOne('App\SocialUser');
+	}
 
 	public function profile()
 	{
