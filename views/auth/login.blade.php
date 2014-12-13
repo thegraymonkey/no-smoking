@@ -12,15 +12,17 @@
 @section('content')
 
 @include('common.messages')
+
+
+<strong><p>Uloguj se <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili:</p></strong>
+
 <div class="well">
 
-<p>login with {!! link_to('auth/social/facebook', 'facebook') !!}</p>
-
-or
-
 <form class="form-horizontal" role="form" method="POST" action="{{ url('auth/login') }}">
+   	
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
   <div class="form-group">
-  	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
     <label for="inputEmail3" class="col-sm-2 control-label">E-mejl adresa</label>
     <div class="col-sm-10">
       <input type="email" class="form-control" id="inputEmail3" placeholder="E-mejl adresa" name="email" required autofocus>

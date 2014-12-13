@@ -128,8 +128,9 @@ class AuthController extends Controller {
 			}
 
 			// user postoji u ovom momentu
+			$social = $user->social;
 
-			if (is_null($user->social))
+			if (is_null($social))
 			{
 				$social = new SocialUser;
 
