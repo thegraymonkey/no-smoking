@@ -25,10 +25,10 @@ class ProfileController extends Controller {
 
 		if ($user->profile)
 		{
-			//return view('');
+			return view('profiles.public');
 		}
 
-		//redirect('ss');
+		return view('profiles.show', compact('profile'));
 
 	}
 

@@ -5,7 +5,7 @@
 		<div class="container " style="padding-top:50px">
 			<div class="row">
 				<div class="col-md-8">
-					<h1>{{ $profile->user->username }}</h1>
+					<h1></h1>
 					<p></p>
 				</div>
 				
@@ -29,7 +29,7 @@
 	
 	@if(Auth::user()->profile->quit == 1)
 
-	<label>1 dan</label>
+	<label>1 dan Organizam se oporavlja od unosa Ugljen Monoksida</label>
 	@if(Auth::user()->profile->non_smoke_one_day < 100)	
 	<div class="progress">
 	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_one_day }}%">
@@ -44,7 +44,7 @@
 	</div>
 	@endif
 
-	<label>2 dana</label>
+	<label>2 dana Smanjuje se rizik od srcanog udara </label>
  	@if(Auth::user()->profile->non_smoke_two_days < 100)	
 	<div class="progress">
 	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_two_days }}%">
