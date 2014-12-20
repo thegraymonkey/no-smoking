@@ -22,10 +22,11 @@ class ProfileController extends Controller {
 	public function getPublic($username)
 	{
 		$user = User::where('username', $username)->first();
+		
 
 		if ($user->profile)
 		{
-			return view('profiles.public');
+			return view('profiles.index');
 		}
 
 		return view('profiles.show', compact('profile'));

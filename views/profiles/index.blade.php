@@ -18,7 +18,7 @@
 
 @section('content')
 
-@if($profile)
+@if($user->profile)
 	{{-- PROFILE EXISTS --}}
 	<strong><p>Datum kad ste poceli da pusite:</strong> {{ $profile->start_date }}</p>
 	<strong><p>Dan kad ste prestali da pusite:</strong> {{ $profile->quit_date }}</p>
