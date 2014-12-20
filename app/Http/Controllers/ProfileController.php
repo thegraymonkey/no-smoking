@@ -26,6 +26,8 @@ class ProfileController extends Controller {
 		
 		if ($user and $user->profile)
 		{
+			$profile = $user->profile;
+			
 			return view('profiles.public_show', compact('profile'));
 		}
 

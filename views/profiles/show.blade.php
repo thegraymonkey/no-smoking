@@ -206,7 +206,7 @@
 
 		<div class="form-group">		
 		<label for="username">Promenite korisnicko ime</label>
-			<input class="form-control" type="text" name="username" id="username" value="{{ $profile->user->username }}">
+			<input class="form-control" type="text" name="username" id="username" value="{{ isset($profile) ? $profile->user->username : '' }}">
 		</div>
 
 		<div class="form-group">			

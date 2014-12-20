@@ -5,12 +5,12 @@
 		<div class="container " style="padding-top:50px">
 			<div class="row">
 				<div class="col-md-8">
-					<h1></h1>
+					<h1>Gledate profil korisnika: {{ $profile->user->username }}</h1>
 					<p></p>
 				</div>
 				
 				<div class="col-md-4">
-					<img src="/images/no-smoking.jpg" alt="Nobody should smoke!" class="img-rounded" width="300px" height="275px">
+					<img src="/upload/profile/{{ $profile->getAvatar('original') }}" alt="Nobody should smoke!" class="img-rounded" width="300px" height="275px">
 				</div>
 			</div>
 		</div>
@@ -18,7 +18,7 @@
 
 @section('content')
 
-@if($user->profile)
+@if($profile)
 	{{-- PROFILE EXISTS --}}
 	<strong><p>Datum kad ste poceli da pusite:</strong> {{ $profile->start_date }}</p>
 	<strong><p>Dan kad ste prestali da pusite:</strong> {{ $profile->quit_date }}</p>
