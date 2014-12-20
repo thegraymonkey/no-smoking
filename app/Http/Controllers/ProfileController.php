@@ -7,6 +7,7 @@ use View;
 use Image;
 use Validator;
 use App\User;
+use App;
 
 class ProfileController extends Controller {
 
@@ -23,14 +24,12 @@ class ProfileController extends Controller {
 	{
 		$user = User::where('username', $username)->first();
 		
-
-		if ($user->profile)
+		if ($user and $user->profile)
 		{
-			return view('profiles.index');
+			return view('profiles.public_show', compact('profile'));
 		}
 
-		return view('profiles.show', compact('profile'));
-
+		App::abort(404);
 	}
 
 	public function getShow()
