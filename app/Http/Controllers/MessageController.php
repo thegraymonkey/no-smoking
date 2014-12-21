@@ -28,7 +28,6 @@ class MessageController extends Controller {
 	
 		$rules = [
 		'profile_id' => 'required|integer',
-		'user_id' => 'required|integer',
 		'content' => 'required',
 		];
 
@@ -37,10 +36,11 @@ class MessageController extends Controller {
 		if ($validation->passes())
 		{
 			$message = new Message;
+
 			$message->fill($input);
 			$message->user_id = Auth::user()->id;
-			$username = $message->user->username;
-			$message->profile_id = User::where('username', $username)->first()->profile->id;
+			
+			$message->profile_id = $input['profile_id'];
 			$message->save();
 			
 			$url = route('profiles.public_show', [$input['profile_id']]);

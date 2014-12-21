@@ -9,7 +9,6 @@
 <form method="POST" action="{{ route('messages.store') }}">
 	
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-	<input name="user_id" type="hidden" value="{{ Auth::user()->id }}">
 	<input name="profile_id" type="hidden" value="{{ $profile->id }}">
 
 	<div class="form-group">
