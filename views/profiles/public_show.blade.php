@@ -25,15 +25,15 @@
 	<strong><p>Dnevno potroseno novca na cigarete:</strong> {{ $profile->daily_expense }} dinara</p>
 	<strong><p>Dnevno popuseno cigareta:</strong> {{ $profile->daily_amount }} cigareta</p>
 
+	<hr class="featurette-divider">
 	
-	
-	@if(Auth::user()->profile->quit == 1)
+	@if($profile->quit == 1)
 
-	<label>1 dan Organizam se oporavlja od unosa Ugljen Monoksida</label>
-	@if(Auth::user()->profile->non_smoke_one_day < 100)	
+	<label>1 dan -- Organizam se oporavlja od unosa Ugljen Monoksida</label>
+	@if($profile->non_smoke_one_day < 100)	
 	<div class="progress">
-	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_one_day }}%">
-	    <span>{{ Auth::user()->profile->non_smoke_one_day }}% -- Organizam se oporavlja od unosa Ugljen Monoksida </span>
+	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ $profile->non_smoke_one_day }}%">
+	    <span>{{ $profile->non_smoke_one_day }}% </span>
 	  </div>
 	</div>
 	@else
@@ -44,11 +44,11 @@
 	</div>
 	@endif
 
-	<label>2 dana Smanjuje se rizik od srcanog udara </label>
- 	@if(Auth::user()->profile->non_smoke_two_days < 100)	
+	<label>2 dana -- Smanjuje se rizik od srcanog udara </label>
+ 	@if($profile->non_smoke_two_days < 100)	
 	<div class="progress">
-	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_two_days }}%">
-	    <span>{{ Auth::user()->profile->non_smoke_two_days }}% -- Smanjuje se rizik od srcanog udara </span>
+	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ $profile->non_smoke_two_days }}%">
+	    <span>{{ $profile->non_smoke_two_days }}% </span>
 	  </div>
 	</div>
 	@else
@@ -59,11 +59,11 @@
 	</div>
 	@endif
 
-	<label>7 dana</label>
- 	@if(Auth::user()->profile->non_smoke_seven_days < 100)	
+	<label>7 dana -- bez nikotina u organizmu</label>
+ 	@if($profile->non_smoke_seven_days < 100)	
 	<div class="progress">
-	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_seven_days }}%">
-	    <span>{{ Auth::user()->profile->non_smoke_seven_days }}% -- bez nikotina u organizmu </span>
+	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ $profile->non_smoke_seven_days }}%">
+	    <span>{{ $profile->non_smoke_seven_days }}% </span>
 	  </div>
 	</div>
 	@else
@@ -74,11 +74,11 @@
 	</div>
 	@endif
 
-	<label>10 dana</label>
- 	@if(Auth::user()->profile->non_smoke_ten_days < 100)	
+	<label>10 dana -- Nestanak fizicke zavisnosti</label>
+ 	@if($profile->non_smoke_ten_days < 100)	
 	<div class="progress">
-	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_ten_days }}%">
-	    <span>{{ Auth::user()->profile->non_smoke_ten_days }}% -- Nestanak fizicke zavisnosti </span>
+	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ $profile->non_smoke_ten_days }}%">
+	    <span>{{ $profile->non_smoke_ten_days }}% </span>
 	  </div>
 	</div>
 	@else
@@ -89,11 +89,11 @@
 	</div>
 	@endif
 
-	<label>30 dana</label>
- 	@if(Auth::user()->profile->non_smoke_month < 100)	
+	<label>30 dana -- poboljsanje kondicije i disanja </label>
+ 	@if($profile->non_smoke_month < 100)	
 	<div class="progress">
-	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_month }}%">
-	    <span>{{ Auth::user()->profile->non_smoke_month }}% -- poboljsanje kondicije i disanja </span>
+	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ $profile->non_smoke_month }}%">
+	    <span>{{ $profile->non_smoke_month }}% </span>
 	  </div>
 	</div>
 	@else
@@ -104,11 +104,11 @@
 	</div>
 	@endif
 
-	<label>3 meseca</label>
- 	@if(Auth::user()->profile->non_smoke_three_month < 100)	
+	<label>3 meseca -- pluca otpornija na infekcije </label>
+ 	@if($profile->non_smoke_three_month < 100)	
 	<div class="progress">
-	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_three_month }}%">
-	    <span>{{ Auth::user()->profile->non_smoke_three_month }}% -- pluca otpornija na infekcije </span>
+	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ $profile->non_smoke_three_month }}%">
+	    <span>{{ $profile->non_smoke_three_month }}% </span>
 	  </div>
 	</div>
 	@else
@@ -119,11 +119,11 @@
 	</div>
 	@endif
 
-	<label>1 godina</label>
- 	@if(Auth::user()->profile->non_smoke_year < 100)	
+	<label>1 godina -- rizik od srcanog udara smanjen za 50%</label>
+ 	@if($profile->non_smoke_year < 100)	
 	<div class="progress">
-	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_year }}%">
-	    <span>{{ Auth::user()->profile->non_smoke_year }}% -- rizik od srcanog udara smanjen za 50%</span>
+	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ $profile->non_smoke_year }}%">
+	    <span>{{ $profile->non_smoke_year }}% </span>
 	  </div>
 	</div>
 	@else
@@ -134,24 +134,30 @@
 	</div>
 	@endif
 
+@else
+	<h2>Korisnik nije uneo podatke</h2>
 @endif
 
-	
+	<hr class="featurette-divider">
+
 @else
 	{{-- PROFILE DOES NOT EXIST --}}
 	<h2>Profil ne postoji</h2>
 @endif
 	@include('common.messages')
 
+	@include('messages.create')
 
+	<h2>Poruke korisnika: {{ $profile->user->username }} </h2>
 
+	@include('messages.index')
 	
 
 @stop
 
 @section('sidebar')
 	
-		@include('common.sidebar')
+		@include('common.public_sidebar')
 	
 @stop
 

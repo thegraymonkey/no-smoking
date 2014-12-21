@@ -49,6 +49,11 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->hasMany('App\Photo');
 	}
 
+	public function messages()
+	{
+		return $this->hasMany('App\Message');
+	}
+
 	public function isAdmin()
 	{
 		return $this->role === self::ROLE_ADMIN;

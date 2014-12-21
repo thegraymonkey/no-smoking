@@ -216,6 +216,12 @@
 	</form>
 	</div>
 
+	<hr class="featurette-divider">
+
+	<h2>Vase poruke</h2>
+
+	@include('messages.index')
+
 @stop
 
 @section('sidebar')

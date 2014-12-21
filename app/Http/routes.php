@@ -36,7 +36,7 @@ $router->resource('threads', 'ThreadController', ['only' => ['show', 'create', '
 $router->resource('replies', 'ReplyController', ['only' => ['create', 'store', 'destroy', 'edit', 'update']]);
 $router->controller('contacts', 'ContactController');
 $router->controller('profile', 'ProfileController');
-
+$router->resource('messages', 'MessageController', ['only' => ['index', 'create', 'store', 'destroy']]);
 $router->controller('user', 'UserController');
 
 $router->controller('photos', 'PhotoController');

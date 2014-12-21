@@ -50,7 +50,7 @@
 				@endif
 			</div>
 			<div class="col-md-9">
-				<small>by: <a href="#">{{ $post->user->username }}</a> {{ $post->created_at->diffForHumans() }}</small>
+				<small>by: <a href="{{ url('/profile/public/' . $post->user->username ) }}">{{ $post->user->username }}</a> {{ $post->created_at->diffForHumans() }}</small>
 				<p>{!! nl2br($post->content) !!}</p>
 				@if($post->link_title and $post->link_url)
 				<div class="post-meta well">
