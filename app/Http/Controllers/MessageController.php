@@ -2,6 +2,7 @@
 
 use Request;
 use Auth;
+use App;
 use Validator;
 use App\Message;
 use App\User;
@@ -35,16 +36,23 @@ class MessageController extends Controller {
 
 		if ($validation->passes())
 		{
-			$message = new Message;
+			if ($profile = Profile::find($input['profile_id']))
+			{
+				$message = new Message;
 
-			$message->fill($input);
-			$message->user_id = Auth::user()->id;
-			
-			$message->profile_id = $input['profile_id'];
-			$message->save();
-			
-			$url = route('profiles.public_show', [$input['profile_id']]);
-			return redirect($url)->with('message', 'Poruka Poslata!');
+				$message->fill($input);
+				$message->user_id = Auth::user()->id;
+				$message->profile_id = $profile->getKey();
+
+				$message->save();
+
+				$url = url('profile/public/' . $profile->user->username);
+
+				return redirect($url)->with('message', 'Poruka Poslata!');				
+			}
+
+			App::abort(400);
+
 		}
 
 		$url = route('profiles.public_show', [$input['profile_id']]);
