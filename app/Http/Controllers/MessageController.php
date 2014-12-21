@@ -40,7 +40,7 @@ class MessageController extends Controller {
 			{
 				$message = new Message;
 
-				$message->fill($input);
+				$message->content = $input['content'];
 				$message->user_id = Auth::user()->id;
 				$message->profile_id = $profile->getKey();
 
