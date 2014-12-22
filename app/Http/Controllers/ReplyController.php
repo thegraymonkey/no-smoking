@@ -35,6 +35,7 @@ class ReplyController extends Controller {
 		{
 			$reply = new Reply;
 			$reply->fill($input);
+			$reply->content = $input['content'];
 			$reply->user_id = Auth::user()->id;
 			$reply->save();
 			
@@ -54,7 +55,7 @@ class ReplyController extends Controller {
 
 		if ($reply = Reply::find($replyId))
 		{
-			if ($reply->user_id === Auth::user()->id)
+			if ($reply->isDeletable(Auth::user()))
 			{
 				$reply->delete();
 

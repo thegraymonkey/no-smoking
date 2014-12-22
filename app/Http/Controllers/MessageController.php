@@ -29,7 +29,7 @@ class MessageController extends Controller {
 	
 		$rules = [
 		'profile_id' => 'required|integer',
-		'content' => 'required',
+		'content' => 'required|min:1',
 		];
 
 		$validation = Validator::make($input, $rules);
@@ -55,32 +55,65 @@ class MessageController extends Controller {
 
 		}
 
-		$url = route('profiles.public_show', [$input['profile_id']]);
+		$url = url('profile/public/' . Profile::find($input['profile_id'])->user->username);
 
 		return redirect($url)->withErrors($validation);
 	}
 
 	public function destroy($messageId)
 	{
-		$profileId = Request::get('profile_id');
-		$redirectTo = route('profile.show', [$profileId]);
+
 
 		if ($message = Message::find($messageId))
 		{
-			if ($message->profile_id === Auth::user()->profile->profile_id)
-			{
-				$reply->delete();
 
-				return redirect($redirectTo)->with('message', 'Poruka obrisana!');
+			$url = url('profile/public/' . $message->profile->user->username);
+
+			if ($message->profile_id === Auth::user()->profile->id || Auth::user()->isAdmin() || $message->user_id === Auth::user()->id)
+			{
+				
+
+				$message->delete();
+
+				
+				return redirect($url)->with('message', 'Poruka Obrisana!');	
 			}
 			else
 			{
-				return redirect($redirectTo)->with('message', 'Nemate prava da obrisete ovu poruku!');
+				
+				return redirect($url)->with('message', 'Nemate prava da obrisete ovu poruku!');
 			}
 		}
 		else
 		{
-			return redirect($redirectTo)->with('message', 'Poruka ne postoji!');
+			App::abort(400);
 		}
 	}
+		
+
+
+		
+		
+//		$profileId = Request::get('profile_id');
+//		$url = url('profile/public/' . $profile->user->username);
+//		$redirectTo = redirect($url);
+//
+//
+//		if ($message = Message::find($messageId))
+//		{
+//			if ($message->profile_id === Auth::user()->profile->profile_id)
+//			{
+//				$message->delete();
+//				return redirect($redirectTo)->with('message', 'Poruka obrisana!');
+//			}
+//			else
+//			{				
+//				return redirect($redirectTo)->with('message', 'Nemate prava da obrisete ovu poruku!');
+//			}
+//		}
+//		else
+//		{			
+//			return redirect($redirectTo)->with('message', 'Poruka ne postoji!');
+//		}
+//	}
 }

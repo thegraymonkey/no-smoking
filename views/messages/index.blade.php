@@ -17,9 +17,10 @@
 		</td>
 		<td width="60%">{!! nl2br($message->content) !!}</td>
 		<td width="8%">
-			@if(Auth::check() and $message->user_id === Auth::user()->id  || Auth::user()->isAdmin())
+			@if($message->isDeletable(Auth::user()))
 			<form action="{{ route('messages.destroy', [$message->id]) }}" method="post">
 				<input type="hidden" name="profile_id" value="{{ $profile->id }}">
+				<input type="hidden" name="profile_id" value="{{ $profile->user->id }}">
 				<input type="hidden" name="_method" value="delete">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="submit" value="obrisi" class="btn btn-xs btn-danger">

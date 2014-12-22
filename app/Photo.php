@@ -20,4 +20,9 @@ class Photo extends Model {
 		return sprintf('/upload/gallery/%s.%s', $this->file_name, $this->file_extension);
 	}
 
+	protected function setContentAttribute($value)
+	{
+		$this->attributes['content'] = strip_tags($value, '<a><p><b><strong>');
+	}
+
 }

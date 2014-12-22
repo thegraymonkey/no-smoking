@@ -62,7 +62,7 @@
 			</div>
 
 			<div class="col-md-1">
-				@if(Auth::check() and $post->user_id === Auth::user()->id || Auth::user()->isAdmin())
+				@if(Auth::check() and $post->isDeletable(Auth::user()))
 				<form action="{{ route('posts.destroy', [$post->id]) }}" method="post">
 					<input type="hidden" name="_method" value="delete">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -71,7 +71,7 @@
 				@endif
 			</div>
 			<div class="col-md-1">
-				@if(Auth::check() and $post->user_id === Auth::user()->id || Auth::user()->isAdmin())
+				@if(Auth::check() and $post->isEditable(Auth::user()))
 				<a class="btn btn-xs btn-warning" href="{{ route('posts.edit', [$post->id]) }}">edit</a>
 				@endif
 			</div>

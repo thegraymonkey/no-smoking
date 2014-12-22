@@ -42,4 +42,9 @@ class Thread extends Model {
 		return ($this->user->id === $user->id && $this->replies->count() === 0) || $user->isAdmin();
 	}
 
+	protected function setContentAttribute($value)
+	{
+		$this->attributes['content'] = strip_tags($value, '<a><p><b><strong>');
+	}
+
 }

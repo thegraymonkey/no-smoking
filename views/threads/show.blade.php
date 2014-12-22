@@ -43,7 +43,7 @@
 		</td>
 		<td width="60%">{!! nl2br($reply->content) !!}</td>
 		<td width="8%">
-			@if(Auth::check() and $reply->user_id === Auth::user()->id  || Auth::user()->isAdmin())
+			@if(Auth::check() and $reply->isDeletable(Auth::user()))
 			<form action="{{ route('replies.destroy', [$reply->id]) }}" method="post">
 				<input type="hidden" name="thread_id" value="{{ $thread->id }}">
 				<input type="hidden" name="_method" value="delete">

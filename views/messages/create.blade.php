@@ -4,7 +4,7 @@
 
 @else
 
-@include('common.messages')
+
 
 <form method="POST" action="{{ route('messages.store') }}">
 	

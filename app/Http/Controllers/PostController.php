@@ -48,7 +48,7 @@ class PostController extends Controller {
 	{
 		if ($post = Post::find($postId))
 		{
-			if ($post->user_id === Auth::user()->id)
+			if ($post->isDeletable(Auth::user()))
 			{
 				$post->delete();
 
@@ -126,6 +126,8 @@ class PostController extends Controller {
 
 		return redirect('/feed')->withErrors($validation);
 	}
+
+	
 
 
 }

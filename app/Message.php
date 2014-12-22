@@ -1,6 +1,7 @@
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Message extends Model {
 
@@ -22,6 +23,11 @@ class Message extends Model {
 	protected function setContentAttribute($value)
 	{
 		$this->attributes['content'] = strip_tags($value, '<a><p><b><strong>');
+	}
+
+	public function isDeletable(User $user)
+	{
+		return $this->user->id === $user->id  || $user->isAdmin() || $this->profile_id === Auth::user()->profile->id;
 	}
 
 }

@@ -46,9 +46,9 @@ class ThreadController extends Controller {
 		if ($validation->passes())
 		{
 
-			$thread = new Thread;
-			
+			$thread = new Thread;			
 			$thread->fill($input);
+			$thread->content = $input['content'];
 			$thread->user_id = Auth::user()->id;
 			
 			$thread->save();
