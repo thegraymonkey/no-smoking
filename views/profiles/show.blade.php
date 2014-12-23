@@ -166,12 +166,6 @@
 			<input date-picker-field class="form-control" data-date-format="yyyy-mm-dd" type="text" name="start_date" id="start_date" value="{{ isset($profile->start_date) ? $profile->start_date->format('Y-m-d') : '' }}" >
 		</div>
 
-
-		<div class="form-group">	
-		<label for="start_date">Kada ste poceli da pusite?</label>
-			<input date-picker-field class="form-control" data-date-format="yyyy-mm-dd" type="text" name="start_date" id="start_date" value="{{ isset($profile->start_date) ? $profile->start_date->format('Y-m-d') : '' }}" >
-		</div>
-
 		<div class="form-group">	
     		<label for="checkbox">Da li ste prestali da pusite?</label>
 	      		<input type="checkbox" name="quit" {{ (isset($profile) and $profile->quit == 1) ? 'checked' : '' }} value="1"> da!
