@@ -8,6 +8,7 @@ use Image;
 use Validator;
 use App\User;
 use App;
+use App\Message;
 
 class ProfileController extends Controller {
 
@@ -20,22 +21,28 @@ class ProfileController extends Controller {
 		View::share('current_page', 'profiles.index');
 	}
 
-	public function getPublic($username)
-	{
-		$user = User::where('username', $username)->first();
-		
-		if ($user and $user->profile)
-		{
-			$profile = $user->profile;
-			
-			return view('profiles.public_show', compact('profile'));
-		}
+	
 
-		return App::abort(404);
+	
+		public function getPublic($username)
+		{
+			$user = User::where('username', $username)->first();
+		
+			if ($user and $user->profile)
+			{
+				$profile = $user->profile;
+
+				$messages = Message::where('profile_id', $profile->getKey())->paginate(3);
+			
+				return view('profiles.public_show', compact('profile', 'messages'));
+			}
+
+		App::abort(404);
 	}
 
 	public function getShow()
 	{
+		
 		$profile = Auth::user()->profile;
 
 		return view('profiles.show', compact('profile'));

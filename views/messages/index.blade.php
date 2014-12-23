@@ -31,7 +31,9 @@
 	</tr>
 
 	@endforeach
+	
 	</table>
+	{!! $messages->render() !!}
 
 @else
 

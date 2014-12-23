@@ -18,6 +18,13 @@ class MessageController extends Controller {
 		$this->middleware('auth', ['only' => 'store']);
 	}
 
+	public function index()
+	{
+		$messages = Message::orderBy('created_at', 'desc')->paginate(3);
+
+		return view('messages.index', ['messages' => $messages]);
+	}
+
 	public function create()
 	{
 		return view('messages.create');
@@ -90,30 +97,4 @@ class MessageController extends Controller {
 		}
 	}
 		
-
-
-		
-		
-//		$profileId = Request::get('profile_id');
-//		$url = url('profile/public/' . $profile->user->username);
-//		$redirectTo = redirect($url);
-//
-//
-//		if ($message = Message::find($messageId))
-//		{
-//			if ($message->profile_id === Auth::user()->profile->profile_id)
-//			{
-//				$message->delete();
-//				return redirect($redirectTo)->with('message', 'Poruka obrisana!');
-//			}
-//			else
-//			{				
-//				return redirect($redirectTo)->with('message', 'Nemate prava da obrisete ovu poruku!');
-//			}
-//		}
-//		else
-//		{			
-//			return redirect($redirectTo)->with('message', 'Poruka ne postoji!');
-//		}
-//	}
 }
