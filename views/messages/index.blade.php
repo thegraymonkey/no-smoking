@@ -17,7 +17,7 @@
 		</td>
 		<td width="60%">{!! nl2br($message->content) !!}</td>
 		<td width="8%">
-			@if($message->isDeletable(Auth::user()))
+			@if(Auth::check() && $message->isDeletable(Auth::user()))
 			<form action="{{ route('messages.destroy', [$message->id]) }}" method="post">
 				<input type="hidden" name="profile_id" value="{{ $profile->id }}">
 				<input type="hidden" name="profile_id" value="{{ $profile->user->id }}">
