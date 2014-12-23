@@ -32,7 +32,7 @@ class ProfileController extends Controller {
 			{
 				$profile = $user->profile;
 
-				$messages = Message::where('profile_id', $profile->getKey())->paginate(3);
+				$messages = Message::where('profile_id', $profile->getKey())->paginate(5);
 			
 				return view('profiles.public_show', compact('profile', 'messages'));
 			}

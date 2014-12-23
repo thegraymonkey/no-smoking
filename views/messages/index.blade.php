@@ -1,7 +1,7 @@
 @if ($profile)
 
 <table class="table well" >
-	@foreach($profile->messages as $message)
+	@foreach($messages as $message)
 
 	<tr>
 		<td width="8%">
