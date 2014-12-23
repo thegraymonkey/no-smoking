@@ -17,7 +17,7 @@ class UserController extends Controller {
 		$input = Request::all();
 
 		$rules = [
-			'username' => 'unique:users'
+			'username' => 'unique:users|alpha_num|min:2'
 				
 		];
 
