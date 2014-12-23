@@ -38,7 +38,7 @@
 			@endif
 		</td>
 		<td width="10%">
-			<small><a href="{{ url('/profile/public/' . $thread->user->username ) }}">{{ $reply->user->username }}</a></small><br />
+			<small><a href="{{ url('/profile/public/' . $reply->user->username ) }}">{{ $reply->user->username }}</a></small><br />
 			<small>{{ $reply->created_at->diffForHumans() }}</small>
 		</td>
 		<td width="60%">{!! nl2br($reply->content) !!}</td>

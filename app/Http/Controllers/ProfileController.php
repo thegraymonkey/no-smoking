@@ -31,7 +31,7 @@ class ProfileController extends Controller {
 			return view('profiles.public_show', compact('profile'));
 		}
 
-		App::abort(404);
+		return App::abort(404);
 	}
 
 	public function getShow()
