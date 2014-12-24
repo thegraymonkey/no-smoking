@@ -3,7 +3,7 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Admin articles',
+		'intro_title' => 'Admin članci',
 		'intro_subtitle' => ''  
 	])
 	
@@ -28,17 +28,17 @@
 	</div>
 
 	<div class="form-group">	
-		<label for="avatar">Vasa slika</label>
+		<label for="avatar">Vaša slika</label>
 		<input class="form-control" type="file" name="image" id="image">
 	</div>
 
 	<div class="form-group">	
-		<label>Sadrzaj</label>
+		<label>Sadržaj</label>
 		<textarea  class="form-control" name="content">{{ $article->content }}</textarea>
 	</div>
 
 	<div class="form-group">	
-		<input class="btn btn-warning" type="submit" value="Sacuvaj"/>
+		<input class="btn btn-warning" type="submit" value="Sačuvaj"/>
 	</div>
 
 </form>

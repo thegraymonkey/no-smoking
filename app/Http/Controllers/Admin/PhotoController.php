@@ -38,7 +38,7 @@ class PhotoController extends Controller {
 
 				$photo->delete();
 
-				return redirect($redirectTo)->with('message', 'Slika obrisan!');
+				return redirect($redirectTo)->with('message', 'Slika obrisana!');
 			}
 			
 			else

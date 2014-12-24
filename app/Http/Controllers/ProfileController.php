@@ -45,7 +45,9 @@ class ProfileController extends Controller {
 		
 		$profile = Auth::user()->profile;
 
-		return view('profiles.show', compact('profile'));
+		$messages = Message::where('profile_id', $profile->getKey())->paginate(5);
+
+		return view('profiles.show', compact('profile', 'messages'));
 	}
 	
 	

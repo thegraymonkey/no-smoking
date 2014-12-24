@@ -48,7 +48,7 @@
 				<input type="hidden" name="thread_id" value="{{ $thread->id }}">
 				<input type="hidden" name="_method" value="delete">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="submit" value="obrisi" class="btn btn-xs btn-danger">
+				<input type="submit" value="obriši" class="btn btn-xs btn-danger">
 			</form>
 			@endif
 		</td>
@@ -61,7 +61,7 @@
 
 	@endforeach
 	</table>
-
+	@include('common.messages')
 	<div class="well">
 	@include('replies.create', $thread)
 	</div>

@@ -62,7 +62,7 @@ class ArticleController extends Controller {
 
 			$article->save();
 
-			return redirect('admin.articles')->with('message', 'Post Created!');
+			return redirect('admin.articles')->with('message', 'Članak snimljen!');
 		}	
 
 		return redirect('admin.articles')->withErrors($validation);
@@ -79,12 +79,12 @@ class ArticleController extends Controller {
 
 				$article->delete();
 
-				return redirect($redirectTo)->with('message', 'Clanak obrisan!');
+				return redirect($redirectTo)->with('message', 'Članak obrisan!');
 			}
 			
 			else
 			{
-				return redirect($redirectTo)->with('message', 'Clanak ne postoji!');
+				return redirect($redirectTo)->with('message', 'Članak ne postoji!');
 			}
 		}
 

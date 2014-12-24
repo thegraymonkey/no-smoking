@@ -4,8 +4,8 @@
 @section('intro')
   
     @include('common.intro', [
-    'intro_title' => 'Zelite da kontaktirate urednike sajta?',
-    'intro_subtitle' => 'Samo napred, mi uvazavamo vase misljenje i zelimo da cujemo vase sugestije.'  
+    'intro_title' => 'Želite da kontaktirate urednike sajta?',
+    'intro_subtitle' => 'Samo napred, mi uvažavamo vaše mišljenje i želimo da čujemo vaše sugestije.'  
   ])
   
 @stop
@@ -37,7 +37,7 @@
     </div>
     
     <div class="form-group">
-    <button type="submit" class="btn btn-primary">Posalji</button>
+    <button type="submit" class="btn btn-primary">Pošalji</button>
     </div>
 
   </form>

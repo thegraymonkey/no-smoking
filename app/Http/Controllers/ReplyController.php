@@ -40,7 +40,7 @@ class ReplyController extends Controller {
 			$reply->save();
 			
 			$url = route('threads.show', [$input['thread_id']]);
-			return redirect($url)->with('message', 'Reply Posted!');
+			return redirect($url)->with('message', 'Odgovor poslat!');
 		}
 
 		$url = route('threads.show', [$input['thread_id']]);
@@ -59,16 +59,16 @@ class ReplyController extends Controller {
 			{
 				$reply->delete();
 
-				return redirect($redirectTo)->with('message', 'Reply deleted!');
+				return redirect($redirectTo)->with('message', 'Odgovor obrisan!');
 			}
 			else
 			{
-				return redirect($redirectTo)->with('message', 'You dont have right to delete this Reply!');
+				return redirect($redirectTo)->with('message', 'Nemate prava da obrišete ovaj odgovor!');
 			}
 		}
 		else
 		{
-			return redirect($redirectTo)->with('message', 'Reply does not exist!');
+			return redirect($redirectTo)->with('message', 'Odgovor ne postoji!');
 		}
 	}
 
@@ -101,10 +101,10 @@ class ReplyController extends Controller {
 				$reply->fill($input);
 				$reply->save();
 
-				return redirect($redirectTo)->withMessage('Reply updated!');
+				return redirect($redirectTo)->withMessage('Odgovor izmenjen!');
 			}
 			
-			return redirect($redirectTo)->withMessage('You don\'t have right to do that!');
+			return redirect($redirectTo)->withMessage('Nemate prava da menjate taj odgovor!');
 		}
 
 		return redirect($redirectTo)->withErrors($validation);

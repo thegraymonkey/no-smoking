@@ -1,6 +1,6 @@
 @if(!Auth::check())
 
-<p class="alert alert-info">To add photo you need to be logged in. Click <a href="{{ url('auth/login') }}">here</a> to login!</p>
+<p class="alert alert-info">Da bi dodali sliku morate biti prijavljeni. Kliknite <a href="{{ url('auth/login') }}">ovde</a> za prijavu!</p>
 
 @else
 
@@ -11,7 +11,7 @@
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		
 	<div class="form-group">	
-		<label for="avatar">Vasa slika</label>
+		<label for="avatar">Vaša slika</label>
 		<input class="form-control" type="file" name="image" id="image">
 	</div>
 	<div class="form-group">

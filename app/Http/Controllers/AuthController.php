@@ -89,7 +89,7 @@ class AuthController extends Controller {
 		}
 
 		return redirect('/auth/login')->withErrors([
-			'email' => 'These credentials do not match our records.',
+			'email' => 'Podaci koje ste uneli su pogrešni.',
 		]);
 	}
 

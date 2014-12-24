@@ -43,7 +43,7 @@ class ContactController extends Controller {
 				$message->to('thegraymonkey@gmail.com', 'Admin')->subject($subject);
 			});
 
-			return redirect('/')->with('message', 'Your message has been sent. Thank You!');
+			return redirect('/')->with('message', 'Vaša poruka je poslata. Hvala!');
 		}
 
 		return redirect('contacts/show')->withErrors($validation);

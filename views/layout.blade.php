@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Zabranjeno Pusenje</title>
+    <title>Zabranjeno Pušenje</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +50,7 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li @if($current_page === 'home.index')class="active"@endif><a href="{{ url('feed') }}">Pocetna</a></li>            
+					<li @if($current_page === 'home.index')class="active"@endif><a href="{{ url('feed') }}">Početna</a></li>            
 					<li @if($current_page === 'articles.index')class="active"@endif><a href="{{ url('articles') }}">Info</a></li>            
 					<li @if($current_page === 'photos.index')class="active"@endif><a href="{{ url('photos/index') }}">Galerija</a></li>
 					<li @if($current_page === 'forums.index')class="active"@endif><a href="{{ url('forums')}}">Forum</a></li>
@@ -100,7 +100,7 @@
 
 	<footer>
       <div class="container">
-        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p class="pull-right"><a href="#">Početak strane</a></p>
         <h5 class="text-muted">Powered by <a href="#">TheGrayMonkey</a></h5>
       </div>
     </footer>

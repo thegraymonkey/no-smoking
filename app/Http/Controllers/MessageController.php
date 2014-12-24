@@ -11,19 +11,8 @@ use App\Profile;
 
 class MessageController extends Controller {
 
-	public function __construct()
-	{
-		parent:: __construct();
-		
-		$this->middleware('auth', ['only' => 'store']);
-	}
-
-	public function index()
-	{
-		$messages = Message::orderBy('created_at', 'desc')->paginate(3);
-
-		return view('messages.index', ['messages' => $messages]);
-	}
+	
+	
 
 	public function create()
 	{
@@ -55,7 +44,7 @@ class MessageController extends Controller {
 
 				$url = url('profile/public/' . $profile->user->username);
 
-				return redirect($url)->with('message', 'Poruka Poslata!');				
+				return redirect($url)->with('message', 'Poruka poslata!');				
 			}
 
 			App::abort(400);
@@ -83,12 +72,12 @@ class MessageController extends Controller {
 				$message->delete();
 
 				
-				return redirect($url)->with('message', 'Poruka Obrisana!');	
+				return redirect($url)->with('message', 'Poruka obrisana!');	
 			}
 			else
 			{
 				
-				return redirect($url)->with('message', 'Nemate prava da obrisete ovu poruku!');
+				return redirect($url)->with('message', 'Nemate prava da obrišete ovu poruku!');
 			}
 		}
 		else

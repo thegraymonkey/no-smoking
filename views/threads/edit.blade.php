@@ -4,7 +4,7 @@
 	
 		@include('common.intro', [
 		'intro_title' => 'Izmenite svoju temu.',
-		'intro_subtitle' => 'Greske se desavaju svima i mozete lako izmeniti svoju temu. Nazalost temu i sadrzaj ne mozete menjati ako se neko ve ukljucio u diskusiju.'  
+		'intro_subtitle' => 'Greške se dešavaju svima, možete lako izmeniti svoju temu. Nažalost temu i sadržaj ne možete menjati ako se neko već uključio u diskusiju.'  
 	])
 	
 @stop
@@ -25,7 +25,7 @@
 	</div>
 
 	<div class="form-group">	
-		<label>Sadrzaj</label>
+		<label>Sadržaj</label>
 		<textarea  class="form-control" name="content">{{ $thread->content }}</textarea>
 	</div>
 

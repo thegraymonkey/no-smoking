@@ -23,7 +23,7 @@
 				<input type="hidden" name="profile_id" value="{{ $profile->user->id }}">
 				<input type="hidden" name="_method" value="delete">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="submit" value="obrisi" class="btn btn-xs btn-danger">
+				<input type="submit" value="obriši" class="btn btn-xs btn-danger">
 			</form>
 			@endif
 		</td>
@@ -37,7 +37,7 @@
 
 @else
 
-<h2>No profile no messages :)</h2>
+<h2>Nema profila nema poruka :)</h2>
 
 @endif
 

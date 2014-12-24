@@ -3,7 +3,7 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Admin gallery.',
+		'intro_title' => 'Admin galerija.',
 		'intro_subtitle' => ''  
 	])
 	
@@ -18,7 +18,7 @@
         	
         	<img src="{{ url($photo->getPath('thumb')) }}"/>
         		<form action="{{ route('admin.photos.destroy', [$photo->id]) }}" method="post">
-					<input type="hidden" name="_method" value="delete">
+					<input type="hidden" name="_method" value="obriši">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 					<input type="submit" value="delete" class="btn btn-xs btn-danger">
 				</form>

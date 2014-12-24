@@ -55,7 +55,7 @@ class ThreadController extends Controller {
 			
 			$url = route('forums.show', [$input['forum_id']]);
 
-			return redirect($url)->with('message', 'Post Created!');
+			return redirect($url)->with('message', 'Tema kreirana!');
 		}
 
 		$url = route('forums.show', [$input['forum_id']]);
@@ -75,16 +75,16 @@ class ThreadController extends Controller {
 			{
 				$thread->delete();
 
-				return redirect($redirectTo)->with('message', 'Thread deleted!');
+				return redirect($redirectTo)->with('message', 'Tema obrisana!');
 			}
 			else
 			{
-				return redirect($redirectTo)->with('message', 'You dont have right to delete this Thread!');
+				return redirect($redirectTo)->with('message', 'Nemate prava da obrišete ovu temu!');
 			}
 		}
 		else
 		{
-			return redirect($redirectTo)->with('message', 'Thread does not exist!');
+			return redirect($redirectTo)->with('message', 'Tema ne postoji!');
 		}
 	}
 
@@ -119,10 +119,10 @@ class ThreadController extends Controller {
 				$thread->content = strip_tags($input['content'], '<a><p><b>');
 				$thread->save();
 
-				return redirect($redirectTo)->withMessage('Thread updated!');
+				return redirect($redirectTo)->withMessage('Tema izmenjena!');
 			}
 			
-			return redirect($redirectTo)->withMessage('You don\'t have right to do that!');
+			return redirect($redirectTo)->withMessage('Nemate prava da menjate ovu temu!');
 		}
 
 		return redirect($redirectTo)->withErrors($validation);

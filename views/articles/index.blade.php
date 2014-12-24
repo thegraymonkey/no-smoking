@@ -4,7 +4,7 @@
 	
 		@include('common.intro', [
 		'intro_title' => 'Info strana',
-		'intro_subtitle' => 'Clanci o pusenju, ostavljanu cigareta i stetnosti istih.'  
+		'intro_subtitle' => 'Članci o pušenju, ostavljanju cigareta i štetnosti istih.'  
 	])
 	
 @stop
@@ -14,7 +14,7 @@
 @section('content')
 
 @if(Auth::check() and Auth::user()->isAdmin())
-	<p class="alert alert-info">If you see this you are the Administrator. Click <a href="{{ route('admin.articles.index') }}">here</a> to delete, edit or add new article!</p>
+	<p class="alert alert-info">Ako vidite ovo vi ste Administrator. Kliknite <a href="{{ route('admin.articles.index') }}">ovde</a> da bi obrisali, izmenili ili dodali novi članak!</p>
 @endif
 
 @foreach ($articles as $article)

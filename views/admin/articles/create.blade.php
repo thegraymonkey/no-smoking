@@ -5,18 +5,18 @@
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">	
 
 	<div class="form-group">
-		<p><label>Novi clanak</label></p>
+		<p><label>Novi članak</label></p>
 		<label>Naslov</label>
 		<textarea  class="form-control" name="title"></textarea>
 	</div>
 
 	<div class="form-group">	
-		<label for="photo">Vasa slika</label>
+		<label for="photo">Vaša slika</label>
 		<input class="form-control" type="file" name="photo" id="photo">
 	</div>
 
 	<div class="form-group">
-		<label>Sadrzaj</label>
+		<label>Sadržaj</label>
 		<textarea  class="form-control" name="content"></textarea>
 	</div>
 

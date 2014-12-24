@@ -4,7 +4,7 @@
 	
 		@include('common.intro', [
 		'intro_title' => 'Registrujte se!',
-		'intro_subtitle' => 'Registracija je brza i laka. Neka ona bude vas prvi korak ka oslobodjenju. Registrujte se i postanite deo aktivne zajednice kako bi pomogli i sebi i drugima da ta ruzna navika postane proslost.'  
+		'intro_subtitle' => 'Registracija je brza i laka. Neka ona bude vaš prvi korak ka oslobođenju. Registrujte se i postanite deo aktivne zajednice kako bi pomogli i sebi i drugima da ta ružna navika postane prošlost.'  
 	])
 	
 @stop
@@ -13,7 +13,7 @@
 
 @include('common.messages')
 
-<strong><p>Uloguj se <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili:</p></strong>
+<strong><p>Registruj se <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili:</p></strong>
 
 
 <div class="well">
@@ -26,13 +26,13 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Korisnicko ime</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">Korisničko ime</label>
     <div class="col-sm-10">
       <input type="username" class="form-control" id="inputPassword3" placeholder="Korisnicko ime" name="username" required>
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Sifra</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">Šifra</label>
     <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword3" placeholder="Sifra" name="password" required>
     </div>

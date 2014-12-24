@@ -18,7 +18,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Dobrodosli.</h1>
-              <p>Pusite i dalje? Prestali ste da pusite ili zelite da prestanete? Treba vam podrska i savet? .</p>
+              <p>Pušite i dalje? Prestali ste da pušite ili želite da prestanete? Treba vam podrška i savet? .</p>
               <p>Na pravom ste mestu!</p>
               <p><a class="btn btn-lg btn-primary" href="{{ url('auth/register') }}" role="button">Registruj se</a></p>
             </div>
@@ -28,9 +28,9 @@
           <img src="/images/welcome2.jpg" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Pusenje ubija!</h1>
-              <p>Sve informacije o tome koliko je pusenje stetno i o tome da ne postoji ni jedan jedini razlog da ikada vise zapalite cigaretu.</p>
-              <p><a class="btn btn-lg btn-primary" href="{{ url('articles') }}" role="button">Saznaj vise</a></p>
+              <h1>Pušenje ubija!</h1>
+              <p>Sve informacije o tome koliko je pušenje štetno i o tome da ne postoji ni jedan jedini razlog da ikada više zapalite cigaretu.</p>
+              <p><a class="btn btn-lg btn-primary" href="{{ url('articles') }}" role="button">Saznaj više</a></p>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
           <div class="container">
             <div class="carousel-caption">
               <h1>Forum.</h1>
-              <p>Razne diskusije koje za temu imaju pusenje i ostavljenje cigareta. Procitajte savete, iskustva i podelite svoju borbu sa drugima.</p>
+              <p>Razne diskusije koje za temu imaju pušenje i ostavljanje cigareta. Pročitajte savete, iskustva i podelite svoju borbu sa drugima.</p>
               <p><a class="btn btn-lg btn-primary" href="{{ url('forums') }}" role="button">Prelistaj forum</a></p>
             </div>
           </div>
@@ -74,13 +74,13 @@
           <img class="img-circle" src="/images/heading2.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
           <h2>Poslednja tema na forumu</h2>
           <p><strong>{{ $last_thread->title }}</strong></br>{{ \Illuminate\Support\Str::limit($last_thread->content, 100) }}</p>
-          <p><a class="btn btn-default" href="{{ route('threads.show', [$last_thread->id]) }}" role="button">Procitaj &raquo;</a></p>
+          <p><a class="btn btn-default" href="{{ route('threads.show', [$last_thread->id]) }}" role="button">Pročitaj &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="/images/heading3.jpg" alt="Generic placeholder image" style="width: 140px; height: 140px;">
           <h2>Kontakt</h2>
-          <p>Samo napred, mi uvazavamo vase misljenje i zelimo da cujemo vase sugestije. </br> Brzo i lako.</p>
-          <p><a class="btn btn-default" href="{{ url('contacts/show') }}" role="button">Pisi nam &raquo;</a></p>
+          <p>Samo napred, mi uvažavamo vaše mišljenje i želimo da čujemo vaše sugestije. </br> Brzo i lako.</p>
+          <p><a class="btn btn-default" href="{{ url('contacts/show') }}" role="button">Piši nam &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 

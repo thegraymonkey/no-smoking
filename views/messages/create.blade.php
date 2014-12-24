@@ -1,6 +1,6 @@
 @if(!Auth::check())
 
-<p class="alert alert-info">Da bi ostavili poruku morate biti ulogovani. Kliknite <a href="{{ url('auth/login') }}">ovde</a> za ulazak!</p>
+<p class="alert alert-info">Da bi ostavili poruku morate biti prijavljeni. Kliknite <a href="{{ url('auth/login') }}">ovde</a> za ulazak!</p>
 
 @else
 
@@ -17,7 +17,7 @@
 	</div>
 
 	<div class="form-group">
-		<input class="btn btn-primary" type="submit" value="Posalji"/>
+		<input class="btn btn-primary" type="submit" value="Pošalji"/>
 	</div>
 
 </form>

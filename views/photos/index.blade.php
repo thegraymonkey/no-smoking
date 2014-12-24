@@ -12,7 +12,7 @@
 @section('content')
 
 @if(Auth::check() and Auth::user()->isAdmin())
-	<p class="alert alert-info">If you see this you are the Administrator. Click <a href="{{ route('admin.photos.index') }}">here</a> to delete photo!</p>
+	<p class="alert alert-info">Ako vidite ovo vi ste Administrator. Kliknite <a href="{{ route('admin.photos.index') }}">ovde</a> da bi obrisali sliku!</p>
 @endif
 
 <div class="well">

@@ -42,13 +42,13 @@
 	<div class="row" style="margin: 10px 0 50px 0">
 		<div class="col-md-1">
 			<form action="{{ route('admin.articles.destroy', [$article->id]) }}" method="post">
-				<input type="hidden" name="_method" value="delete">
+				<input type="hidden" name="_method" value="obriši">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="submit" value="delete" class="btn btn-xs btn-danger">
 			</form>
 		</div>
 		<div class="col-md-1">
-			<a class="btn btn-xs btn-warning" href="{{ route('admin.articles.edit', [$article->id]) }}">edit</a>
+			<a class="btn btn-xs btn-warning" href="{{ route('admin.articles.edit', [$article->id]) }}">izmeni</a>
 		</div>	
 	</div>
 	<hr class="featurette-divider">

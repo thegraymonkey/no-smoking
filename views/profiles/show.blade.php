@@ -3,8 +3,8 @@
 
 @section('intro')
 	@include('common.intro', [
-		'intro_title' => 'Vas Profil',
-		'intro_subtitle' => 'Podesite svoj profil i uzivajte u statistici i podacima koji ce vas hrabriti svaki dan vase borbe.'  
+		'intro_title' => 'Vaš Profil',
+		'intro_subtitle' => 'Podesite svoj profil i uživajte u statistici i podacima koji će vas hrabriti svaki dan vaše borbe.'  
 	])	
 @stop
 
@@ -14,10 +14,10 @@
 
 @if($profile)
 	{{-- PROFILE EXISTS --}}
-	<strong><p>Datum kad ste poceli da pusite:</strong> {{ $profile->start_date }}</p>
-	<strong><p>Dan kad ste prestali da pusite:</strong> {{ $profile->quit_date }}</p>
-	<strong><p>Dnevno potroseno novca na cigarete:</strong> {{ $profile->daily_expense }} dinara</p>
-	<strong><p>Dnevno popuseno cigareta:</strong> {{ $profile->daily_amount }} cigareta</p>
+	<strong><p>Datum kad ste poceli da pušite:</strong> {{ $profile->start_date }}</p>
+	<strong><p>Dan kad ste prestali da pušite:</strong> {{ $profile->quit_date }}</p>
+	<strong><p>Dnevno potrošeno novca na cigarete:</strong> {{ $profile->daily_expense }} dinara</p>
+	<strong><p>Dnevno popušeno cigareta:</strong> {{ $profile->daily_amount }} cigareta</p>
 
 
 <hr class="featurette-divider">
@@ -37,12 +37,12 @@
 	@else
 	<div class="progress">
   		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    		<span>100% -- Svaka Cast! Uspeli ste!</span>
+    		<span>100% -- Svaka Čast! Uspeli ste!</span>
   		</div>
 	</div>
 	@endif
 
-	<label>2 dana -- Smanjuje se rizik od srcanog udara </label>
+	<label>2 dana -- Smanjuje se rizik od srčanog udara </label>
  	@if(Auth::user()->profile->non_smoke_two_days < 100)	
 	<div class="progress">
 	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_two_days }}%">
@@ -52,7 +52,7 @@
 	@else
 	<div class="progress">
   		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    		<span>100% -- Svaka Cast! Uspeli ste!</span>
+    		<span>100% -- Svaka Čast! Uspeli ste!</span>
   		</div>
 	</div>
 	@endif
@@ -67,12 +67,12 @@
 	@else
 	<div class="progress">
   		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    		<span>100% -- Svaka Cast! Uspeli ste!</span>
+    		<span>100% -- Svaka Ćast! Uspeli ste!</span>
   		</div>
 	</div>
 	@endif
 
-	<label>10 dana -- Nestanak fizicke zavisnosti </label>
+	<label>10 dana -- Nestanak fizičke zavisnosti </label>
  	@if(Auth::user()->profile->non_smoke_ten_days < 100)	
 	<div class="progress">
 	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_ten_days }}%">
@@ -82,7 +82,7 @@
 	@else
 	<div class="progress">
   		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    		<span>100% -- Svaka Cast! Uspeli ste!</span>
+    		<span>100% -- Svaka Čast! Uspeli ste!</span>
   		</div>
 	</div>
 	@endif
@@ -97,12 +97,12 @@
 	@else
 	<div class="progress">
   		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    		<span>100% -- Svaka Cast! Uspeli ste!</span>
+    		<span>100% -- Svaka Čast! Uspeli ste!</span>
   		</div>
 	</div>
 	@endif
 
-	<label>3 meseca -- pluca otpornija na infekcije </label>
+	<label>3 meseca -- pluća otpornija na infekcije </label>
  	@if(Auth::user()->profile->non_smoke_three_month < 100)	
 	<div class="progress">
 	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_three_month }}%">
@@ -112,12 +112,12 @@
 	@else
 	<div class="progress">
   		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    		<span>100% -- Svaka Cast! Uspeli ste!</span>
+    		<span>100% -- Svaka Čast! Uspeli ste!</span>
   		</div>
 	</div>
 	@endif
 
-	<label>1 godina -- rizik od srcanog udara smanjen za 50%</label>
+	<label>1 godina -- rizik od srčanog udara smanjen za 50%</label>
  	@if(Auth::user()->profile->non_smoke_year < 100)	
 	<div class="progress">
 	  <div class="progress-bar progress-bar-striped active " role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: {{ Auth::user()->profile->non_smoke_year }}%">
@@ -127,7 +127,7 @@
 	@else
 	<div class="progress">
   		<div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
-    		<span>100% -- Svaka Cast! Uspeli ste!</span>
+    		<span>100% -- Svaka Čast! Uspeli ste!</span>
   		</div>
 	</div>
 	@endif
@@ -136,13 +136,20 @@
 	
 <hr class="featurette-divider">
 
+	<h2>Vaše poruke</h2>
+
+	@include('messages.index')
+
+
+<hr class="featurette-divider">
+
 
 	<h2>Izmenite svoj profil</h2>
 @else
 	{{-- PROFILE DOES NOT EXIST --}}
 	<h2>Napravite svoj profil</h2>
 @endif
-	@include('common.messages')
+	
 
 
 
@@ -152,7 +159,7 @@
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		
 		<div class="form-group">	
-		<label for="avatar">Vasa profil slika</label>
+		<label for="avatar">Vaša profil slika</label>
 			<input class="form-control" type="file" name="avatar" id="avatar">
 		
 			@if ($profile && $profile->avatar)
@@ -162,27 +169,27 @@
 		 		</div>
 				
 		<div class="form-group">	
-		<label for="start_date">Kada ste poceli da pusite?</label>
+		<label for="start_date">Kada ste počeli da pusite?</label>
 			<input date-picker-field class="form-control" data-date-format="yyyy-mm-dd" type="text" name="start_date" id="start_date" value="{{ isset($profile->start_date) ? $profile->start_date->format('Y-m-d') : '' }}" >
 		</div>
 
 		<div class="form-group">	
-    		<label for="checkbox">Da li ste prestali da pusite?</label>
+    		<label for="checkbox">Da li ste prestali da pušite?</label>
 	      		<input type="checkbox" name="quit" {{ (isset($profile) and $profile->quit == 1) ? 'checked' : '' }} value="1"> da!
   		</div>
 
 		<div class="form-group">		
-		<label for="quit_date">Kada ste prestali da pusite?</label>
+		<label for="quit_date">Kada ste prestali da pušite?</label>
 			<input date-picker-field class="form-control" data-date-format="yyyy-mm-dd" type="text" name="quit_date" id="quit_date" value="{{ isset($profile->quit_date) ? $profile->quit_date->format('Y-m-d') : '' }}" >
 		</div>
 
 		<div class="form-group">		
-		<label for="daily_expense">Koliko novca ste dnevno trosili na cigarete?</label>
+		<label for="daily_expense">Koliko novca ste dnevno trošili na cigarete?</label>
 			<input class="form-control" name="daily_expense" id="daily_expense" value="{{ isset($profile->daily_expense) ? $profile->daily_expense : '' }}" placeholder="dnevno potroseno novca" >
 		</div>
 
 		<div class="form-group">		
-		<label for="daily_amount">Koliko cigareta ste pusili dnevno?</label>
+		<label for="daily_amount">Koliko cigareta ste pušili dnevno?</label>
 			<input class="form-control" name="daily_amount" id="daily_amount" value="{{ isset($profile->daily_amount) ? $profile->daily_amount : '' }}" placeholder="dnevno popuseno cigareta" >
 		</div>
 
@@ -192,14 +199,14 @@
 		
 	</form>
 	</div>
-
+@include('common.messages')
 	<div class="well">
 	<form method="post" action="{{ url('user/update') }}">
 
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
 		<div class="form-group">		
-		<label for="username">Promenite korisnicko ime</label>
+		<label for="username">Promenite korisničko ime</label>
 			<input class="form-control" type="text" name="username" id="username" value="{{ isset($profile) ? $profile->user->username : '' }}">
 		</div>
 
@@ -210,11 +217,9 @@
 	</form>
 	</div>
 
-	<hr class="featurette-divider">
+	
 
-	<h2>Vase poruke</h2>
-
-	@include('messages.index')
+	
 	
 @stop
 

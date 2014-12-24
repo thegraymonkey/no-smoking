@@ -38,7 +38,7 @@ class PostController extends Controller {
 
 			$post->save();
 
-			return redirect('/feed')->with('message', 'Post Created!');
+			return redirect('/feed')->with('message', 'Post snimljen!');
 		}	
 
 		return redirect('/feed')->withErrors($validation);
@@ -52,16 +52,16 @@ class PostController extends Controller {
 			{
 				$post->delete();
 
-				return redirect('/feed')->with('message', 'Post deleted!');
+				return redirect('/feed')->with('message', 'Post obrisan!');
 			}
 			else
 			{
-				return redirect('/feed')->with('message', 'You dont have right to delete this post!');
+				return redirect('/feed')->with('message', 'Nemate prava da obrisete ovaj post!');
 			}
 		}
 		else
 		{
-			return redirect('/feed')->with('message', 'Post does not exist!');
+			return redirect('/feed')->with('message', 'Post ne postoji!');
 		}
 	}
 
@@ -118,10 +118,10 @@ class PostController extends Controller {
 			{
 				$post->fill($data);
 				$post->save();
-				return redirect('/feed')->withMessage('Post updated!');
+				return redirect('/feed')->withMessage('Post izmenjen!');
 			}
 			
-			return redirect('/feed')->withMessage('You don\'t have right to do that!');
+			return redirect('/feed')->withMessage('Nemate prava da to menjate!');
 		}
 
 		return redirect('/feed')->withErrors($validation);

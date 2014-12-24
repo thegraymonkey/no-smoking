@@ -3,8 +3,8 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Ulogujte se!',
-		'intro_subtitle' => 'Da bi koristili sve prednosti sajta i aktivno ucestvovali u vesem putu ka oslobodjenu od opake zavisnosti.'  
+		'intro_title' => 'Prijavite se!',
+		'intro_subtitle' => 'Da bi koristili sve prednosti sajta i aktivno učestvovali u vešem putu ka oslobođenju od opake zavisnosti.'  
 	])
 	
 @stop
@@ -14,7 +14,7 @@
 @include('common.messages')
 
 
-<strong><p>Uloguj se <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili:</p></strong>
+<strong><p>Prijavi se <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili:</p></strong>
 
 <div class="well">
 
@@ -29,7 +29,7 @@
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Sifra</label>
+    <label for="inputPassword3" class="col-sm-2 control-label">Šifra</label>
     <div class="col-sm-10">
       <input type="password" class="form-control" id="inputPassword3" placeholder="Sifra" name="password" required>
     </div>

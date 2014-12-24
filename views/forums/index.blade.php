@@ -3,8 +3,8 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Zabranjeno-pusenje Forum',
-		'intro_subtitle' => 'Kreirajte temu u omiljenoj sekciji foruma i zapocnite diskusiju, podelite svoja osecanja i frustracije... Podrzite druge i nadjite podrsku.'  
+		'intro_title' => 'Zabranjeno-pušenje Forum',
+		'intro_subtitle' => 'Kreirajte temu u omiljenoj sekciji foruma i započnite diskusiju, podelite svoja osećanja i frustracije... Podržite druge i nađite podršku.'  
 	])
 	
 @stop
@@ -17,7 +17,7 @@
 
 <table class="table table-striped table-hover" >
 	<th>sekcija foruma</th>
-	<th>broj zapocetih tema:</th>
+	<th>broj započetih tema:</th>
 	<th>poslednja aktivnost</th>
 	@foreach($forums as $forum)
 	<tr>

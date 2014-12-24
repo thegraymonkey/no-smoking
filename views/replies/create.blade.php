@@ -1,10 +1,10 @@
 @if(!Auth::check())
 
-<p class="alert alert-info">To add reply you need to be logged in. Click <a href="{{ url('auth/login') }}">here</a> to login!</p>
+<p class="alert alert-info">Da bi poslali odgovor morate biti prijavljeni. Kliknite <a href="{{ url('auth/login') }}">ovde</a> za prijavu!</p>
 
 @else
 
-@include('common.messages')
+
 
 <form method="POST" action="{{ route('replies.store') }}">
 	

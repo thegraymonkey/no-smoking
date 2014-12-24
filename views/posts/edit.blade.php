@@ -4,7 +4,7 @@
 	
 		@include('common.intro', [
 		'intro_title' => 'Izmenite svoj post.',
-		'intro_subtitle' => 'Greske se desavaju svima i mozete lako izmeniti svoj post...'  
+		'intro_subtitle' => 'Greške se dešavaju svima i mozete lako izmeniti svoj post...'  
 	])
 	
 @stop
@@ -24,7 +24,7 @@
 	</div>
 
 	<div class="form-group">
-	<input class="btn btn-warning" type="submit" value="Sacuvaj izmene"/>
+	<input class="btn btn-warning" type="submit" value="Sačuvaj izmene"/>
 	</div>
 
 </form>

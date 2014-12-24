@@ -1,6 +1,6 @@
 @if(!Auth::check())
 
-<p class="alert alert-info">To add start a topic you need to be logged in. Click <a href="{{ url('auth/login') }}">here</a> to login!</p>
+<p class="alert alert-info">Da bi započeli temu morate biti prijavljeni. Kliknite <a href="{{ url('auth/login') }}">ovde</a> za prijavu!</p>
 
 @else
 
@@ -18,12 +18,12 @@
 	</div>
 
 	<div class="form-group">
-		<label>Sadrzaj</label>
+		<label>Sadržaj</label>
 		<textarea  class="form-control" name="content"></textarea>
 	</div>
 
 	<div class="form-group">
-		<input class="btn btn-primary" type="submit" value="Zapocni temu"/>
+		<input class="btn btn-primary" type="submit" value="Započni temu"/>
 	</div>
 
 </form>
