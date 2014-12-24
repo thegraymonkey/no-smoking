@@ -30,7 +30,7 @@
 	</div>
 
 	<div class="form-group">	
-		<input class="btn btn-warning" type="submit" value="Sacuvaj"/>
+		<input class="btn btn-warning" type="submit" value="Sačuvaj izmene"/>
 	</div>
 
 </form>

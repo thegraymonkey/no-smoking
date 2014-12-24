@@ -31,7 +31,7 @@
   <div class="form-group">
     <label for="inputPassword3" class="col-sm-2 control-label">Šifra</label>
     <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Sifra" name="password" required>
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Šifra" name="password" required>
     </div>
   </div>
   <div class="form-group">

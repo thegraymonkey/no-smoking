@@ -4,7 +4,7 @@
 
 @else
 
-
+<div class="well">
 
 <form method="POST" action="{{ route('messages.store') }}">
 	
@@ -21,5 +21,7 @@
 	</div>
 
 </form>
+
+</div>
 
 @endif

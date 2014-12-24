@@ -15,6 +15,7 @@
 
 @section('content')
 
+@include('common.messages')
 
 
 	<table class="table table-hover table-striped">
@@ -37,7 +38,7 @@
 				<input type="hidden" name="forum_id" value="{{ $forum->id }}">
 				<input type="hidden" name="_method" value="delete">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
-				<input type="submit" value="obrisi" class="btn btn-xs btn-danger">
+				<input type="submit" value="obriši" class="btn btn-xs btn-danger">
 			</form>
 			@endif
 		</td>
@@ -49,9 +50,9 @@
 	@endforeach
 </table>
 
-<div class="well">
+
 @include('threads.create')
-</div>
+
 
 @stop
 

@@ -4,8 +4,7 @@
 
 @else
 
-@include('common.messages')
-
+<div class="well">
 <form method="POST" action="{{ route('threads.store') }}">
 		
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">	
@@ -27,5 +26,5 @@
 	</div>
 
 </form>
-
+</div>
 @endif

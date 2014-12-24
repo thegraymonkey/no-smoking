@@ -65,12 +65,9 @@ class MessageController extends Controller {
 
 			$url = url('profile/public/' . $message->profile->user->username);
 
-			if ($message->profile_id === Auth::user()->profile->id || Auth::user()->isAdmin() || $message->user_id === Auth::user()->id)
-			{
-				
-
+			if($message->isDeletable(Auth::user()))
+			{				
 				$message->delete();
-
 				
 				return redirect($url)->with('message', 'Poruka obrisana!');	
 			}

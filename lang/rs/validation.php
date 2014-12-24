@@ -108,6 +108,9 @@ return [
 					 'message' => 'Poruka',
 					 'description' => 'Opis',
 					 'image' => 'Slika',
-					 'content' => 'Sadržaj']
+					 'content' => 'Sadržaj',
+					 'topic' => 'Tema',
+					 'title' => 'Naslov',
+					 'reply' => 'Odgovor']
 
 ];

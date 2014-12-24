@@ -19,14 +19,30 @@
 	<th>sekcija foruma</th>
 	<th>broj započetih tema:</th>
 	<th>poslednja aktivnost</th>
+	<th></th>
+	<th></th>
 	@foreach($forums as $forum)
 	<tr>
 		<td><a href="{{ route('forums.show', [$forum->id]) }}">{{ $forum->topic }}</a></td>
 		<td>{{ $forum->threads->count() }}</td>
 		<td>{{ $forum->last_activity ? $forum->last_activity->diffForHumans() : null }}</td>
+		<td>@if(Auth::user()->isAdmin())
+			<form action="{{ route('forums.destroy', [$forum->id]) }}" method="post">
+				<input type="hidden" name="_method" value="delete">
+				<input type="hidden" name="_token" value="{{ csrf_token() }}">
+				<input type="submit" value="obriši" class="btn btn-xs btn-danger">
+			</form>
+			@endif
+		</td>
+		<td>@if(Auth::user()->isAdmin())
+			<a class="btn btn-xs btn-warning" href="{{ route('forums.edit', [$forum->id]) }}">izmeni</a>
+			@endif
+		</td>
 	</tr>
 	@endforeach
 </table>
+
+@include('forums.create')
 
 @stop
 

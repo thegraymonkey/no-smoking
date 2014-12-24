@@ -31,7 +31,7 @@ $router->controllers([
 ]);
 
 
-$router->resource('forums', 'ForumController', ['only' => ['index', 'show']]);
+$router->resource('forums', 'ForumController', ['only' => ['index', 'show', 'create', 'store', 'destroy', 'edit', 'update' ]]);
 $router->resource('threads', 'ThreadController', ['only' => ['show', 'create', 'store','destroy', 'edit', 'update']]);
 $router->resource('replies', 'ReplyController', ['only' => ['create', 'store', 'destroy', 'edit', 'update']]);
 $router->controller('contacts', 'ContactController');
