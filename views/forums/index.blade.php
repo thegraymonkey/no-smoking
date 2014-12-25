@@ -26,7 +26,7 @@
 		<td><a href="{{ route('forums.show', [$forum->id]) }}">{{ $forum->topic }}</a></td>
 		<td>{{ $forum->threads->count() }}</td>
 		<td>{{ $forum->last_activity ? $forum->last_activity->diffForHumans() : null }}</td>
-		<td>@if(Auth::user()->isAdmin())
+		<td>@if(Auth::check() and Auth::user()->isAdmin())
 			<form action="{{ route('forums.destroy', [$forum->id]) }}" method="post">
 				<input type="hidden" name="_method" value="delete">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -34,7 +34,7 @@
 			</form>
 			@endif
 		</td>
-		<td>@if(Auth::user()->isAdmin())
+		<td>@if(Auth::check() and Auth::user()->isAdmin())
 			<a class="btn btn-xs btn-warning" href="{{ route('forums.edit', [$forum->id]) }}">izmeni</a>
 			@endif
 		</td>

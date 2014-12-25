@@ -1,6 +1,6 @@
 @include('common.messages')
 
-@if(Auth::user()->isAdmin())
+@if(Auth::check() and Auth::user()->isAdmin())
 
 <div class="well">
 <form method="POST" action="{{ route('forums.store') }}">

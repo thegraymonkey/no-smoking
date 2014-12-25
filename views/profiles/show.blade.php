@@ -22,9 +22,11 @@
 
 	<hr class="featurette-divider">
 
-	<h2>Vaš napredak</h2>
+	
 	
 	@if(Auth::user()->profile->quit == 1)
+
+	<h2>Vaš napredak</h2>
 
 	@include('common.progress')
 
@@ -32,9 +34,11 @@
 	
 	<hr class="featurette-divider">
 
+	
 	<h2>Vaše poruke</h2>
 
 	@include('messages.index')
+
 
 	<hr class="featurette-divider">
 
