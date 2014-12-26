@@ -56,7 +56,7 @@
 				<div class="post-meta well">
 					<h1 class="small">{{ $post->link_title }}</h1>
 					<p>{{ $post->link_description }}</p>
-					<a href="{{ $post->link_url }}">link</a>
+					<a href="{{ $post->link_url }}" target="_blank">link</a>
 				</div>
 				@endif
 			</div>

@@ -47,18 +47,20 @@ class ForumController extends Controller {
 
 		if ($validation->passes())
 		{
-			$forum = new Forum;			
-			$forum->topic = $input['topic'];	
-			$forum->description = $input['description'];							
-			$forum->save();
+			if(Auth::user()->isAdmin())
+			{
+				$forum = new Forum;			
+				$forum->topic = $input['topic'];	
+				$forum->description = $input['description'];							
+				$forum->save();
 			
-			$url = route('forums.index');
+				$url = route('forums.index');
 
-			return redirect($url)->with('message', 'Nova sekcija foruma kreirana!');
+				return redirect($url)->with('message', 'Nova sekcija foruma kreirana!');
+			}
+			return redirect($url)->with('message', 'Nemate prava da kreirate novu sekciju foruma! Zatražite od Administratora da to uradi umesto vas.');
 		}
-
 		$url = route('forums.index');
-
 		return redirect($url)->withErrors($validation);
 	}
 	
@@ -89,7 +91,7 @@ class ForumController extends Controller {
 
 			$forum = Forum::find($id);
 			
-			if ($forum instanceof Forum)
+			if ($forum instanceof Forum || Auth::user()->isAdmin())
 			{
 				$forum->description = $input['description'];
 				$forum->topic = $input['topic'];
@@ -117,15 +119,9 @@ class ForumController extends Controller {
 
 				return redirect($redirectTo)->with('message', 'Sekcija foruma obrisana!');
 			}
-			else
-			{
 				return redirect($redirectTo)->with('message', 'Nemate prava da obrišete ovu sekciju foruma!');
-			}
-		}
-		else
-		{
-			return redirect($redirectTo)->with('message', 'Sekcija foruma ne postoji!');
-		}
+		}			
+			return redirect($redirectTo)->with('message', 'Sekcija foruma ne postoji!');		
 	}
 
 }

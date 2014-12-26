@@ -9,6 +9,7 @@ use Validator;
 use App\User;
 use App;
 use App\Message;
+use Redirect;
 
 class ProfileController extends Controller {
 
@@ -37,7 +38,7 @@ class ProfileController extends Controller {
 				return view('profiles.public_show', compact('profile', 'messages'));
 			}
 
-		App::abort(404);
+		return Redirect::back()->with('message', 'Korisnik nema profil!');
 	}
 
 	public function getShow()
@@ -71,40 +72,37 @@ class ProfileController extends Controller {
 
 			$avatar = Request::file('avatar');
 
-			if ($profile instanceof Profile)
-			{
-				if (data_get($input, 'quit') === null)
+				if ($profile instanceof Profile)
 				{
-					$input['quit'] = 0;
+					if (data_get($input, 'quit') === null)
+					{
+						$input['quit'] = 0;
+					}
+
+					$profile->fill($input);
+
+					$profile = $this->assignAvatar($profile, $avatar);
+
+					$profile->save();
+					return redirect('profile/show')->with('message', 'Profil izmenjen!');
 				}
+				else
+				{
+					$profile = new Profile;
+					$profile->fill($input);
+					$profile->user_id = Auth::user()->id;
 
-				$profile->fill($input);
-
-				$profile = $this->assignAvatar($profile, $avatar);
-
-				$profile->save();
-			}
-			else
-			{
-				$profile = new Profile;
-				$profile->fill($input);
-				$profile->user_id = Auth::user()->id;
-
-				$profile = $this->assignAvatar($profile, $avatar);
+					$profile = $this->assignAvatar($profile, $avatar);
 				
-				$profile->save();
-			}
-
-			return redirect('profile/show');
+					$profile->save();
+					return redirect('profile/show')->with('message', 'Profil kreiran!');
+				}
 		}
-
-		return redirect('profile/show')->withErrors($validation);
-
+			return redirect('profile/show')->withErrors($validation);		
 	}
 
 	protected function assignAvatar(Profile $profile, $file)
-	{
-		
+	{		
 		if ($file)
 		{
 			$ext = $file->getClientOriginalExtension();
@@ -127,8 +125,6 @@ class ProfileController extends Controller {
 			Image::make($file)->resize(50, null, function($c){ $c->aspectRatio(); })->crop(50, 50)->greyscale()->save($this->imageNameStyleGenerator($path, $filename, $ext, 'thumb-grayscale'));
 			
 		}
-
-
 		return $profile;
 	}
 
@@ -146,6 +142,4 @@ class ProfileController extends Controller {
 
 		return sprintf('%s%s-%s.%s', $path, $filename, $style, $ext);
 	}
-
-
 }

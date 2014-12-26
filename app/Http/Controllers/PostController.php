@@ -53,16 +53,10 @@ class PostController extends Controller {
 				$post->delete();
 
 				return redirect('/feed')->with('message', 'Post obrisan!');
-			}
-			else
-			{
-				return redirect('/feed')->with('message', 'Nemate prava da obrisete ovaj post!');
-			}
+			}						
+				return redirect('/feed')->with('message', 'Nemate prava da obrisete ovaj post!');		
 		}
-		else
-		{
-			return redirect('/feed')->with('message', 'Post ne postoji!');
-		}
+			return redirect('/feed')->with('message', 'Post ne postoji!');	
 	}
 
 	protected function parseContent(Post $post)

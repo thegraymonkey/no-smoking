@@ -12,7 +12,7 @@
 |
 */
 
-$router->get('feed', 'HomeController@index');
+$router->get('feed', ['as' => 'home', 'uses' => 'HomeController@index']);
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +29,7 @@ $router->controllers([
 	'auth' => 'AuthController',
 	'password' => 'PasswordController',
 ]);
+
 
 
 $router->resource('forums', 'ForumController', ['only' => ['index', 'show', 'create', 'store', 'destroy', 'edit', 'update' ]]);

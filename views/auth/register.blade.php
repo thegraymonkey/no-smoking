@@ -13,37 +13,42 @@
 
 @include('common.messages')
 
-<strong><p>Registruj se <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili:</p></strong>
+<!--<strong><p>Registruj se: <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili:</p></strong>-->
 
 
 <div class="well">
 <form class="form-horizontal" role="form" method="POST" action="{{ url('auth/register') }}">
   <div class="form-group">
   	<input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <label for="inputEmail3" class="col-sm-2 control-label">E-mejl adresa</label>
-    <div class="col-sm-10">
+    <label for="inputEmail3" class="col-sm-3 control-label">E-mejl adresa</label>
+    <div class="col-sm-9">
       <input type="email" class="form-control" id="inputEmail3" placeholder="E-mejl adresa" name="email" required autofocus>
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Korisničko ime</label>
-    <div class="col-sm-10">
-      <input type="username" class="form-control" id="inputPassword3" placeholder="Korisnicko ime" name="username" required>
+    <label for="inputPassword3" class="col-sm-3 control-label">Korisničko ime</label>
+    <div class="col-sm-9">
+      <input type="username" class="form-control" id="inputPassword3" placeholder="Korisničko ime" name="username" required>
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Šifra</label>
-    <div class="col-sm-10">
-      <input type="password" class="form-control" id="inputPassword3" placeholder="Sifra" name="password" required>
+    <label for="inputPassword3" class="col-sm-3 control-label">Šifra</label>
+    <div class="col-sm-9">
+      <input type="password" class="form-control" id="inputPassword3" placeholder="Šifra" name="password" required>
     </div>
   </div>
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-offset-3 col-sm-9">
       <button type="submit" class="btn btn-primary">Registruj me</button>
     </div>
   </div>
 </form>
 </div>
 
+@stop
+@section('sidebar')
+  
+    @include('common.sidebar')
+  
 @stop
 

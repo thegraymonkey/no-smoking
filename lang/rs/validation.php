@@ -111,6 +111,8 @@ return [
 					 'content' => 'Sadržaj',
 					 'topic' => 'Tema',
 					 'title' => 'Naslov',
-					 'reply' => 'Odgovor']
+					 'reply' => 'Odgovor',
+					 'daily_amount' => 'Dnevni iznos',
+					 'daily_expense' => 'Dnevni trošak']
 
 ];

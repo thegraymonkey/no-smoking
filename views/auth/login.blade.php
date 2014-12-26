@@ -14,7 +14,7 @@
 @include('common.messages')
 
 
-<strong><p>Prijavi se <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili:</p></strong>
+<!--<strong><p>Prijavi se:  <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili: </p></strong> -->
 
 <div class="well">
 
@@ -23,22 +23,32 @@
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
   <div class="form-group">
-    <label for="inputEmail3" class="col-sm-2 control-label">E-mejl adresa</label>
-    <div class="col-sm-10">
+    <label for="inputEmail3" class="col-sm-3 control-label">E-mejl adresa</label>
+    <div class="col-sm-9">
       <input type="email" class="form-control" id="inputEmail3" placeholder="E-mejl adresa" name="email" required autofocus>
     </div>
   </div>
   <div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">Šifra</label>
-    <div class="col-sm-10">
+    <label for="inputPassword3" class="col-sm-3 control-label">Šifra</label>
+    <div class="col-sm-9">
       <input type="password" class="form-control" id="inputPassword3" placeholder="Šifra" name="password" required>
     </div>
   </div>
+  <div class="form-group">  
+        <label for="checkbox" style="margin-left:225px">Zapamti me!</label>
+          <input type="checkbox" name="remember" value="1">
+      </div>
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-offset-3 col-sm-9">
       <button type="submit" class="btn btn-primary">Prijavi me</button>
     </div>
   </div>
 </form>
 </div>
+@stop
+
+@section('sidebar')
+  
+    @include('common.sidebar')
+  
 @stop

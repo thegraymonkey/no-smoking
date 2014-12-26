@@ -62,7 +62,7 @@ class AuthController extends Controller {
 		
 		$this->auth->login($user);
 
-		return redirect('/');
+		return Redirect::home();
 	}
 
 	/**
@@ -83,9 +83,14 @@ class AuthController extends Controller {
 	 */
 	public function postLogin(LoginRequest $request)
 	{
-		if ($this->auth->attempt($request->only('email', 'password')))
+		$credentials = $request->only('email', 'password');
+		$remember = $request->get('remember');
+
+		$attempt = $remember == 1 ? $this->auth->attempt($credentials, true) : $this->auth->attempt($credentials);
+
+		if ($attempt)
 		{
-			return Redirect::back();
+			return Redirect::home();
 		}
 
 		return redirect('/auth/login')->withErrors([
