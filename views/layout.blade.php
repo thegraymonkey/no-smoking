@@ -7,7 +7,7 @@
    	<meta property="og:title" content="Zabranjeno pušenje" />
 	<meta property="og:type" content="forum"/>
 	<meta property="og:description" content="Pušite i dalje? Prestali ste da pušite ili želite da prestanete? Treba vam podrška i savet? Na pravom ste mestu!"/>
-	<meta property="og:image" content="zabranjenopusenje.net/images/no-smoking1.png"/>
+	<meta property="og:image" content="http://zabranjenopusenje.net/images/no-smoking1.png"/>
     <link rel="icon" href="../../favicon.ico">
 
     <title>Zabranjeno Pušenje</title>
