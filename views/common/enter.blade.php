@@ -92,7 +92,7 @@
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">Kampanja Ministarstva Zdravlja. <span class="text-muted"></span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <p class="lead">Da li ministarstvo zdravlja i nadležne institucije ulažu dovoljno u edukaciju mladih i prevenciju pušenja? Osim nekoliko mlakih kampanja putem "reklama" i televizije ja druga ulaganja ne videh. Ako se ne slažete samnom slobodno otvorite temu na forumu. <br><a href="http://www.zdravlje.gov.rs/index.php" target="blank">Ministarstvo zdravlja Republike Srbije</a></p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive" src="/images/feauture1.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
@@ -103,11 +103,11 @@
 
       <div class="row featurette">
         <div class="col-md-5">
-          <img class="featurette-image img-responsive" src="/images/feauture2.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+          <img style="margin-top:60px" class="featurette-image img-responsive" src="/images/feauture2.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
         </div>
         <div class="col-md-7">
-          <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">Da, pušenje je ozbiljan problem!</h2>
+          <p class="lead">O tome koliko je pušenje štetno i koliko je teško prestati najbolje govori činjenica da je <a href="http://www.drajzerova.org.rs/" target="blank">Specijalna bolnica za bolesti zavisnosti</a> u Drajzerovoj u svoj program uvrstila i <strong> Odvikavanje od pušenja</strong>!</p>
         </div>
       </div>
 
@@ -115,8 +115,8 @@
 
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-          <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+          <h2 class="featurette-heading">Moramo sami da preduzmemo nešto!</h2>
+          <p class="lead">Ne može niko umesto nas da prestane!</p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive" src="/images/feauture3.jpg" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
