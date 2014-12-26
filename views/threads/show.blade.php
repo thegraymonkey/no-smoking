@@ -25,7 +25,8 @@
 		<p>{!! nl2br($thread->content) !!} </p>
 		
 	</div>
-
+@include('common.messages')
+	
 	<table class="table well" >
 	@foreach($thread->replies as $reply)
 
@@ -58,10 +59,10 @@
 			@endif
 		</td>
 	</tr>
-
 	@endforeach
 	</table>
-	@include('common.messages')
+	
+	
 	<div class="well">
 	@include('replies.create', $thread)
 	</div>

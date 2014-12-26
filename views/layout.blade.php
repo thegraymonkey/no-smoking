@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+   	<meta property="og:title" content="Zabranjeno pušenje" />
+	<meta property="og:type" content="forum"/>
+	<meta property="og:description" content="Pušite i dalje? Prestali ste da pušite ili želite da prestanete? Treba vam podrška i savet? Na pravom ste mestu!"/>
+	<meta property="og:image" content="zabranjenopusenje.net/images/no-smoking1.png"/>
     <link rel="icon" href="../../favicon.ico">
 
     <title>Zabranjeno Pušenje</title>
@@ -22,6 +24,10 @@
     <!-- Custom styles for this template -->
     <link href="/bootstrap/css/carousel.css" rel="stylesheet">
     @yield('top_css')
+
+
+
+
 
     <div id="fb-root"></div>
 <script>(function(d, s, id) {
