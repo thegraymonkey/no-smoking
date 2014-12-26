@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
    	<meta property="og:title" content="Zabranjeno pušenje" />
-	<meta property="og:type" content="forum"/>
+	<meta property="og:type" content="website"/>
 	<meta property="og:description" content="Pušite i dalje? Prestali ste da pušite ili želite da prestanete? Treba vam podrška i savet? Na pravom ste mestu!"/>
 	<meta property="og:image" content="http://zabranjenopusenje.net/images/no-smoking1.png"/>
     <link rel="icon" href="../../favicon.ico">
