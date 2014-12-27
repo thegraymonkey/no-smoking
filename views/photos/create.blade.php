@@ -6,7 +6,7 @@
 
 @include('common.messages')
 
-<form method="post" action="{{ url('photos/store') }}" enctype="multipart/form-data">
+<form class="well" method="post" action="{{ url('photos/store') }}" enctype="multipart/form-data">
 
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		

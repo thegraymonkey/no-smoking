@@ -6,7 +6,7 @@
 
 
 
-<form method="POST" action="{{ route('replies.store') }}">
+<form class="well" method="POST" action="{{ route('replies.store') }}">
 	
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
 	<input name="thread_id" type="hidden" value="{{ $thread->id}}">

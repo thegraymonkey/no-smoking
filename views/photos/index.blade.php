@@ -15,7 +15,7 @@
 	<p class="alert alert-info">Ako vidite ovo vi ste Administrator. Kliknite <a href="{{ route('admin.photos.index') }}">ovde</a> da bi obrisali sliku!</p>
 @endif
 
-<div class="well">
+<div>
 @include('photos.create')
 </div>
 

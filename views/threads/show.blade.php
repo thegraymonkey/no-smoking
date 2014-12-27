@@ -63,7 +63,7 @@
 	</table>
 	
 	
-	<div class="well">
+	<div>
 	@include('replies.create', $thread)
 	</div>
 	
