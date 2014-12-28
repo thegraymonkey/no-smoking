@@ -105,10 +105,17 @@
 	<hr class="featurette-divider">
 
 	<footer>
-      <div class="container">
-        <p class="pull-right"><a href="#">Početak strane</a></p>
-        <h5 class="text-muted">Powered by <a href="#">TheGrayMonkey</a></h5>
-      </div>
+    <div class="container">
+      	<div class="row">
+        
+    		<div class="col-lg-5">
+        		<h4 class="text-muted">Powered by <a href="#">TheGrayMonkey</a></h4>
+			</div>
+			<div class="col-lg-7">
+        		<h4 class="pull-right"><a href="#">Početak strane</a></h4>
+    		</div>
+		</div>      
+    </div>
     </footer>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
