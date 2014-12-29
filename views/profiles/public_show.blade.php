@@ -20,15 +20,11 @@
 
 @if($profile)
 
-	{{-- PROFILE EXISTS --}}
-	<strong><p>Datum kad ste poceli da pušite:</strong> {{ $profile->start_date }}</p>
-	<strong><p>Dan kad ste prestali da pušite:</strong> {{ $profile->quit_date }}</p>
-	<strong><p>Dnevno potrošeno novca na cigarete:</strong> {{ $profile->daily_expense }} dinara</p>
-	<strong><p>Dnevno popušeno cigareta:</strong> {{ $profile->daily_amount }} cigareta</p>
-
-	<hr class="featurette-divider">
+	
 	
 	@if($profile->quit == 1)
+
+	<h2>Napredak korisnika: {{ $profile->user->username }}</h2>
 
 	@include('common.progress')	
 

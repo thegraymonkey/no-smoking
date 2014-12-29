@@ -30,6 +30,9 @@
 
 	@include('common.progress')
 
+	@else
+
+	<h2>Niste popunili profil</h2>
 	@endif
 	
 	<hr class="featurette-divider">
@@ -98,7 +101,7 @@
 
 @include('common.messages')
 	<div class="well">
-		<form method="post" action="{{ url('user/update') }}">
+		<form method="post" action="{{ url('users/update') }}">
 
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
