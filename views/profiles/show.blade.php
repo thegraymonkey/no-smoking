@@ -30,6 +30,10 @@
 
 	@include('common.progress')
 
+	@else
+
+	<h2>Niste popunili profil</h2>
+	
 	@endif
 	
 	<hr class="featurette-divider">

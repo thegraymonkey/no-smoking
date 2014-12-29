@@ -11,6 +11,13 @@ use App\User;
 
 class UserController extends Controller {	
 	
+	public function getIndex()
+	{
+		$users = User::all();
+
+		return view('users.index', ['current_page' => 'users.index', 'users' => $users]);
+	}
+
 
 	public function postUpdate()
 	{

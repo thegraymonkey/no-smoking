@@ -21,13 +21,10 @@ class ProfileController extends Controller {
 
 		View::share('current_page', 'profiles.index');
 	}
-
 	
-
-	
-		public function getPublic($username)
-		{
-			$user = User::where('username', $username)->first();
+	public function getPublic($username)
+	{
+		$user = User::where('username', $username)->first();
 		
 			if ($user and $user->profile)
 			{

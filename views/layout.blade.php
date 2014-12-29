@@ -62,7 +62,10 @@
 					<li @if($current_page === 'forums.index')class="active"@endif><a href="{{ url('forums')}}">Forum</a></li>
 					<li @if($current_page === 'contacts.show')class="active"@endif><a href="{{ url('contacts/show') }}">Kontakt</a></li>
 				</ul>
-				<ul class="nav navbar-nav navbar-right">            
+				<ul class="nav navbar-nav navbar-right"> 
+					@if(Auth::check() and Auth::user()->isAdmin()) 
+					<li @if($current_page === 'users.index')class="active"@endif><a href="{{ url('users/index') }}">Korisnici</a></li> 
+					@endif       
 					@if(Auth::check())
 					<li @if($current_page === 'profiles.index')class="active"@endif><a href="{{ url('profile/show') }}">Profil</a></li>
 					<li><a href="{{ url('auth/logout') }}">Odjava</a></li>
