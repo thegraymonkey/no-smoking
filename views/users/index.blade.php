@@ -13,7 +13,7 @@
 
 @section('content')
 
-
+@if(Auth::check() and Auth::user()->isAdmin())
 
 <table class="table table-striped table-hover" >
 	<th>Id</th>
@@ -24,14 +24,17 @@
 	
 	@foreach($users as $user)
 	<tr>
-		<td>{{ $user->id }}</td>
+		<td>{{ $user->id }}</td>		
 		<td>{{ $user->username }}</td>
 		@if($user->profile)
-		<td>{{ $user->profile->getStatusAvatar }}</td>
+		<td><img src="/upload/profile/{{ $user->profile->getStatusAvatar() }}"/></td>
+		@else
+		<td><img src="/images/blank.png"/></td>
 		@endif
 		<td>{{ $user->email }}</td>
 		<td>@if(Auth::check() and Auth::user()->isAdmin())
-			<form action="{{ route('users.destroy', [$user->id]) }}" method="post">
+			<form action="{{ url('users/remove', [$user->id]) }}" method="post">
+				
 				<input type="hidden" name="_method" value="delete">
 				<input type="hidden" name="_token" value="{{ csrf_token() }}">
 				<input type="submit" value="obriši korisnika" class="btn btn-xs btn-danger">
@@ -42,6 +45,7 @@
 	@endforeach
 </table>
 
+@endif
 
 
 @stop
