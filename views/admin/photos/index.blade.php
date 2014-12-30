@@ -11,6 +11,7 @@
 
 @section('content')
 
+@include('common.messages')
 
     <ul style="padding:0; margin:0" class="row">
     	@foreach($photos as $photo)

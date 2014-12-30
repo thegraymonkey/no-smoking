@@ -42,10 +42,13 @@ class ProfileController extends Controller {
 	{
 		
 		$profile = Auth::user()->profile;
-
+		if($profile)
+		{
 		$messages = Message::where('profile_id', $profile->getKey())->paginate(5);
 
 		return view('profiles.show', compact('profile', 'messages'));
+		}
+		return view('profiles.show', compact('profile'));
 	}
 	
 	

@@ -17,6 +17,7 @@
 @include('admin.articles.create')
 </div>
 
+@include('common.messages')
 
 @foreach ($articles as $article)
 	

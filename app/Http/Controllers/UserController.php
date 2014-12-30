@@ -11,7 +11,7 @@ use App\Message;
 use App\Reply;
 use App\Thread;
 use App\Profile;
-
+use App;
 
 class UserController extends Controller {	
 	
@@ -26,17 +26,23 @@ class UserController extends Controller {
 		return redirect('/')->with('message', 'Samo Administrator može videti listu korisnika!');
 	}
 
-	public function postRemove($userId)
+	public function deleteRemove($userId)
 	{
 		if ($user = User::find($userId))
 		{		
 			if (Auth::check() and Auth::user()->isAdmin())
 			{
+				
 				$post = Post::where('user_id', $userId)->delete();
+																
 				$message = Message::where('user_id', $userId)->delete();
+				
 				$reply = Reply::where('user_id', $userId)->delete();
+				
 				$thread = Thread::where('user_id', $userId)->delete();
+				
 				$profile = Profile::where('user_id', $userId)->delete();
+				
 				$user->delete();
 
 				Redirect::back()->with('message', 'Korisnik obrisan!');
