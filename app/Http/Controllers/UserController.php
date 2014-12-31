@@ -28,6 +28,8 @@ class UserController extends Controller {
 
 	public function deleteRemove($userId)
 	{
+		$users = User::all();
+
 		if ($user = User::find($userId))
 		{		
 			if (Auth::check() and Auth::user()->isAdmin())
@@ -45,12 +47,15 @@ class UserController extends Controller {
 				
 				$user->delete();
 
-				Redirect::back()->with('message', 'Korisnik obrisan!');
+				
+				return redirect('users/index')->with('message', 'Korisnik obrisan');	;
 			}			
-				Redirect::back()->with('message', 'Korisnik ne postoji!');			
-		}
 
-		App::abort(404);
+			
+				return redirect('users/index')->with('message', 'Samo administrator moze obrisati korisnika!');			
+		}
+		
+		return redirect('users/index')->with('message', 'Korisnik ne postoji!');
 	}
 
 	public function postUpdate()

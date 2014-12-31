@@ -13,6 +13,8 @@
 
 @section('content')
 
+@include('common.messages')
+
 @if(Auth::check() and Auth::user()->isAdmin())
 
 <table class="table table-striped table-hover" >
