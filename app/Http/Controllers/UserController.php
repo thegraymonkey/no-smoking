@@ -48,7 +48,7 @@ class UserController extends Controller {
 				$user->delete();
 
 				
-				return redirect('users/index')->with('message', 'Korisnik obrisan');	;
+				return redirect('users/index')->with('message', 'Korisnik obrisan');
 			}			
 
 			
