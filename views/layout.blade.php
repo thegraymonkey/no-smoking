@@ -20,7 +20,7 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+    <link href="/bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="/bootstrap/css/carousel.css" rel="stylesheet">
     @yield('top_css')
@@ -105,20 +105,14 @@
 	</div>
 
 
-	<hr class="featurette-divider">
+	
 
-	<footer>
-    <div class="container">
-      	<div class="row">
-        
-    		<div class="col-lg-5">
+	<footer class="footer">
+    	<div class="container">
+      	  		
         		<h4 class="text-muted">Powered by <a href="#">TheGrayMonkey</a></h4>
-			</div>
-			<div class="col-lg-7">
-        		<h4 class="pull-right"><a href="#">Početak strane</a></h4>
-    		</div>
-		</div>      
-    </div>
+					  
+    	</div>
     </footer>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

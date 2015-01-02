@@ -4,7 +4,7 @@
 	
 		@include('common.intro', [
 		'intro_title' => 'Prijavite se!',
-		'intro_subtitle' => 'Da bi koristili sve prednosti sajta i aktivno učestvovali u vešem putu ka oslobođenju od opake zavisnosti.'  
+		'intro_subtitle' => 'Da bi koristili sve prednosti sajta i aktivno učestvovali u vašem putu ka oslobođenju od opake zavisnosti.'  
 	])
 	
 @stop
