@@ -38,12 +38,16 @@ class ContactController extends Controller {
 			$messageContent = $input['message'];
 			$from = $input['email']; // email onoga ko ti salje poruku
 
-			Mail::send('emails.contact_form', ['from' => $from, 'message_content' => $messageContent], function($message) use ($subject)
+			Mail::send('emails.contact_form', ['from' => $from, 'message_content' => $messageContent], 
+			function($message) use ($subject, $from)
 			{
-				$message->to('thegraymonkey@gmail.com', 'Admin')->subject($subject);
-			});
+			$message
+			->from($from)
+			->to('thegraymonkey@gmail.com', 'Admin')
+			->subject($subject);
+		});
 
-			return redirect('/')->with('message', 'Vaša poruka je poslata. Hvala!');
+			return redirect('contacts/show')->with('message', 'Vaša poruka je poslata. Hvala!');
 		}
 
 		return redirect('contacts/show')->withErrors($validation);
