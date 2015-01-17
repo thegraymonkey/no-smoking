@@ -43,7 +43,7 @@ class ContactController extends Controller {
 			{
 			$message
 			->from($from)
-			->to('thegraymonkey@gmail.com', 'Admin')
+			->to('zabranjenopusenje.net@gmail.com', 'Admin')
 			->subject($subject);
 		});
 

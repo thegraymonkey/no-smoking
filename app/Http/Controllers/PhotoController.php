@@ -33,7 +33,7 @@ class PhotoController extends Controller {
 		$rules = 
 		[
 			'image' => 'required|image|max:1024',
-			'description' => 'required|min:5'
+			'description' => 'min:5'
 		];
 
 		$validation = Validator::make($input, $rules);
