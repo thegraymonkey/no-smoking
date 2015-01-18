@@ -14,7 +14,10 @@
 @include('common.messages')
 
 
-<!--<strong><p>Prijavi se:  <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a>  ili: </p></strong> -->
+<strong><p>Prijavi se uz pomoć:  <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a> -a, ili unesi podatke u formu ispod...  </p></strong> 
+
+
+
 
 <div class="well">
 
@@ -35,7 +38,7 @@
     </div>
   </div>
   <div class="form-group">  
-        <label for="checkbox" style="margin-left:225px">Zapamti me!</label>
+        <label for="checkbox" style="margin-left:230px">Zapamti me!</label>
           <input type="checkbox" name="remember" value="1">
       </div>
   <div class="form-group">
