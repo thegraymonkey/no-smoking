@@ -14,7 +14,7 @@
 @section('content')
 
 
-
+<div class="table-responsive">
 <table class="table table-striped table-hover" >
 	<th>sekcija foruma</th>
 	<th>broj započetih tema:</th>
@@ -41,7 +41,7 @@
 	</tr>
 	@endforeach
 </table>
-
+</div>
 @include('forums.create')
 
 @stop

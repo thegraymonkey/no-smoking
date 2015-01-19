@@ -63,4 +63,5 @@ class User extends Model implements AuthenticatableContract, CanResetPasswordCon
 		return $this->role === self::ROLE_MODERATOR;
 	}
 
+	
 }

@@ -9,15 +9,16 @@
 	
 @stop
 
-
-
 @section('content')
 
 @include('common.messages')
 
 @if(Auth::check() and Auth::user()->isAdmin())
 
+<h4>Trenutni broj korisnika: {{ count($users) }}</h4>
+
 <table class="table table-striped table-hover" >
+	
 	<th>Id</th>
 	<th>Korisničko ime</th>
 	<th>Profilna slika</th>
@@ -26,6 +27,7 @@
 	
 	@foreach($users as $user)
 	<tr>
+		
 		<td>{{ $user->id }}</td>		
 		<td>{{ $user->username }}</td>
 		@if($user->profile)
@@ -48,6 +50,7 @@
 </table>
 
 @endif
+
 
 
 @stop

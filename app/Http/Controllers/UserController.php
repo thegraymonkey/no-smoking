@@ -89,4 +89,6 @@ class UserController extends Controller {
 		return redirect('profile/show')->withErrors($validation);
 	}
 
+	
+
 }
