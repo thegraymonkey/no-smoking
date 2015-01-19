@@ -3,7 +3,7 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Forum',
+		'intro_title' => 'Zabranjeno-pušenje Forum',
 		'intro_subtitle' => 'Kreirajte temu u omiljenoj sekciji foruma i započnite diskusiju, podelite svoja osećanja i frustracije... Podržite druge i nađite podršku.'  
 	])
 	
