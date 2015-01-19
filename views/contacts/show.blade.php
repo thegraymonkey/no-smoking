@@ -4,7 +4,7 @@
 @section('intro')
   
     @include('common.intro', [
-    'intro_title' => 'Želite da kontaktirate urednike sajta?',
+    'intro_title' => 'Pišite nam!',
     'intro_subtitle' => 'Samo napred, mi uvažavamo vaše mišljenje i želimo da čujemo vaše sugestije.'  
   ])
   

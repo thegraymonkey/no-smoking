@@ -153,7 +153,7 @@ class AuthController extends Controller {
 				$this->auth->login($user);
 			}
 
-			return redirect('/');
+			return Redirect::home();
 		}
 
 		App::abort(400);

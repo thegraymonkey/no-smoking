@@ -3,7 +3,7 @@
 @section('intro')
 	
 		@include('common.intro', [
-		'intro_title' => 'Najnoviji postovi korisnika!!!',
+		'intro_title' => 'Postovi korisnika!',
 		'intro_subtitle' => 'Mesto za vaše misli, osećanja i frustracije...'  
 	])
 	

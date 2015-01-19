@@ -21,23 +21,16 @@
 
 @foreach ($articles as $article)
 	
-	<div class="jumbotron">
+	
 		<div class="row">		
 			<div class="col-md-6">
-				<h1>{{ $article->title }}</h1>
-				<p>dodao/la: {{ $article->user->username }} pre {{ $article->created_at->diffForHumans() }}</p>
-				@if($article->user->profile)
-				<img src="/upload/profile/{{ $article->user->profile->getStatusAvatar() }}"/>
-				@else
-				<img src="/images/blank.png"/>
-				@endif
-				
+				<h1>{{ $article->title }}</h1>		
 			</div>
 			<div class="col-md-6">
 				<img src="{{ url($article->getImagePath()) }}"/>
 			</div>
 		</div>
-	</div>
+	
 	<p>{{ $article->content }}</p>
 
 	<div class="row" style="margin: 10px 0 50px 0">

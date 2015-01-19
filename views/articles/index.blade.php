@@ -19,22 +19,16 @@
 
 @foreach ($articles as $article)
 	
-	<div class="jumbotron" style="border: 1px solid #e5e5e5;">
-		<div class="row">		
+		<div style="margin-bottom:50px" class="row blog-post">		
 			<div class="col-md-6">
-				<h2>{{ $article->title }}</h2>
-				<p>dodao/la: {{ $article->user->username }} pre {{ $article->created_at->diffForHumans() }}</p>
-				@if($article->user->profile)
-				<img src="/upload/profile/{{ $article->user->profile->getStatusAvatar() }}" />
-				@else
-				<img src="/images/blank.png"/>
-				@endif
+				<h1 class="blog-post-title">{{ $article->title }}</h1>
+				<p class="blog-post-meta">{{ $article->created_at->diffForHumans() }}</p>
 			</div>
 			<div class="col-md-6">
-				<img src="{{ url($article->getImagePath()) }}"/>
+				<img src="{{ url($article->getImagePath()) }}" width="225px" height="200px"/>
 			</div>
 		</div>
-	</div>
+	
 	<p>{{ $article->content }}</p>
 
 	

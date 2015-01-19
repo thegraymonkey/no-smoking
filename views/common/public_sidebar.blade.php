@@ -13,7 +13,7 @@
 		<p><strong>prestao sa pušenjem pre:</strong> <span class="label label-success">{{ $profile->non_smoke_days }} dana</span></p>
 		<p><strong>novca ušteđeno:</strong> <span class="label label-info">{{ $profile->money_saved }} dinara</span></p>
 		<p><strong>ne popušeno:</strong> <span class="label label-info">{{ $profile->not_smoked }} cigareta</span></p>
-		<p><strong>vreme uštedjeno:</strong> <span class="label label-info">{{ $profile->time_saved }} sati</span></p>
+		<p><strong>vreme uštedjeno:</strong> <span class="label label-info">{{ round($profile->time_saved,2) }} dana</span></p>
 	
 		
 

@@ -25,7 +25,7 @@ class ArticleController extends Controller {
 		$input = Request::all();
 
 		$rules = [
-			'photo' => 'image|max:1024',
+			'photo' => 'image|max:5024',
 			'content' => 'required|min:5'
 		];
 

@@ -4,7 +4,7 @@
 	
 		@include('common.intro', [
 		'intro_title' => 'Registrujte se!',
-		'intro_subtitle' => 'Registracija je brza i laka. Neka ona bude vaš prvi korak ka oslobođenju. Registrujte se i postanite deo aktivne zajednice kako bi pomogli i sebi i drugima da ta ružna navika postane prošlost.'  
+		'intro_subtitle' => 'Registrujte se i postanite deo aktivne zajednice kako bi pomogli i sebi i drugima da ta ružna navika postane prošlost.'  
 	])
 	
 @stop

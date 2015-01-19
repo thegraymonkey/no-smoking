@@ -103,7 +103,7 @@ class Profile extends Model {
 
 	protected function getTimeSavedAttribute()
 	{
-		return Carbon::now()->diffInDays($this->quit_date) * $this->daily_amount * 300 / 60 / 60;
+		return Carbon::now()->diffInDays($this->quit_date) * $this->daily_amount * 300 / 60 / 60 / 24;
 	}
 
 	public function getAvatar($style)
