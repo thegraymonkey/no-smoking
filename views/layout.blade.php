@@ -110,7 +110,7 @@
 	<footer class="footer">
     	<div class="container">
       	  		
-        		<h4 class="text-muted">Powered by <a href="#">TheGrayMonkey</a></h4>
+        		<h4 class="text-muted">Powered by <a href="http://thegraymonkey.com/">TheGrayMonkey</a></h4>
 					  
     	</div>
     </footer>
