@@ -14,10 +14,15 @@
 @include('common.messages')
 
 
-<strong><p>Prijavi se uz pomoć:  <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a> -a, ili unesi podatke u formu ispod...  </p></strong> 
 
 
+ <a href="{{ ('social/facebook') }}" class="btn btn-block btn-social btn-facebook">
+    <i class="fa fa-facebook"></i> Prijavi se pomoću Fejsbuka
+  </a>
+  
+  <hr>
 
+  <strong><p>Ili unesi podatke u polja ispod:</p></strong>
 
 <div class="well">
 

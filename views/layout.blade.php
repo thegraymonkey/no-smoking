@@ -22,7 +22,12 @@
     <![endif]-->
     <link href="/bootstrap/css/sticky-footer-navbar.css" rel="stylesheet">
     <!-- Custom styles for this template -->
+    
     <link href="/bootstrap/css/carousel.css" rel="stylesheet">
+    
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="/bootstrap/css/bootstrap-social.css" rel="stylesheet" >
     @yield('top_css')
 
 

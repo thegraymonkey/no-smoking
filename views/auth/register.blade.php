@@ -13,8 +13,15 @@
 
 @include('common.messages')
 
-<strong><p>Registruj se uz pomoć:  <button class="btn btn-primary"><a style="color: white" href="{{ ('social/facebook') }}">Facebook</button></a> -a, ili unesi podatke u formu ispod...  </p></strong>
-<p>Radi poštovanja anonimnosti vaše korisničko ime neće biti prikazano ali ga možete kreirati na vašem profilu.</p>
+<a href="{{ ('social/facebook') }}" class="btn btn-block btn-social btn-facebook">
+    <i class="fa fa-facebook"></i> Registruj se pomoću Fejsbuka
+  </a>
+  <p>Radi poštovanja anonimnosti vaše korisničko ime neće biti prikazano ali ga možete kreirati na vašem profilu.</p>
+
+  <hr>
+
+  <strong><p>Ili unesi podatke u polja ispod:</p></strong>
+
 <div class="well">
 <form class="form-horizontal" role="form" method="POST" action="{{ url('auth/register') }}">
   <div class="form-group">
