@@ -58,7 +58,7 @@ class ProfileController extends Controller {
 
 		$rules = [
 			'start_date' => 'date',
-			
+			'quit_date' => 'date',
 			'avatar' => 'image|max:2048',
 			'daily_amount' => 'integer',
 			'daily_expense' => 'numeric'
