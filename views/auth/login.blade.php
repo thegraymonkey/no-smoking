@@ -24,9 +24,9 @@
 
   <strong><p>Ili unesi podatke u polja ispod:</p></strong>
 
-<div class="well">
 
-<form class="form-horizontal" role="form" method="POST" action="{{ url('auth/login') }}">
+
+<form class="form-horizontal well" role="form" method="POST" action="{{ url('auth/login') }}">
    	
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -43,20 +43,29 @@
     </div>
   </div>
   <div class="form-group">  
-        <label for="checkbox" style="margin-left:230px">Zapamti me!</label>
+        <label for="checkbox" class="col-sm-offset-3 col-sm-2">Zapamti me!</label>
+          <div class="col-sm-7">
           <input type="checkbox" name="remember" value="1">
+        </div>
       </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
       <button type="submit" class="btn btn-primary">Prijavi me</button>
     </div>
   </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <a  href="#">Zaboravljena šifra?</a>
+    </div>
+  </div>
 </form>
-</div>
+
 @stop
 
 @section('sidebar')
   
     @include('common.sidebar')
+    @include('common.sidebar_forum')
+    @include('common.sidebar_fb')
   
 @stop

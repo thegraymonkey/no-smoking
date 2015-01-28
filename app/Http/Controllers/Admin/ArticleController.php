@@ -9,6 +9,7 @@ use View;
 use App\User;
 use App\Http\Controllers\Controller;
 use App;
+use Intervention\Image\ImageManager;
 
 class ArticleController extends Controller {
 
@@ -25,7 +26,8 @@ class ArticleController extends Controller {
 		$input = Request::all();
 
 		$rules = [
-			'photo' => 'image|max:5024',
+			'title' => 'required|min:5',
+			'photo' => 'required|image|max:5024',
 			'content' => 'required|min:5'
 		];
 
@@ -44,7 +46,9 @@ class ArticleController extends Controller {
 			$originalImagePath = public_path().'/upload/article/' . $fileName . '.' . $fileExt;
 			
 			// save original
-			Image::make($image)
+			$imager = new ImageManager;
+			$imager->make($image)
+			//Image::make($image)
 				->widen(400)
 				->save($originalImagePath);
 
@@ -62,10 +66,10 @@ class ArticleController extends Controller {
 
 			$article->save();
 
-			return redirect('admin.articles')->with('message', 'Članak snimljen!');
+			return redirect('admin/articles')->with('message', 'Članak snimljen!');
 		}	
 
-		return redirect('admin.articles')->withErrors($validation);
+		return redirect('admin/articles')->withErrors($validation);
 	}
 
 	public function destroy($articleId)
@@ -104,6 +108,7 @@ class ArticleController extends Controller {
 		$input = Request::all();
 
 		$rules = [
+			'title' => 'required|min:5',
 			'photo' => 'image|max:1024',
 			'content' => 'required|min:5'
 		];
@@ -124,7 +129,7 @@ class ArticleController extends Controller {
 
 				$article->save();
 
-				return redirect(route('admin.articles.index'));
+				return redirect(route('admin.articles.index'))->with('message', 'Članak izmenjen!');
 			}
 
 			App::abort(400);
@@ -151,7 +156,9 @@ class ArticleController extends Controller {
 			$article->file_name = $filename;
 			
 			// save original
-			Image::make($image)
+			$imager = new ImageManager;
+			$imager->make($image)
+			//Image::make($image)
 				->widen(400)
 				->save($originalImagePath);
 		}

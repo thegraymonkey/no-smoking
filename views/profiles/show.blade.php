@@ -10,6 +10,8 @@
 
 @section('content')
 
+@include('common.messages')
+
 <h2>Vaši podaci</h2>
 
 @if($profile)
@@ -68,7 +70,7 @@
 		 </div>
 				
 		<div class="form-group">	
-			<label for="start_date">Kada ste počeli da pusite?</label>
+			<label for="start_date">Kada ste počeli da pušite?</label>
 			<input date-picker-field class="form-control" data-date-format="yyyy-mm-dd" type="text" name="start_date" id="start_date" value="{{ isset($profile->start_date) ? $profile->start_date->format('Y-m-d') : '' }}" >
 		</div>
 
@@ -99,7 +101,7 @@
 		</form>
 	</div>
 
-@include('common.messages')
+
 	<div class="well">
 		<form method="post" action="{{ url('users/update') }}">
 
@@ -120,9 +122,11 @@
 @stop
 
 @section('sidebar')
-	
-		@include('common.sidebar')
-	
+  
+    @include('common.sidebar')
+    @include('common.sidebar_forum')
+    @include('common.sidebar_fb')
+  
 @stop
 
 

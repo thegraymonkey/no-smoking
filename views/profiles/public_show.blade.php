@@ -1,16 +1,16 @@
 @extends('layout')
 
 
-<div class="jumbotron">
-	<div class="container " style="padding-top:50px">
+<div class="well well-sm">
+		<div class="container" style="padding-top:60px">
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-9">
 				<h1>Gledate profil korisnika: {{ $profile->user->username }}</h1>
 				<p>Možete pogledati statistiku i napredak ali takođe i ostaviti poruku.</p>
 			</div>
 				
-			<div class="col-md-4">
-				<img src="/upload/profile/{{ $profile->getAvatar('original') }}" alt="Korisnik nema sliku!" class="img-rounded" width="300px" height="275px">
+			<div class="col-md-3">
+				<img src="/upload/profile/{{ $profile->getAvatar('original') }}" alt="Korisnik nema sliku!" class="img-rounded" width="200px" height="175px">
 			</div>
 		</div>
 	</div>
@@ -56,8 +56,12 @@
 @section('sidebar')
 	
 	@include('common.public_sidebar')
-	
+    @include('common.sidebar_forum')
+    @include('common.sidebar_fb')
+  
 @stop
+
+
 
 @section('bottom_js')
 

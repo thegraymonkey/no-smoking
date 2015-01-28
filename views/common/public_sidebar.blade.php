@@ -25,21 +25,3 @@
 
 </div>
 
-<div>
-	<div class="well" >
-	<h2>Najsvežije teme na Forumu</h2>
-	<ul>
-		@foreach($last_threads as $thread)
-			<li><strong><a href="{{ route('threads.show', [$thread->id]) }}">{{ $thread->title }}</a></strong></li>
-		@endforeach
-	<ul>
-	</div>
-</div>
-
-<div>
-	<div class="well" >
-	<h4>Pomozite nam da rastemo!</h4>
-	
-	<div class="fb-share-button" data-href="http://zabranjenopusenje.net/" data-layout="button"></div>
-	</div>
-</div>

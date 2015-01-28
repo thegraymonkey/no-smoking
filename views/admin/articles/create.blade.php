@@ -1,6 +1,8 @@
+@if(Auth::check() and Auth::user()->isAdmin())
+
 @include('common.messages')
 
-<form method="POST" action="{{ route('admin.articles.store') }}" enctype="multipart/form-data">
+<form class="well" method="POST" action="{{ route('admin.articles.store') }}" enctype="multipart/form-data">
 		
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">	
 
@@ -21,7 +23,9 @@
 	</div>
 
 	<div class="form-group">
-		<input class="btn btn-primary" type="submit" value="Objavi clanak"/>
+		<input class="btn btn-primary" type="submit" value="Objavi članak"/>
 	</div>
 
 </form>
+
+@endif

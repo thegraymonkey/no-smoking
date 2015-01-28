@@ -77,7 +77,7 @@ class ForumController extends Controller {
 		
 		$forumId = array_get($input, 'id');
 		
-		$redirectTo = route('forums.show', [$forumId]);
+		$redirectTo = route('forums.index', [$forumId]);
 
 		$rules = [
 			'topic' => 'required|min:4',

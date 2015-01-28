@@ -56,7 +56,9 @@
 @stop
 
 @section('sidebar')
-	
-		@include('common.sidebar')
-	
+  
+    @include('common.sidebar')
+    @include('common.sidebar_forum')
+    @include('common.sidebar_fb')
+  
 @stop

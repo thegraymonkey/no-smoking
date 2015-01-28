@@ -113,6 +113,7 @@ return [
 					 'title' => 'Naslov',
 					 'reply' => 'Odgovor',
 					 'daily_amount' => 'Dnevni iznos',
-					 'daily_expense' => 'Dnevni trošak']
+					 'daily_expense' => 'Dnevni trošak',
+					 'photo' => 'Slika']
 
 ];

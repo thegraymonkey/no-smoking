@@ -12,7 +12,8 @@
 		
 	<div class="form-group">	
 		<label for="avatar">Vaša slika</label>
-		<input class="form-control" type="file" name="image" id="image">
+		<input class="form-control" type="file" name="image" id="image" >
+		<p> ( maksimalana veličina 1024kb, podržani formati: png,jpg,gif... ) </p>
 	</div>
 	<div class="form-group">
 		<label>Opis slike</label>

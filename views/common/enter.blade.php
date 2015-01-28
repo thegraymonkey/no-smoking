@@ -17,7 +17,7 @@
           <img src="/images/welcome1.jpg" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
-              <h1>Dobrodosli.</h1>
+              <h1>Dobrodošli.</h1>
               <p>Pušite i dalje? Prestali ste da pušite ili želite da prestanete? Treba vam podrška i savet? .</p>
               <p>Na pravom ste mestu!</p>
               <p><a class="btn btn-lg btn-primary" href="{{ url('auth/register') }}" role="button">Registruj se</a></p>

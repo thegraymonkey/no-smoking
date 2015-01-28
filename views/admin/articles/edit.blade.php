@@ -12,9 +12,9 @@
 
 @section('content')
 
-@include('common.messages')
+@if(Auth::check() and Auth::user()->isAdmin())
 
-<form method="POST" action="{{ route('admin.articles.update', [$article->id]) }}">
+<form class="well" method="POST" action="{{ route('admin.articles.update', [$article->id]) }}">
 	
 	<input type="hidden" name="user_id" value="{{ $article->user->id }}">
 	<input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -43,10 +43,14 @@
 
 </form>
 
+@endif
+
 @stop
 
 @section('sidebar')
   
     @include('common.sidebar')
+    @include('common.sidebar_forum')
+    @include('common.sidebar_fb')
   
 @stop

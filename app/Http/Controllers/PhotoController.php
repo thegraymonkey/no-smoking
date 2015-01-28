@@ -7,6 +7,7 @@ use Validator;
 use View;
 use Image;
 use App\Photo;
+use Intervention\Image\ImageManager;
 
 class PhotoController extends Controller {	
 
@@ -49,22 +50,28 @@ class PhotoController extends Controller {
 			// image path
 			$originalImagePath = public_path().'/upload/gallery/' . $fileName . '.' . $fileExt;
 			
+			$imager = new ImageManager;
+			$imager->make($image)
+				   ->widen(1024)				  
+				   ->save($originalImagePath);
 			// save original
-			Image::make($image)
-				->widen(1024)
-				->save($originalImagePath);
+			//Image::make($image)
+			//	->widen(1024)
+			//	->save($originalImagePath);
 			
 			// save and resize large
 			$largeImagePath = public_path().'/upload/gallery/' . $fileName . '-large.' . $fileExt;
 			
-			Image::make($originalImagePath)
-				->widen(800)
-				->save($largeImagePath);
+			$imager = new ImageManager;
+			$imager->make($image)
+				   ->widen(800)
+				   ->save($largeImagePath);
 
 			// save and resize thumb
-			Image::make($originalImagePath)
-				->fit(120, 120)
-				->save(public_path().'/upload/gallery/' . $fileName . '-thumb.' . $fileExt);
+			$imager = new ImageManager;
+			$imager->make($image)
+				   ->fit(120, 120)
+				   ->save(public_path().'/upload/gallery/' . $fileName . '-thumb.' . $fileExt);
 
 			// snimi u bazu
 			// description, file_name, file_extension

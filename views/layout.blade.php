@@ -105,6 +105,7 @@
 			
 			<div class="sidebar col-md-3">
 				@yield('sidebar')
+				
 			</div>
 		</div>
 	</div>

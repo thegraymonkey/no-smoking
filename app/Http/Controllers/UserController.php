@@ -63,7 +63,7 @@ class UserController extends Controller {
 		$input = Request::all();
 
 		$rules = [
-			'username' => 'unique:users|alpha_num|min:2'
+			'username' => 'required|unique:users|alpha_num|min:2'
 				
 		];
 
@@ -83,7 +83,7 @@ class UserController extends Controller {
 				$user->save();
 			}
 
-			return redirect('profile/show');
+			return redirect('profile/show')->with('message', 'Korisničko ime promenjeno!');
 		}
 
 		return redirect('profile/show')->withErrors($validation);

@@ -19,20 +19,22 @@
 
 @foreach ($articles as $article)
 	
-		<div style="margin-bottom:50px" class="row blog-post">		
-			<div class="col-md-6">
+		<div class="row">		
+			<div class="col-md-7">
 				<h1 class="blog-post-title">{{ $article->title }}</h1>
 				<p class="blog-post-meta">{{ $article->created_at->diffForHumans() }}</p>
 			</div>
-			<div class="col-md-6">
-				<img src="{{ url($article->getImagePath()) }}" width="225px" height="200px"/>
+			<div class="col-md-5">
+				@if($article->getImagePath())
+				<img src="{{ url($article->getImagePath()) }}" width="300px" height="250px"/>
+				@endif
 			</div>
 		</div>
-	
-	<p>{{ $article->content }}</p>
+	<hr>
+	<p>{!! nl2br($article->content) !!}</p>
 
 	
-	<hr class="featurette-divider">
+	<hr>
 	
 @endforeach
 
@@ -43,7 +45,9 @@
 @stop
 
 @section('sidebar')
-	
-		@include('common.sidebar')
-	
+  
+    @include('common.sidebar')
+    @include('common.sidebar_forum')
+    @include('common.sidebar_fb')
+  
 @stop
