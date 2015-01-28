@@ -289,7 +289,7 @@ class QuestionHelper extends Helper
      */
     private function getHiddenResponse(OutputInterface $output, $inputStream)
     {
-        if (defined('PHP_WINDOWS_VERSION_BUILD')) {
+        if ('\\' === DIRECTORY_SEPARATOR) {
             $exe = __DIR__.'/../Resources/bin/hiddeninput.exe';
 
             // handle code running from a phar
@@ -355,7 +355,13 @@ class QuestionHelper extends Helper
         $attempts = $question->getMaxAttempts();
         while (null === $attempts || $attempts--) {
             if (null !== $error) {
-                $output->writeln($this->getHelperSet()->get('formatter')->formatBlock($error->getMessage(), 'error'));
+                if (null !== $this->getHelperSet() && $this->getHelperSet()->has('formatter')) {
+                    $message = $this->getHelperSet()->get('formatter')->formatBlock($error->getMessage(), 'error');
+                } else {
+                    $message = '<error>'.$error->getMessage().'</error>';
+                }
+
+                $output->writeln($message);
             }
 
             try {

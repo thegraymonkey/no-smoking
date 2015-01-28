@@ -4,12 +4,12 @@
     "license": "MIT",
     "require": {
         "php": ">=5.3.0",
-        "guzzle/guzzle": "3.*",
-        "symfony/http-foundation": "~2"
+        "guzzle/guzzle": "3.*"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
-        "mockery/mockery": "0.7.2"
+        "mockery/mockery": "0.7.2",
+        "satooshi/php-coveralls": "dev-master"
     },
     "keywords": [
         "oauth",
@@ -19,7 +19,11 @@
         "idp",
         "identity",
         "sso",
-        "single sign on"
+        "single sign on",
+        "bitbucket",
+        "trello",
+        "tumblr",
+        "twitter"
     ],
     "authors": [
         {

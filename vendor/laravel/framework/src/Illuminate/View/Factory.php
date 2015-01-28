@@ -1,10 +1,11 @@
 <?php namespace Illuminate\View;
 
 use Closure;
-use Illuminate\Container\Container;
+use InvalidArgumentException;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\View\Engines\EngineResolver;
 use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\View\Factory as FactoryContract;
 
 class Factory implements FactoryContract {
@@ -33,7 +34,7 @@ class Factory implements FactoryContract {
 	/**
 	 * The IoC container instance.
 	 *
-	 * @var \Illuminate\Container\Container
+	 * @var \Illuminate\Contracts\Container\Container
 	 */
 	protected $container;
 
@@ -230,7 +231,7 @@ class Factory implements FactoryContract {
 		{
 			$this->finder->find($view);
 		}
-		catch (\InvalidArgumentException $e)
+		catch (InvalidArgumentException $e)
 		{
 			return false;
 		}
@@ -294,7 +295,7 @@ class Factory implements FactoryContract {
 	{
 		if ( ! $extension = $this->getExtension($path))
 		{
-			throw new \InvalidArgumentException("Unrecognized extension in file: $path");
+			throw new InvalidArgumentException("Unrecognized extension in file: $path");
 		}
 
 		$engine = $this->extensions[$extension];
@@ -443,9 +444,9 @@ class Factory implements FactoryContract {
 	/**
 	 * Add a listener to the event dispatcher.
 	 *
-	 * @param  string   $name
-	 * @param  \Closure $callback
-	 * @param  integer  $priority
+	 * @param  string    $name
+	 * @param  \Closure  $callback
+	 * @param  integer   $priority
 	 * @return void
 	 */
 	protected function addEventListener($name, $callback, $priority = null)
@@ -469,16 +470,14 @@ class Factory implements FactoryContract {
 	 */
 	protected function buildClassEventCallback($class, $prefix)
 	{
-		$container = $this->container;
-
 		list($class, $method) = $this->parseClassEvent($class, $prefix);
 
 		// Once we have the class and method name, we can build the Closure to resolve
 		// the instance out of the IoC container and call the method on it with the
 		// given arguments that are passed to the Closure as the composer's data.
-		return function() use ($class, $method, $container)
+		return function() use ($class, $method)
 		{
-			$callable = array($container->make($class), $method);
+			$callable = array($this->container->make($class), $method);
 
 			return call_user_func_array($callable, func_get_args());
 		};
@@ -822,7 +821,7 @@ class Factory implements FactoryContract {
 	/**
 	 * Get the IoC container instance.
 	 *
-	 * @return \Illuminate\Container\Container
+	 * @return \Illuminate\Contracts\Container\Container
 	 */
 	public function getContainer()
 	{
@@ -832,7 +831,7 @@ class Factory implements FactoryContract {
 	/**
 	 * Set the IoC container instance.
 	 *
-	 * @param  \Illuminate\Container\Container  $container
+	 * @param  \Illuminate\Contracts\Container\Container  $container
 	 * @return void
 	 */
 	public function setContainer(Container $container)

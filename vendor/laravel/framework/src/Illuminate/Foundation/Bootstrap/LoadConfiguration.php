@@ -1,10 +1,9 @@
 <?php namespace Illuminate\Foundation\Bootstrap;
 
-use Illuminate\Config\FileLoader;
 use Illuminate\Config\Repository;
 use Symfony\Component\Finder\Finder;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Config\Repository as RepositoryContract;
 
 class LoadConfiguration {
 
@@ -21,7 +20,7 @@ class LoadConfiguration {
 		// First we will see if we have a cache configuration file. If we do, we'll load
 		// the configuration items from that file so that it is very quick. Otherwise
 		// we will need to spin through every configuration file and load them all.
-		if (file_exists($cached = storage_path('framework/config.php')))
+		if (file_exists($cached = $app->getCachedConfigPath()))
 		{
 			$items = require $cached;
 
@@ -35,7 +34,7 @@ class LoadConfiguration {
 		// options available to the developer for use in various parts of this app.
 		if ( ! isset($loadedFromCache))
 		{
-			$this->loadConfigurationFiles($config);
+			$this->loadConfigurationFiles($app, $config);
 		}
 
 		date_default_timezone_set($config['app.timezone']);
@@ -44,12 +43,13 @@ class LoadConfiguration {
 	/**
 	 * Load the configuration items from all of the files.
 	 *
+	 * @param  \Illuminate\Contracts\Foundation\Application  $app
 	 * @param  \Illuminate\Contracts\Config\Repository  $config
 	 * @return void
 	 */
-	protected function loadConfigurationFiles(Repository $config)
+	protected function loadConfigurationFiles(Application $app, RepositoryContract $config)
 	{
-		foreach ($this->getConfigurationFiles() as $key => $path)
+		foreach ($this->getConfigurationFiles($app) as $key => $path)
 		{
 			$config->set($key, require $path);
 		}
@@ -58,13 +58,14 @@ class LoadConfiguration {
 	/**
 	 * Get all of the configuration files for the application.
 	 *
+	 * @param  \Illuminate\Contracts\Foundation\Application  $app
 	 * @return array
 	 */
-	protected function getConfigurationFiles()
+	protected function getConfigurationFiles(Application $app)
 	{
 		$files = [];
 
-		foreach (Finder::create()->files()->in(base_path('config')) as $file)
+		foreach (Finder::create()->files()->name('*.php')->in($app->configPath()) as $file)
 		{
 			$files[basename($file->getRealPath(), '.php')] = $file->getRealPath();
 		}

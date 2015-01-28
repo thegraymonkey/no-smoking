@@ -1,6 +1,5 @@
 <?php namespace Illuminate\Config;
 
-use Closure;
 use ArrayAccess;
 use Illuminate\Contracts\Config\Repository as ConfigContract;
 
@@ -32,9 +31,7 @@ class Repository implements ArrayAccess, ConfigContract {
 	 */
 	public function has($key)
 	{
-		$default = microtime(true);
-
-		return $this->get($key, $default) !== $default;
+		return array_has($this->items, $key);
 	}
 
 	/**
@@ -101,6 +98,16 @@ class Repository implements ArrayAccess, ConfigContract {
 		$array[] = $value;
 
 		$this->set($key, $array);
+	}
+
+	/**
+	 * Get all of the configuration items for the application.
+	 *
+	 * @return array
+	 */
+	public function all()
+	{
+		return $this->items;
 	}
 
 	/**

@@ -1,6 +1,6 @@
 <?php namespace Illuminate\Support;
 
-use ReflectionClass;
+use BadMethodCallException;
 
 abstract class ServiceProvider {
 
@@ -19,6 +19,13 @@ abstract class ServiceProvider {
 	protected $defer = false;
 
 	/**
+	 * The paths that should be published.
+	 *
+	 * @var array
+	 */
+	protected static $publishes = [];
+
+	/**
 	 * Create a new service provider instance.
 	 *
 	 * @param  \Illuminate\Contracts\Foundation\Application  $app
@@ -35,6 +42,70 @@ abstract class ServiceProvider {
 	 * @return void
 	 */
 	abstract public function register();
+
+	/**
+	 * Merge the given configuration with the existing configuration.
+	 *
+	 * @param  string  $key
+	 * @param  string  $path
+	 * @return void
+	 */
+	protected function mergeConfigFrom($key, $path)
+	{
+		$config = $this->app['config']->get($key, []);
+
+		$this->app['config']->set($key, array_merge(require $path, $config));
+	}
+
+	/**
+	 * Register a view file namespace.
+	 *
+	 * @param  string  $namespace
+	 * @param  string  $path
+	 * @return void
+	 */
+	protected function loadViewsFrom($namespace, $path)
+	{
+		if (is_dir($appPath = $this->app->basePath().'/resources/views/vendor/'.$namespace))
+		{
+			$this->app['view']->addNamespace($namespace, $appPath);
+		}
+
+		$this->app['view']->addNamespace($namespace, $path);
+	}
+
+	/**
+	 * Register a translation file namespace.
+	 *
+	 * @param  string  $namespace
+	 * @param  string  $path
+	 * @return void
+	 */
+	protected function loadTranslationsFrom($namespace, $path)
+	{
+		$this->app['translator']->addNamespace($namespace, $path);
+	}
+
+	/**
+	 * Register paths to be published by the publish command.
+	 *
+	 * @param  array  $paths
+	 * @return void
+	 */
+	protected function publishes(array $paths)
+	{
+		static::$publishes = array_merge(static::$publishes, $paths);
+	}
+
+	/**
+	 * Get the paths to publish.
+	 *
+	 * @return array
+	 */
+	public static function pathsToPublish()
+	{
+		return static::$publishes;
+	}
 
 	/**
 	 * Register the package's custom Artisan commands.
@@ -108,7 +179,7 @@ abstract class ServiceProvider {
 	{
 		if ($method == 'boot') return;
 
-		throw new \BadMethodCallException("Call to undefined method [{$method}]");
+		throw new BadMethodCallException("Call to undefined method [{$method}]");
 	}
 
 }

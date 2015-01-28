@@ -21,23 +21,9 @@ trait AuthenticatesAndRegistersUsers {
 	protected $registrar;
 
 	/**
-	 * Create a new authentication controller instance.
-	 *
-	 * @param  Guard  $auth
-	 * @return void
-	 */
-	public function __construct(Guard $auth, Registrar $registrar)
-	{
-		$this->auth = $auth;
-		$this->registrar = $registrar;
-
-		$this->middleware('guest', ['except' => 'getLogout']);
-	}
-
-	/**
 	 * Show the application registration form.
 	 *
-	 * @return Response
+	 * @return \Illuminate\Http\Response
 	 */
 	public function getRegister()
 	{
@@ -47,8 +33,8 @@ trait AuthenticatesAndRegistersUsers {
 	/**
 	 * Handle a registration request for the application.
 	 *
-	 * @param  RegisterRequest  $request
-	 * @return Response
+	 * @param  \Illuminate\Foundation\Http\FormRequest  $request
+	 * @return \Illuminate\Http\Response
 	 */
 	public function postRegister(Request $request)
 	{
@@ -92,7 +78,7 @@ trait AuthenticatesAndRegistersUsers {
 
 		if ($this->auth->attempt($credentials, $request->has('remember')))
 		{
-			return redirect($this->redirectPath());
+			return redirect()->intended($this->redirectPath());
 		}
 
 		return redirect('/auth/login')
@@ -105,7 +91,7 @@ trait AuthenticatesAndRegistersUsers {
 	/**
 	 * Log the user out of the application.
 	 *
-	 * @return Response
+	 * @return \Illuminate\Http\Response
 	 */
 	public function getLogout()
 	{
