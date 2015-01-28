@@ -141,7 +141,6 @@ return [
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Html\HtmlServiceProvider',
-		'Intervention\Image\ImageServiceProvider',
 		'Laravel\Socialite\SocialiteServiceProvider'
 
 	],
