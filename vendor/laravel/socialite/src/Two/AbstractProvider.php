@@ -7,6 +7,13 @@ use Laravel\Socialite\Contracts\Provider as ProviderContract;
 abstract class AbstractProvider implements ProviderContract {
 
 	/**
+	 * The HTTP request instance.
+	 *
+	 * @var Request
+	 */
+	protected $request;
+
+	/**
 	 * The client ID.
 	 *
 	 * @var string
@@ -28,11 +35,18 @@ abstract class AbstractProvider implements ProviderContract {
 	protected $scopes = [];
 
 	/**
-	 * The HTTP request instance.
+	 * The separating character for the requested scopes.
 	 *
-	 * @var Request
+	 * @var string
 	 */
-	protected $request;
+	protected $scopeSeparator = ',';
+
+	/**
+	 * The type of the encoding in the query.
+	 *
+	 * @var int Can be either PHP_QUERY_RFC3986 or PHP_QUERY_RFC1738.
+	 */
+	protected $encodingType = PHP_QUERY_RFC1738;
 
 	/**
 	 * Create a new provider instance.
@@ -109,20 +123,21 @@ abstract class AbstractProvider implements ProviderContract {
 
 		return $url.'?'.http_build_query([
 			'client_id' => $this->clientId, 'redirect_uri' => $this->redirectUrl,
-			'scope' => $this->formatScopes($this->scopes), 'state' => $state,
+			'scope' => $this->formatScopes($this->scopes, $this->scopeSeparator), 'state' => $state,
 			'response_type' => 'code',
-		]);
+		], '', '&', $this->encodingType );
 	}
 
 	/**
 	 * Format the given scopes.
 	 *
 	 * @param  array  $scopes
+	 * @param  string  $scopeSeparator
 	 * @return string
 	 */
-	protected function formatScopes(array $scopes)
+	protected function formatScopes(array $scopes, $scopeSeparator)
 	{
-		return implode(',', $scopes);
+		return implode($scopeSeparator, $scopes);
 	}
 
 	/**

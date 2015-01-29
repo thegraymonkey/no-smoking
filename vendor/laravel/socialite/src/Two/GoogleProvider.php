@@ -5,6 +5,13 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 class GoogleProvider extends AbstractProvider implements ProviderInterface {
 
 	/**
+	 * The separating character for the requested scopes.
+	 *
+	 * @var string
+	 */
+	protected $scopeSeparator = ' ';
+
+	/**
 	 * The scopes being requested.
 	 *
 	 * @var array
@@ -20,17 +27,6 @@ class GoogleProvider extends AbstractProvider implements ProviderInterface {
 	protected function getAuthUrl($state)
 	{
 		return $this->buildAuthUrlFromBase('https://accounts.google.com/o/oauth2/auth', $state);
-	}
-
-	/**
-	 * Format the given scopes.
-	 *
-	 * @param  array  $scopes
-	 * @return string
-	 */
-	protected function formatScopes(array $scopes)
-	{
-		return implode(' ', $scopes);
 	}
 
 	/**

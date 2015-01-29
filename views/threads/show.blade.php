@@ -19,7 +19,11 @@
 				@endif
 			</div>
 			<div class="col-md-11">
+				@if(Auth::check())
 				<h1><small>by <a href="{{ url('/profile/public/' . $thread->user->username ) }}">{{ $thread->user->username }}</a> {{ $thread->created_at->diffForHumans() }}</small></h1></p>
+				@else
+				<h1><small>by {{ $thread->user->username }} {{ $thread->created_at->diffForHumans() }}</small></h1></p>
+				@endif
 			</div>	
 		
 		<p>{!! nl2br($thread->content) !!} </p>
@@ -39,7 +43,11 @@
 			@endif
 		</td>
 		<td width="10%">
+			@if(Auth::check())
 			<small><a href="{{ url('/profile/public/' . $reply->user->username ) }}">{{ $reply->user->username }}</a></small><br />
+			@else
+			<small>{{ $reply->user->username }}</small><br />
+			@endif
 			<small>{{ $reply->created_at->diffForHumans() }}</small>
 		</td>
 		<td width="60%">{!! nl2br($reply->content) !!}</td>

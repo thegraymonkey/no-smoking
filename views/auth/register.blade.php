@@ -13,14 +13,26 @@
 
 @include('common.messages')
 
-<a href="{{ ('social/facebook') }}" class="btn btn-block btn-social btn-facebook">
-    <i class="fa fa-facebook"></i> Registruj se pomoću Fejsbuka
-  </a>
-  <p>Radi poštovanja anonimnosti vaše korisničko ime neće biti prikazano ali ga možete kreirati na vašem profilu.</p>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <a href="{{ ('social/facebook') }}" class="btn btn-block btn-social btn-facebook">
+      <i class="fa fa-facebook"></i> Registruj se sa Fejsbukom
+    </a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-offset-3 col-sm-6">
+    <p>Radi poštovanja anonimnosti vaše korisničko ime neće biti prikazano ali ga možete kreirati na vašem profilu.</p>
+  </div>
+</div>
 
   <hr>
 
-  <strong><p>Ili unesi podatke u polja ispod:</p></strong>
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <strong><p>Ili unesi podatke u polja ispod:</p></strong>
+  </div>
+</div>
 
 <div class="well">
 <form class="form-horizontal" role="form" method="POST" action="{{ url('auth/register') }}">

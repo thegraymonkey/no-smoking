@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Profile extends Model {
 
@@ -33,18 +34,29 @@ class Profile extends Model {
 	// non_smoke_days -> NonSmokeDays -> get + NonSmokeDays + Attribute -> getNonSmokeDaysAttribute()
 	protected function getDaysSmokingAttribute()
 	{
-
+		if(Auth::user()->profile->quit == 1)
+		{
 		return $this->start_date->diffInDays($this->quit_date);
+		}
+		return Carbon::now()->diffInDays($this->start_date);
 	}
 
 	protected function getMoneyBurnedAttribute()
 	{
+		if(Auth::user()->profile->quit == 1)
+		{
 		return $this->start_date->diffInDays($this->quit_date) * $this->daily_expense;
+		}
+		return Carbon::now()->diffInDays($this->start_date) * $this->daily_expense;
 	}
 
 	protected function getTimeWastedAttribute()
 	{
+		if(Auth::user()->profile->quit == 1)
+		{
 		return $this->start_date->diffInDays($this->quit_date) * $this->daily_amount * 300 / 60 / 60 / 24;
+		}
+		return Carbon::now()->diffInDays($this->start_date) * $this->daily_amount * 300 / 60 / 60 / 24;
 	}
 
 	protected function getNonSmokeDaysAttribute()

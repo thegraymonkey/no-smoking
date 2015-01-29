@@ -30,7 +30,7 @@
 
 @else
 
-	<h2>Korisnik nije uneo podatke</h2>
+	<h2>Korisnik nije prestao da puši</h2>
 
 @endif
 

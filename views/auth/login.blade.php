@@ -15,15 +15,21 @@
 
 
 
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <a href="{{ ('social/facebook') }}" class="btn btn-block btn-social btn-facebook">
+      <i class="fa fa-facebook"></i> Prijavi se pomoću Fejsbuka
+    </a>
+  </div>
+</div>
 
- <a href="{{ ('social/facebook') }}" class="btn btn-block btn-social btn-facebook">
-    <i class="fa fa-facebook"></i> Prijavi se pomoću Fejsbuka
-  </a>
-  
   <hr>
 
-  <strong><p>Ili unesi podatke u polja ispod:</p></strong>
-
+<div class="row">
+  <div class="col-sm-offset-4 col-sm-4">
+    <strong><p>Ili unesi podatke u polja ispod:</p></strong>
+  </div>
+</div>
 
 
 <form class="form-horizontal well" role="form" method="POST" action="{{ url('auth/login') }}">

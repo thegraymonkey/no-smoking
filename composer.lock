@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9266b79c18040cf4621c4b7eecf134f9",
+    "hash": "e53d368cb5e3fc5a89342163c6b17693",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -335,12 +335,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "5e9f5528619bde654375c012ac172fb199f43dda"
+                "reference": "d898326a716f23fdd778942ea9404aeccbe16a46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/5e9f5528619bde654375c012ac172fb199f43dda",
-                "reference": "5e9f5528619bde654375c012ac172fb199f43dda",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/d898326a716f23fdd778942ea9404aeccbe16a46",
+                "reference": "d898326a716f23fdd778942ea9404aeccbe16a46",
                 "shasum": ""
             },
             "require": {
@@ -381,6 +381,9 @@
                 "zendframework/zend-cache": "2.*,<2.3",
                 "zendframework/zend-log": "2.*,<2.3"
             },
+            "suggest": {
+                "guzzlehttp/guzzle": "Guzzle 5 has moved to a new package name. The package you have installed, Guzzle 3, is deprecated."
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -408,7 +411,7 @@
                     "homepage": "https://github.com/guzzle/guzzle/contributors"
                 }
             ],
-            "description": "Guzzle is a PHP HTTP client library and framework for building RESTful web service clients",
+            "description": "PHP HTTP client. This library is deprecated in favor of https://packagist.org/packages/guzzlehttp/guzzle",
             "homepage": "http://guzzlephp.org/",
             "keywords": [
                 "client",
@@ -419,7 +422,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-12-18 23:26:35"
+            "time": "2015-01-28 21:05:25"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -591,12 +594,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Intervention/image.git",
-                "reference": "6554d8165e048972b470a7d56ab5f4d6fd6c6367"
+                "reference": "b2b068c496d7e9f493ecd1b4f01f8780c8fe2b4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Intervention/image/zipball/6554d8165e048972b470a7d56ab5f4d6fd6c6367",
-                "reference": "6554d8165e048972b470a7d56ab5f4d6fd6c6367",
+                "url": "https://api.github.com/repos/Intervention/image/zipball/b2b068c496d7e9f493ecd1b4f01f8780c8fe2b4f",
+                "reference": "b2b068c496d7e9f493ecd1b4f01f8780c8fe2b4f",
                 "shasum": ""
             },
             "require": {
@@ -639,7 +642,7 @@
                 "thumbnail",
                 "watermark"
             ],
-            "time": "2015-01-20 17:10:23"
+            "time": "2015-01-28 19:12:55"
         },
         {
             "name": "ircmaxell/password-compat",
@@ -833,12 +836,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "f219ab878c4781ffcd1915b2e276a302f8ec935b"
+                "reference": "4034d5e29430394ba016c5594965e1fa9dfea1fa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/f219ab878c4781ffcd1915b2e276a302f8ec935b",
-                "reference": "f219ab878c4781ffcd1915b2e276a302f8ec935b",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/4034d5e29430394ba016c5594965e1fa9dfea1fa",
+                "reference": "4034d5e29430394ba016c5594965e1fa9dfea1fa",
                 "shasum": ""
             },
             "require": {
@@ -950,20 +953,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2015-01-28 03:59:05"
+            "time": "2015-01-29 04:09:14"
         },
         {
             "name": "laravel/socialite",
-            "version": "dev-master",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "cbbe43a327b7056c78ef015f7609b38de82dff2e"
+                "reference": "ca028df357d9585be55ec2db48f591dbbfbdd3cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/cbbe43a327b7056c78ef015f7609b38de82dff2e",
-                "reference": "cbbe43a327b7056c78ef015f7609b38de82dff2e",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/ca028df357d9585be55ec2db48f591dbbfbdd3cf",
+                "reference": "ca028df357d9585be55ec2db48f591dbbfbdd3cf",
                 "shasum": ""
             },
             "require": {
@@ -1004,7 +1007,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2014-09-21 22:10:19"
+            "time": "2015-01-23 19:59:22"
         },
         {
             "name": "league/flysystem",
@@ -3335,26 +3338,26 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "dev-master",
+            "version": "2.7.x-dev",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "13ef40ee1437582f86fa805445363d0c694dae3a"
+                "reference": "02ba3dc638c5d3f0ab3b47ddb74f98c11dcc0c60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/13ef40ee1437582f86fa805445363d0c694dae3a",
-                "reference": "13ef40ee1437582f86fa805445363d0c694dae3a",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/02ba3dc638c5d3f0ab3b47ddb74f98c11dcc0c60",
+                "reference": "02ba3dc638c5d3f0ab3b47ddb74f98c11dcc0c60",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": ">=5.3.9"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -3378,15 +3381,14 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2015-01-25 04:42:01"
+            "time": "2015-01-25 04:39:35"
         }
     ],
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
         "illuminate/html": 20,
-        "intervention/image": 20,
-        "laravel/socialite": 20
+        "intervention/image": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

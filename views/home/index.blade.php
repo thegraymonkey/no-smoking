@@ -35,7 +35,7 @@
 </div>
 	
 	@else
-	<p class="alert alert-info">Da bi dodali post morate biti prijavljeni. Kliknite <a href="{{ url('auth/login') }}">ovde</a> za prijavu!</p>
+	<p class="alert alert-info">Da bi dodali post i videli korisničke profile morate biti prijavljeni. Kliknite <a href="{{ url('auth/login') }}">ovde</a> za prijavu!</p>
 	@endif
 
 	@if(isset($posts))
@@ -50,7 +50,11 @@
 				@endif
 			</div>
 			<div class="col-md-9">
+				@if(Auth::user())
 				<small><a href="{{ url('/profile/public/' . $post->user->username ) }}">{{ $post->user->username }}</a> {{ $post->created_at->diffForHumans() }}</small>
+				@else
+				<small>{{ $post->user->username }} {{ $post->created_at->diffForHumans() }}</small>
+				@endif
 				<p>{!! nl2br($post->content) !!}</p>
 				@if($post->link_title and $post->link_url)
 				<div class="post-meta well">
