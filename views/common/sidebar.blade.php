@@ -3,7 +3,7 @@
 @if (Auth::check() && Auth::user()->profile )
 	{{-- PROFILE EXISTS --}}
 	<div class="well">
-	<h2>Statistika za korisnika: {{ Auth::user()->username }}</h2>
+	<h3>Statistika za korisnika: {{ Auth::user()->username }}</h3>
 	
 		<p><strong>Pušio:</strong> <span class="label label-danger">{{ Auth::user()->profile->days_smoking }} dana</span></p>
 		<p><strong>Novca spalio:</strong> <span class="label label-danger">{{ Auth::user()->profile->money_burned }} dinara</span></p>

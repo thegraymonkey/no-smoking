@@ -5,7 +5,7 @@
 @if ($profile)
 	{{-- PROFILE EXISTS --}}
 	<div class="well">
-	<h2>Statistika za korisnika: {{ $profile->user->username }}</h2>
+	<h3>Statistika za korisnika: {{ $profile->user->username }}</h3>
 	
 		<p><strong>Pušio:</strong> <span class="label label-danger">{{ $profile->days_smoking }} dana</span></p>
 		<p><strong>Novca spalio:</strong> <span class="label label-danger">{{ $profile->money_burned }} dinara</span></p>		

@@ -41,6 +41,7 @@
 	@if(isset($posts))
 		
 		@foreach($posts as $post)
+		
 		<div class="row well">
 			<div class="col-md-1">
 				@if ($post->user->profile && $post->user->profile->avatar)
@@ -80,6 +81,7 @@
 				@endif
 			</div>
 		</div>
+		
 
 
 
