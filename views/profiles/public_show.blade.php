@@ -8,10 +8,15 @@
 				<h1>Gledate profil korisnika: {{ $profile->user->username }}</h1>
 				<p>Možete pogledati statistiku i napredak ali takođe i ostaviti poruku.</p>
 			</div>
-				
+			@if($this->avatar())
 			<div class="col-md-3">
-				<img src="/upload/profile/{{ $profile->getAvatar('original') }}" alt="Korisnik nema sliku!" class="img-rounded" width="200px" height="175px">
+				<img src="/upload/profile/{{ $profile->getAvatar('original') }}" class="img-rounded" width="200px" height="175px">
 			</div>
+			@else
+			<div class="col-md-3">
+				<img src="/images/blank.png" class="img-rounded" width="200px" height="175px">
+			</div>
+			@endif
 		</div>
 	</div>
 </div>
