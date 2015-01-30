@@ -29,10 +29,11 @@ class Message extends Model {
 	{
 		if ($user)
 		{
-			return $this->user_id === $user->id || $user->isAdmin() || $this->profile_id === $user->profile->id;
+			return $this->user_id === $user->id 
+			|| $user->isAdmin() 
+			|| ($user->profile && $this->profile_id === $user->profile->id);
+
 		}
-
-
 
 		return false;
 	}
