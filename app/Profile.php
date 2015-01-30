@@ -34,7 +34,7 @@ class Profile extends Model {
 	// non_smoke_days -> NonSmokeDays -> get + NonSmokeDays + Attribute -> getNonSmokeDaysAttribute()
 	protected function getDaysSmokingAttribute()
 	{
-		if(Auth::user()->profile->quit == 1)
+		if($this->quit == 1)
 		{
 		return $this->start_date->diffInDays($this->quit_date);
 		}
@@ -43,7 +43,7 @@ class Profile extends Model {
 
 	protected function getMoneyBurnedAttribute()
 	{
-		if(Auth::user()->profile->quit == 1)
+		if($this->quit == 1)
 		{
 		return $this->start_date->diffInDays($this->quit_date) * $this->daily_expense;
 		}
@@ -52,7 +52,7 @@ class Profile extends Model {
 
 	protected function getTimeWastedAttribute()
 	{
-		if(Auth::user()->profile->quit == 1)
+		if($this->quit == 1)
 		{
 		return $this->start_date->diffInDays($this->quit_date) * $this->daily_amount * 300 / 60 / 60 / 24;
 		}
