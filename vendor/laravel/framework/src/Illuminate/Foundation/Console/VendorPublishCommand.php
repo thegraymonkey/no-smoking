@@ -52,7 +52,11 @@ class VendorPublishCommand extends Command {
 	 */
 	public function fire()
 	{
-		foreach (ServiceProvider::pathsToPublish($this->option('provider')) as $from => $to)
+		$paths = ServiceProvider::pathsToPublish(
+			$this->option('provider'), $this->option('tag')
+		);
+
+		foreach ($paths as $from => $to)
 		{
 			if ($this->files->isFile($from))
 			{
@@ -102,7 +106,7 @@ class VendorPublishCommand extends Command {
 			'to' => new Flysystem(new LocalAdapter($to)),
 		]);
 
-		foreach ($manager->listContents('from://') as $file)
+		foreach ($manager->listContents('from://', true) as $file)
 		{
 			if ($file['type'] === 'file' && ( ! $manager->has('to://'.$file['path']) || $this->option('force')))
 			{
@@ -153,6 +157,8 @@ class VendorPublishCommand extends Command {
 			array('force', null, InputOption::VALUE_NONE, 'Overwrite any existing files.'),
 
 			array('provider', null, InputOption::VALUE_OPTIONAL, 'The service provider that has assets you want to publish.'),
+
+			array('tag', null, InputOption::VALUE_OPTIONAL, 'The tag that has assets you want to publish.'),
 		);
 	}
 
