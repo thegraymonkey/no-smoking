@@ -3,7 +3,7 @@
 	<title></title>
 </head>
 <body>
-<h1>zabranjenopusenje.net</h1>
+<h2>zabranjenopusenje.net</h2>
 	{{ $message_content }}
 
 </body>

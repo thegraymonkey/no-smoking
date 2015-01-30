@@ -59,12 +59,12 @@
       <button type="submit" class="btn btn-primary">Prijavi me</button>
     </div>
   </div>
-  <div class="form-group">
+  <!--<div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-      <a  href="#">Zaboravljena šifra?</a>
+      <a  href="{{ url('password/reset') }}">Zaboravljena šifra?</a>
     </div>
   </div>
-</form>
+</form>-->
 
 @stop
 

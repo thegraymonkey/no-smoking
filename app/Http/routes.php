@@ -26,8 +26,8 @@ $router->get('feed', ['as' => 'home', 'uses' => 'HomeController@index']);
 */
 
 $router->controllers([
-	'auth' => 'AuthController',
-	'password' => 'PasswordController',
+	'auth' => 'Auth\AuthController',
+	'password' => 'Auth\PasswordController',
 ]);
 
 

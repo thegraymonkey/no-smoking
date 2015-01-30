@@ -1,4 +1,4 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Auth;
 
 use App\Http\Requests\LoginRequest;
 use Illuminate\Contracts\Auth\Guard;
@@ -10,6 +10,7 @@ use Hash;
 use View;
 use Laravel\Socialite\Contracts\Factory as SocialiteFactory;
 use App;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller {
 

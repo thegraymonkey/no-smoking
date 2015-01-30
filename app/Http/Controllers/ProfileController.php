@@ -4,12 +4,13 @@ use Request;
 use Auth;
 use App\Profile;
 use View;
-use Image;
+
 use Validator;
 use App\User;
 use App;
 use App\Message;
 use Redirect;
+use Intervention\Image\ImageManager;
 
 class ProfileController extends Controller {
 
@@ -114,15 +115,19 @@ class ProfileController extends Controller {
 			$filename = $this->imageNameGenerator($file, time());
 
 			$profile->avatar = $filename;
-			
+
+
 			// original
-			Image::make($file)->save($this->imageNameStyleGenerator($path, $filename, $ext, 'original'));
+			$imager = new ImageManager;
+			$imager->make($file)->save($this->imageNameStyleGenerator($path, $filename, $ext, 'original'));
 
 			// thumb
-			Image::make($file)->resize(50, null, function($c){ $c->aspectRatio(); })->crop(50, 50)->save($this->imageNameStyleGenerator($path, $filename, $ext, 'thumb'));
+			$imager = new ImageManager;
+			$imager->make($file)->resize(50, null, function($c){ $c->aspectRatio(); })->crop(50, 50)->save($this->imageNameStyleGenerator($path, $filename, $ext, 'thumb'));
 
 			// thumb-grayscale
-			Image::make($file)->resize(50, null, function($c){ $c->aspectRatio(); })->crop(50, 50)->greyscale()->save($this->imageNameStyleGenerator($path, $filename, $ext, 'thumb-grayscale'));
+			$imager = new ImageManager;
+			$imager->make($file)->resize(50, null, function($c){ $c->aspectRatio(); })->crop(50, 50)->greyscale()->save($this->imageNameStyleGenerator($path, $filename, $ext, 'thumb-grayscale'));
 			
 		}
 		return $profile;

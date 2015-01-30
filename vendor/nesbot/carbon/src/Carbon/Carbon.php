@@ -1819,15 +1819,15 @@ class Carbon extends DateTime
 
         // a little weeks per month, 365 days per year... good enough!!
         $divs = array(
-            'second' => self::SECONDS_PER_MINUTE,
-            'minute' => self::MINUTES_PER_HOUR,
-            'hour' => self::HOURS_PER_DAY,
-            'day' => self::DAYS_PER_WEEK,
-            'week' => 30 / self::DAYS_PER_WEEK,
-            'month' => self::MONTHS_PER_YEAR
+            'sekundi' => self::SECONDS_PER_MINUTE,
+            'minuta' => self::MINUTES_PER_HOUR,
+            'sati' => self::HOURS_PER_DAY,
+            'dana' => self::DAYS_PER_WEEK,
+            'nedelja' => 30 / self::DAYS_PER_WEEK,
+            'meseca' => self::MONTHS_PER_YEAR
         );
 
-        $unit = 'year';
+        $unit = 'godina';
 
         foreach ($divs as $divUnit => $divValue) {
             if ($delta < $divValue) {
@@ -1845,14 +1845,14 @@ class Carbon extends DateTime
         }
 
         $txt = $delta . ' ' . $unit;
-        $txt .= $delta == 1 ? '' : 's';
+        $txt .= $delta == 1 ? '' : '';
 
         if ($isNow) {
             if ($isFuture) {
                 return $txt . ' from now';
             }
 
-            return $txt . ' ago';
+            return $txt . ' pre';
         }
 
         if ($isFuture) {
