@@ -27,7 +27,12 @@ class Message extends Model {
 
 	public function isDeletable(User $user)
 	{
-		return $this->user->id === Auth::user()->id  || $user->isAdmin() || $this->profile_id === Auth::user()->profile->id;
+		if ($user)
+		{
+			return $this->user->id === $user->id || $user->isAdmin() || $this->profile_id === $user->profile->id;
+		}
+
+		return false;
 	}
 
 }
