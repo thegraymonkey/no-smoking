@@ -6,7 +6,7 @@
 		<div class="row">
 			<div class="col-md-9">
 				<h1>Gledate profil korisnika: {{ $profile->user->username }}</h1>
-				<p>Možete pogledati statistiku i napredak ali takođe i ostaviti poruku.</p>
+				<h4>Možete pogledati statistiku i napredak ali takođe i ostaviti poruku.</h4>
 			</div>
 			@if($profile->avatar)
 			<div class="col-md-3">

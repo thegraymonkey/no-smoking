@@ -1,12 +1,25 @@
 @extends('layout')
 
 
-@section('intro')
-	@include('common.intro', [
-		'intro_title' => 'Vaš Profil',
-		'intro_subtitle' => 'Podesite svoj profil i uživajte u statistici i podacima koji će vas hrabriti svaki dan vaše borbe.'  
-	])	
-@stop
+<div class="well well-sm">
+		<div class="container" style="padding-top:60px">
+		<div class="row">
+			<div class="col-md-9">
+				<h1>Vaš profil</h1>
+				<h4>Vaša statistika, podaci i poruke... </h4>
+			</div>
+			@if($profile->avatar)
+			<div class="col-md-3">
+				<img src="/upload/profile/{{ $profile->getAvatar('original') }}" class="img-rounded" width="200px" height="175px">
+			</div>
+			@else
+			<div class="col-md-3">
+				<img src="/images/blank.png" class="img-rounded" width="200px" height="175px">
+			</div>
+			@endif
+		</div>
+	</div>
+</div>
 
 @section('content')
 
