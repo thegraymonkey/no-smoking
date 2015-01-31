@@ -30,7 +30,7 @@
 		
 		<td>{{ $user->id }}</td>		
 		<td>{{ $user->username }}</td>
-		@if($user->profile->avatar)
+		@if($user->profile)
 		<td><img src="/upload/profile/{{ $user->profile->getStatusAvatar() }}"/></td>
 		@else
 		<td><img src="/images/blank.png"/></td>
