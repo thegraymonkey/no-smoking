@@ -8,7 +8,7 @@
 				<h1>Vaš profil</h1>
 				<h4>Vaša statistika, podaci i poruke... </h4>
 			</div>
-			@if($profile->avatar)
+			@if($profile)
 			<div class="col-md-3">
 				<img src="/upload/profile/{{ $profile->getAvatar('original') }}" class="img-rounded" width="200px" height="175px">
 			</div>
