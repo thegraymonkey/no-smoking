@@ -15,9 +15,7 @@
 	<p class="alert alert-info">Ako vidite ovo vi ste Administrator. Kliknite <a href="{{ route('admin.photos.index') }}">ovde</a> da bi obrisali sliku!</p>
 @endif
 
-<div>
-@include('photos.create')
-</div>
+
 
     <ul style="padding:0; margin:0" class="row">
     	@foreach($photos as $photo)
@@ -30,6 +28,11 @@
     </ul>
 
 {!! $photos->render() !!}
+
+
+<div>
+@include('photos.create')
+</div>
 
 @stop
 
