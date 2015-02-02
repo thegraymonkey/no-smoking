@@ -17,29 +17,29 @@
 	<p class="alert alert-info">Ako vidite ovo vi ste Administrator. Kliknite <a href="{{ route('admin.articles.index') }}">ovde</a> da bi obrisali, izmenili ili dodali novi članak!</p>
 @endif
 
-@foreach ($articles as $article)
+
 	
 		<div class="row">		
 			<div class="col-md-7">
-				<h4 class="blog-post-title">{{ $article->title }}</h4>
+				<h1 class="blog-post-title">{{ $article->title }}</h1>
 				<p class="blog-post-meta">{{ $article->created_at->diffForHumans() }}</p>
 			</div>
 			<div class="col-md-5">
 				@if($article->getImagePath())
-				<img src="{{ url($article->getImagePath()) }}" width="150px" height="125px"/>
+				<img src="{{ url($article->getImagePath()) }}" width="300px" height="250px"/>
 				@endif
 			</div>
 		</div>
-	
-	<p>{{ \Illuminate\Support\Str::limit($article->content, 200) }}</p>
-	<p><a href="{{ route('articles.show', [$article->id]) }}">Pročitaj ceo članak</a></p>
-
-	
 	<hr>
-	
-@endforeach
+	<p>{!! nl2br($article->content) !!}</p>
 
-{!! $articles->render() !!}
+<hr>
+
+	<p><a href="{{ url('articles') }}">Nazad na listu članaka</a></p>
+	
+
+
+
 
 
 

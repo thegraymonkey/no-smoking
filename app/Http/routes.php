@@ -42,7 +42,7 @@ $router->controller('users', 'UserController');
 
 $router->controller('photos', 'PhotoController');
 $router->resource('posts', 'PostController', ['only' => ['store', 'destroy', 'edit', 'update']]);
-$router->resource('articles', 'ArticleController', ['only' => ['index']]);
+$router->resource('articles', 'ArticleController', ['only' => ['index', 'show']]);
 
 $router->get('/', function() {
 
