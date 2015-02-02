@@ -20,18 +20,18 @@
 @foreach ($articles as $article)
 	
 		<div class="row">		
-			<div class="col-md-7">
+			<div class="col-md-9">
 				<h4 class="blog-post-title">{{ $article->title }}</h4>
 				<p class="blog-post-meta">{{ $article->created_at->diffForHumans() }}</p>
 			</div>
-			<div class="col-md-5">
+			<div class="col-md-3">
 				@if($article->getImagePath())
 				<img src="{{ url($article->getImagePath()) }}" width="150px" height="125px"/>
 				@endif
 			</div>
 		</div>
 	
-	<p>{{ \Illuminate\Support\Str::limit($article->content, 200) }}</p>
+	<p>{!!  \Illuminate\Support\Str::limit($article->content, 200) !!}</p>
 	<p><a href="{{ route('articles.show', [$article->id]) }}">Pročitaj ceo članak</a></p>
 
 	
