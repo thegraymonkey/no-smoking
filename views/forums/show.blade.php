@@ -17,7 +17,7 @@
 
 @include('common.messages')
 
-
+<div class="table-responsive">
 	<table class="table table-hover table-striped">
 	  	<th>naslov teme</th>
 	  	<th>korisnik:</th>
@@ -49,7 +49,7 @@
 	</tr>
 	@endforeach
 </table>
-
+</div>
 
 @include('threads.create')
 
